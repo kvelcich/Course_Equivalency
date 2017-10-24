@@ -1,2 +1,2 @@
-# Course_Equivalency
+# Course Equivalency
 ctrl+v
