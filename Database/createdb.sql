@@ -1,28 +1,30 @@
-CREATE TABLE Course(
-    CourseID        INT NOT NULL AUTO INCREMENT,
-    School          VARCHAR(50),
-    Department      VARCHAR(50),
-    CourseNumber    VARCHAR(10),
-    PRIMARY KEY CourseID
+use sdb_kvelcich;
+
+CREATE TABLE course (
+    course_id       INT NOT NULL AUTO_INCREMENT,
+    school    		VARCHAR(50),
+    department    	VARCHAR(50),
+    course_number   VARCHAR(10),
+    PRIMARY KEY (course_id)
 );
 
-CREATE TABLE Equivalent(
-    InternalID      INT NOT NULL,
-    ExternalID      INT NOT NULL,
-    IsEquivalent    INT(1),
+CREATE TABLE equivalent (
+    internal_id      INT NOT NULL,
+    external_id      INT NOT NULL,
+    is_equivalent    INT(1),
 
-    FOREIGN KEY InternalID REFERENCES Course(CourseID),
-    FOREIGN KEY ExternalID REFERENCES Course(CourseID),
+    FOREIGN KEY (internal_id) REFERENCES course(course_id),
+    FOREIGN KEY (external_id) REFERENCES course(course_id),
 
-    CHECK (InternalID != ExternalID),
-    CHECK (IsEquivalent = 1 OR IsEquivalent = 0)
+    CHECK (internal_id != external_id),
+    CHECK (is_equivalent = 1 OR is_equivalent = 0)
 );
 
-CREATE TABLE Advisor(
-    Email           VARCHAR(25) NOT NULL,
-    FirstName       VARCHAR(50),
-    LastName        VARCHAR(50),
-    Password        VARCHAR(50),
+CREATE TABLE advisor (
+    email           VARCHAR(25) NOT NULL,
+    first		 	VARCHAR(50),
+    last	        VARCHAR(50),
+    password        VARCHAR(50),
 
-    PRIMARY KEY Email
+    PRIMARY KEY (email)
 );
