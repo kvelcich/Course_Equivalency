@@ -1,3 +1,5 @@
+use sdb_kvelcich;
+
 INSERT INTO course (school, department, course_number)
     VALUES ('San Jose State Univeristy', 'CSE', '101'),
     ('San Jose State Univeristy', 'CSE', '102'),
