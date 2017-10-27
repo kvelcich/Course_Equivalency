@@ -13,13 +13,4 @@
 
 		return $conn;
 	}
-/*
-$query = "select distinct school from course";
-
-$result = $conn->query($query);
-
-while($row = mysqli_fetch_assoc($result)) {
-		echo $row['school'] . "<br>\n";
-}
-*/
 ?>
