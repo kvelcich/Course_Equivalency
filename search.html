@@ -5,6 +5,29 @@
         <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     </head>
 
+    <script>
+    $(document).ready(function(){
+        $('#name-submit').click(function(){
+            var function_name = 'get_schools';
+            $.post('ajax.php', {function: function_name}, function(data) {
+                $('div#schools').append(data);
+                //console.log(JSON.parse(data).length);
+            });
+        });
+    });
+
+    $(document).ready(function()){
+        $.getJSON("file.php", success = function(schoolResults){
+            var options = "";
+            for (var i = 0; i<schoolResults.length; i++){
+                options += '<option value ="' + schoolResults[i] + '">' +  schoolResults[i]  + '</option>';
+            }
+            $("#selectCourse").append(options);
+        });
+    });
+
+    </script>
+
     <!--CHANGE INTO DROPDOWN BOXES LATER ON-->
     <body>
 
@@ -12,28 +35,24 @@
             <h1>Search for a Course:</h1>
 
             <form>
-                <select name="School">
+                <select name="School" id="schoolSelect" value="Get Schools">
                     <option value="" disabled selected>Select a University</option>
-                    <!-- pull values from database -->
-                    <option value="San Jose State University">San Jose State University</option>
-                    <option value="University of Southern California">USC</option>
+                    <!-- get values from database -->
                 </select>
-                <select name="Course">
+                <select name="Course" id="courseSelect" value="Get Departments">
                     <option value="" disabled selected>Select a Department</option>
-                    <!-- pull values from database -->
+                    <!-- get values from database -->
                     <option value="cse">CSE</option>
                     <option value="coen">COEN</option>
                 </select>
-                <select name="CourseNumber">
+                <select name="CourseNumber" id="numberSelect" value="Get CourseNumbers">
                     <option value="" disabled selected>Select a Course Number</option>
-                    <!-- pull values from database -->
+                    <!-- get values from database -->
                     <option value="100">100</option>
                     <option value="101">101</option>
                 </select>
 
                 <br></br>
-                <i class="fa fa-search" aria-hidden="true"></i>
-
                 <input type="submit"></input>
             </form>
 
@@ -48,22 +67,6 @@
 
             <!-- <button type="submit" value="search" onclick="search(school,course,number)">Search</button> -->
         </div>
-
-        <!-- <?php
-            //connecting to db and search for results
-            $servername = "localhost";
-            $username = "username";
-            $password = "password";
-            $dbname = "myDB";
-
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-        ?> -->
 
         <script language="javascript">
             function search(school,course,number){
