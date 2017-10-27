@@ -4,38 +4,41 @@
         <title>SCU Course Equivalency </title>
         <link rel="stylesheet" href="style/edit.css">
     </head>
-    
+
     <body>
-        
+
         <div class = "search">
             <h1>Edit a Course Equivalency:</h1>
-            
+
             <form>
                 <label></label>
                 <input type = "text" placeholder = "School" name="school" required>
+                <br></br>
                 <input type = "text" placeholder = "Course" name="course" required>
+                <br></br>
                 <input type = "number" placeholder = "Number" name="number" required>
-                
+                <br></br>
+
+                <p>Is equivalent?</p>
                 <select name="equivalency">
                     <!-- if yes... call add function -->
-                    <option value="yes">YES</option>
+                    <option value="yes">Yes</option>
                     <!-- if no... remove function -->
-                    <option value="no">NO</option>
+                    <option value="no">No</option>
                 </select>
-                
+                <br></br>
                 <label>Santa Clara University</label>
-                
+                <br></br>
                 <input type = "text" placeholder = "Course" name="scucourse" required>
+                <br></br>
                 <input type = "number" placeholder = "Number" name="scunumber" required>
-                    
+                <br></br>
                 <input type="submit" value="Edit Equivalency"></input>
             </form>
-            
-        </div>
-        
-        <script>
 
+        </div>
+        <script>
         </script>
-        
+
     </body>
 </html>

@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <Title>Login/Setup</title>
-        <link rel="stylesheet" href="style/log.css">
+        <Title>Login</title>
+        <!-- <link rel="stylesheet" href="style/log.css"> -->
     </head>
-    
+
     <body>
+
+
     <div class="form">
-        
-        <ul class="tab-group">
+        <h1>SCU Course Equivalency</h1>
+        <!-- <ul class="tab-group">
             <li class="tab active"><a href="#signup">Sign Up</a></li>
             <li class="tab"><a href="#login">Log In</a></li>
-        </ul>
-        <div class = "tab-content">
-        
-        <div class = "Sign Up">
-            
-            <h1>SCU Course Equivalency</h1>
+        </ul> -->
+
+        <!-- <div class = "Sign Up">
+
+
             <form method = "post">
                 <input type="text" id="fname1" placeholder="First Name" required="required"/input>
                 <input type="text" id="lname1" placeholder="Last Name" required="required"/input>
@@ -24,34 +25,36 @@
                 <input type="number" id="id1" placeholder="SCU ID with All Leading Zeros" required="required"/input>
                 <button type="button" value="submit" onclick="signup()">Sign Up</button>
             </form>
-        </div>
-        
+        </div> -->
+
         <div class = "login">
+            <h3>Log in<h3>
+
             <form method = "post">
-                <input type="text" id="fname2" placeholder="First Name" required="required"/input>
-                <input type="text" id="lname2" placeholder="Last Name" required="required"/input>
-                <input type="text" id="pswd2" placeholder="Password" required="required"/input>
-                <button type="button" id = "submit1" value="submit" >Sign in</button>
+                <input type="text" id="fname2" placeholder="email" required>
+                <br></br>
+                <input type="text" id="pswd2" placeholder="password" required>
+                <br></br>
+                <input type="submit" value="Login" href=""></input>
             </form>
         </div>
-        
-        </div>
+
     <div>
         <script language="javascript">
-            
+
             document.getElementById("submit1").onclick = function()
             {
                 location.href = "search.html";
             };
-            
+
             //signup function
             function signup(){
                 var lname = document.getElementById("lname1").value;
                 var scuid = document.getElementById("id1").value;
                 var pswd = document.getElementById("pswd1").value;
-                
+
                 //retrieve lastname and scuid from db to verify advisor identity
-                
+
                 //add user info to user db
             }
 
@@ -70,5 +73,5 @@
             }
         </script>
     </body>
-    
+
 </html>
