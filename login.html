@@ -1,95 +1,69 @@
 <!DOCTYPE html>
 <html>
+    
+    <style>
+        
+        form {
+            border: 3px solid #f1f1f1;
+        }
+    
+        /* Full-width inputs */
+        input[type=text], input[type=password], input[type=number] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type=submit]:hover {
+            background-color: ;
+        }
+
+        button {
+            background-color: ;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+        }
+        button:hover {
+            opacity: 0.5;
+        }
+
+    </style>
+        
     <head>
-        <title>Set Up/Login Form</title>
+        <Title>Advisor Sign In</title>
     </head>
     
-    <!--add style later-->
-    <style>
-    
-    </style>
-    
     <body>
-        <div class = "form">
-          
-          <ul class = "tab-group">
-                <li class = "tab active"><a href="#signup">Sign Up</a></li>
-                <li class = "tab active"><a href="#login">Log In</a></li>
-            </ul>
-            
-            <div class = "tab-content">
-                
-                <div id = "signup">
-                    <h1>Advisor Sign Up</h1>
-                    <form action="/" method="post">
-                    
-                    <div class="top-row">
-                    <div class="field-wrap">
-                    <label>
-                        First Name<span class="req">*</span>
-                    </label>
-                    <input type="text" required autocomplete="off" />
-                    </div>
-                    
-                    <div class="field-wrap">
-                    <label>
-                        Last Name<span class="req">*</span>
-                    </label>
-                    <input type="text"required autocomplete="off"/>
-                    </div>
-                    </div>
-                    
-                    <div class="field-wrap">
-                    <label>
-                        SCU ID Number<span class="req">*</span>
-                    </label>
-                    <input type="ID"required autocomplete="off"/>
-                    </div>
-                    
-                    <div class="field-wrap">
-                    <label>
-                        Set A Password<span class="req">*</span>
-                    </label>
-                    <input type="password"required autocomplete="off"/>
-                    </div>
-                    
-                    <button type="submit" class="button button-block"/>Set Up</button>
-                    
-                    </form>
-                    
-                </div>
-                
-                <div id="login">
-                    <h1>Welcome Back Advisors!</h1>
-                    
-                    <form action="/" method="post">
-                
-                    <div class="field-wrap">
-                    <label>
-                        User Name<span class="req">*</span>
-                    </label>
-                    <input type="text"required autocomplete="off"/>
-                    </div>
-                    
-                    <div class="field-wrap">
-                    <label>
-                        Password<span class="req">*</span>
-                    </label>
-                    <input type="password"required autocomplete="off"/>
-                    </div>
-            
-                    <button type="submit" class="button button-block"/>Sign In</button>
-            
-                    </form>
-            
-                </div>
-                
-        <!--
+        <div class = "login">
+            <h1>Advisor Login</h1>
+            <form method = "post">
+                <input type="text" name="fname" placeholder="First Name" required="required"/>
+                <input type="text" name="lname" placeholder="Last Name" required="required"/>
+                <input type="number" name="id" placeholder="SCU ID with All Leading Zeros" required="required"/>
+                <button type="submit" value="login" onclick="verify(lname,id)">Login</button>
+            </form>
+        </div>
+        
         <script language="javascript">
-         
-        
+            function verify(lname,id){
+                //search through advisor login database
+                if(){
+                    load(search.html);
+                }
+                else{
+                    load(login.html);
+                }
+            }
+            function load(url){
+                location href=url;
+            }
         </script>
-        -->
-        
     </body>
+    
 </html>

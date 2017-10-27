@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <style>
+
+        /*form {
+            border: 3px solid #f1f1f1;
+        }*/
+
+        /* inputs style */
+        input[type=text], input[type=text], input[type=number] {
+            width: 10%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type=submit]:hover {
+            background-color: ;
+        }
+
+        button {
+            background-color: ;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+        }
+        button:hover {
+            opacity: 0.5;
+        }
+    </style>
+
+    <head>
+        <title>SCU Course Equivalency </title>
+    </head>
+
+    <!--CHANGE INTO DROPDOWN BOXES LATER ON-->
+    <body>
+
+        <div class = "search">
+            <h1>Search for a Course:</h1>
+
+            <form>
+                <select name="School">
+                    <option value="" disabled selected>Select a University</option>
+                    <!-- pull values from database -->
+                    <option value="San Jose State University">San Jose State University</option>
+                    <option value="University of Southern California">USC</option>
+                </select>
+                <select name="Course">
+                    <option value="" disabled selected>Select a Department</option>
+                    <!-- pull values from database -->
+                    <option value="cse">CSE</option>
+                    <option value="coen">COEN</option>
+                </select>
+                <select name="CourseNumber">
+                    <option value="" disabled selected>Select a Course Number</option>
+                    <!-- pull values from database -->
+                    <option value="100">100</option>
+                    <option value="101">101</option>
+                </select>
+
+                <br></br>
+
+                <input type="submit"></input>
+            </form>
+
+            <!-- <label><b>School</b></label>
+            <input type = "text" placeholder = "School" name="school" required>
+
+            <label><b>Course</b></label>
+            <input type = "text" placeholder = "Course" name="course" required>
+
+            <label><b>Number</b></label>
+            <input type = "number" placeholder = "Number" name="number" required> -->
+
+            <!-- <button type="submit" value="search" onclick="search(school,course,number)">Search</button> -->
+        </div>
+
+        <!-- <?php
+            //connecting to db and search for results
+            $servername = "localhost";
+            $username = "username";
+            $password = "password";
+            $dbname = "myDB";
+
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+        ?> -->
+
+        <script language="javascript">
+            function search(school,course,number){
+                //search through DB for matches
+                if(){
+                    load(edit.html);
+                }
+                else{
+                    load(login.html);
+                }
+            }
+            function load(url){
+                location href=url;
+            }
+        </script>
+
+    </body>
+</html>
