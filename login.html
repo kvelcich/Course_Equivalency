@@ -36,23 +36,62 @@
     </style>
         
     <head>
-        <Title>Advisor Sign In</title>
+        <Title>Login/Setup</title>
     </head>
     
     <body>
-        <div class = "login">
-            <h1>Advisor Login</h1>
+    <div class="form">
+        
+        <ul class="tab-group">
+            <li class="tab active"><a href="#signup">Sign Up</a></li>
+            <li class="tab"><a href="#login">Log In</a></li>
+        </ul>
+        <div class = "tab-content">
+        
+        <div class = "Sign Up">
+            
+            <h1>SCU Course Equivalency</h1>
             <form method = "post">
-                <input type="text" name="fname" placeholder="First Name" required="required"/>
-                <input type="text" name="lname" placeholder="Last Name" required="required"/>
-                <input type="number" name="id" placeholder="SCU ID with All Leading Zeros" required="required"/>
-                <button type="submit" value="login" onclick="verify(lname,id)">Login</button>
+                <input type="text" id="fname1" placeholder="First Name" required="required"/input>
+                <input type="text" id="lname1" placeholder="Last Name" required="required"/input>
+                <input type="text" id="pswd1" placeholder="Set Up Password" required="required"/input>
+                <input type="number" id="id1" placeholder="SCU ID with All Leading Zeros" required="required"/input>
+                <button type="button" value="submit" onclick="signup()">Sign Up</button>
             </form>
         </div>
         
+        <div class = "login">
+            <form method = "post">
+                <input type="text" id="fname2" placeholder="First Name" required="required"/input>
+                <input type="text" id="lname2" placeholder="Last Name" required="required"/input>
+                <input type="text" id="pswd2" placeholder="Password" required="required"/input>
+                <button type="button" id = "submit1" value="submit" >Sign in</button>
+            </form>
+        </div>
+        
+        </div>
+    <div>
         <script language="javascript">
-            function verify(lname,id){
+            
+            document.getElementById("submit1").onclick = function()
+            {
+                location.href = "search.html";
+            };
+            
+            //signup function
+            function signup(){
+                var lname = document.getElementById("lname1").value;
+                var scuid = document.getElementById("id1").value;
+                var pswd = document.getElementById("pswd1").value;
+                
+                //retrieve lastname and scuid from db to verify advisor identity
+                
+                //add user info to user db
+            }
+
+            function verify(){
                 //search through advisor login database
+                /*
                 if(){
                     load(search.html);
                 }
@@ -60,8 +99,8 @@
                     load(login.html);
                 }
             }
-            function load(url){
-                location href=url;
+                 */
+                var lname = document.getElementById("lname2").value;
             }
         </script>
     </body>
