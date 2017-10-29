@@ -39,7 +39,7 @@
         for (var i = 0; i<departmentResults.length; i++){
             var obj = departmentResults[i];
             var option = document.createElement("option");
-            
+
             option.text = obj.department;
             option.value = i;
 
@@ -57,10 +57,12 @@
             <form>
                 <select name="School" id="schoolSelect" value="Get Schools">
                     <option value="" disabled selected>Select a University</option>
+                    <option value="">None</option>
                     <!-- get values from database -->
                 </select>
                 <select name="Department" id="departmentSelect" value="Get Departments">
                     <option value="" disabled selected>Select a Department</option>
+                    <option value="">None</option>
                     <!-- get values from database -->
                 </select>
                 <select name="CourseNumber" id="numberSelect" value="Get CourseNumbers">
