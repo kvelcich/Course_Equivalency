@@ -2,34 +2,54 @@
 <html>
     <head>
         <title>SCU Course Equivalency </title>
-        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     </head>
 
     <script>
-    $(document).ready(function(){
-        $('#name-submit').click(function(){
-            var function_name = 'get_schools';
-            $.post('ajax.php', {function: function_name}, function(data) {
-                $('div#schools').append(data);
-                //console.log(JSON.parse(data).length);
-            });
-        });
-    });
+    // $(document).ready(function(){
+    //     $('#name-submit').click(function(){
+    //         var function_name = 'get_schools';
+    //         $.post('ajax.php', {function: function_name}, function(data) {
+    //             $('div#schools').append(data);
+    //             //console.log(JSON.parse(data).length);
+    //         });
+    //     });
+    // });
 
-    $(document).ready(function()){
-        $.getJSON("file.php", success = function(schoolResults){
-            var options = "";
-            for (var i = 0; i<schoolResults.length; i++){
-                options += '<option value ="' + schoolResults[i] + '">' +  schoolResults[i]  + '</option>';
-            }
-            $("#selectCourse").append(options);
-        });
-    });
+    var schoolResults = [{"school":"San Jose State Univeristy"},{"school":"Stanford Univeristy"},{"school":"Univeristy of California, Santa Cruz"}];
+    var departmentResults = [{"department":"CSE"}];
 
+    function listSchools(){
+        var select = document.getElementById('schoolSelect');
+
+        for (var i = 0; i<schoolResults.length; i++){
+            var obj = schoolResults[i];
+            console.log(obj.school);
+
+            var option = document.createElement("option");
+            option.text = obj.school;
+            option.value = i;
+
+            select.appendChild(option);
+        }
+    }
+
+    function listDepartments(){
+        var select = document.getElementById('departmentSelect');
+
+        for (var i = 0; i<departmentResults.length; i++){
+            var obj = departmentResults[i];
+            var option = document.createElement("option");
+            
+            option.text = obj.department;
+            option.value = i;
+
+            select.appendChild(option);
+        }
+    }
     </script>
 
     <!--CHANGE INTO DROPDOWN BOXES LATER ON-->
-    <body>
+    <body onload="listSchools(); listDepartments();">
 
         <div class = "search">
             <h1>Search for a Course:</h1>
@@ -39,17 +59,13 @@
                     <option value="" disabled selected>Select a University</option>
                     <!-- get values from database -->
                 </select>
-                <select name="Course" id="courseSelect" value="Get Departments">
+                <select name="Department" id="departmentSelect" value="Get Departments">
                     <option value="" disabled selected>Select a Department</option>
                     <!-- get values from database -->
-                    <option value="cse">CSE</option>
-                    <option value="coen">COEN</option>
                 </select>
                 <select name="CourseNumber" id="numberSelect" value="Get CourseNumbers">
                     <option value="" disabled selected>Select a Course Number</option>
                     <!-- get values from database -->
-                    <option value="100">100</option>
-                    <option value="101">101</option>
                 </select>
 
                 <br></br>
@@ -68,7 +84,7 @@
             <!-- <button type="submit" value="search" onclick="search(school,course,number)">Search</button> -->
         </div>
 
-        <script language="javascript">
+        <!-- <script language="javascript">
             function search(school,course,number){
                 //search through DB for matches
                 if(){
@@ -81,7 +97,7 @@
             function load(url){
                 location href=url;
             }
-        </script>
+        </script> -->
 
     </body>
 </html>
