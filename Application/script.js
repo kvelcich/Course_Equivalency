@@ -1,26 +1,33 @@
 $(document).ready(function(){
-    $('#name-submit').click(function(){
-		var function_name = 'get_schools';
-		$.post('ajax.php', {function: function_name}, function(data) {
-			$('div#schools').append(data);
-			//console.log(JSON.parse(data).length);
-		});
-    });
+	$('#login_button').click(function(){
+		var function_name = 'login';
+		var email = $('input#email_input').val();
+		var pass = $('input#pass_input').val();
 
-	$('#department').click(function(){
+		$.post('ajax.php', {function: function_name, email: email, password: pass}, function(data) {
+			if (data == 1) {
+				console.log('Login successful');
+			} else if (data == 0) {
+				console.log('Invalid login');
+			}
+		});
+  });
+
+	$('select[id="school_select"]').change(function() {
 		var function_name = 'get_departments';
-		var school_name = 'San Jose State Univeristy';
+		var school_name = $('select[id="schoolSelect"] option:selected').text();
+
 		$.post('ajax.php', {function: function_name, school: school_name}, function(data) {
-			$('div#departments').append(data);
+			listDepartments(JSON.parse(data));
 		});
 	});
 
-	$('#number').click(function(){
-		var function_name = 'get_course_numbers';
-		var school_name = 'San Jose State Univeristy';
-		var department_name = 'CSE';
-		$.post('ajax.php', {function: function_name, school: school_name, department: department_name}, function(data) {
-			$('div#numbers').append(data);
+	$('select[id="department_select"]').change(function() {
+		var function_name = 'get_schools';
+		var department_name = $('select[id="departmentSelect"] option:selected').text();
+
+		$.post('ajax.php', {function: function_name, school: school_name}, function(data) {
+			listSchools(JSON.parse(data));
 		});
 	});
 });
