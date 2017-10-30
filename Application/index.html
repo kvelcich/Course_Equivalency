@@ -1,19 +1,77 @@
+<!DOCTYPE html>
 <html>
-<head>
-  <title>Course Equivalency</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="script.js"></script>
-</head>
-<body>
-  <h1>Ajax Post to PHP and Get Return Data</h1>
-  <input type="submit" id="name-submit" value="Get Schools">
-  <div id="schools"></div>
-  <input type="submit" id="department" value="Get Departments">
-  <div id="departments"></div>
-  <input type="submit" id="number" value="Get Course Numbers">
-  <div id="numbers"></div>
+    <head>
+        <Title>Login</title>
+        <!-- <link rel="stylesheet" href="style/log.css"> -->
+    </head>
 
-  <input type="submit" id="advisor" value="Get Advisor">
-  <div id="advdiv"></div>
-</body>
+    <body>
+
+
+    <div class="form">
+        <h1>SCU Course Equivalency</h1>
+        <!-- <ul class="tab-group">
+            <li class="tab active"><a href="#signup">Sign Up</a></li>
+            <li class="tab"><a href="#login">Log In</a></li>
+        </ul> -->
+
+        <!-- <div class = "Sign Up">
+
+
+            <form method = "post">
+                <input type="text" id="fname1" placeholder="First Name" required="required"/input>
+                <input type="text" id="lname1" placeholder="Last Name" required="required"/input>
+                <input type="text" id="pswd1" placeholder="Set Up Password" required="required"/input>
+                <input type="number" id="id1" placeholder="SCU ID with All Leading Zeros" required="required"/input>
+                <button type="button" value="submit" onclick="signup()">Sign Up</button>
+            </form>
+        </div> -->
+
+        <div class = "login">
+            <h3>Log in<h3>
+
+            <form method = "post">
+                <input type="text" id="fname2" placeholder="email" required>
+                <br></br>
+                <input type="text" id="pswd2" placeholder="password" required>
+                <br></br>
+                <input type="submit" value="Login" href=""></input>
+            </form>
+        </div>
+
+    <div>
+        <script language="javascript">
+
+            document.getElementById("submit1").onclick = function()
+            {
+                location.href = "search.html";
+            };
+
+            //signup function
+            function signup(){
+                var lname = document.getElementById("lname1").value;
+                var scuid = document.getElementById("id1").value;
+                var pswd = document.getElementById("pswd1").value;
+
+                //retrieve lastname and scuid from db to verify advisor identity
+
+                //add user info to user db
+            }
+
+            function verify(){
+                //search through advisor login database
+                /*
+                if(){
+                    load(search.html);
+                }
+                else{
+                    load(login.html);
+                }
+            }
+                 */
+                var lname = document.getElementById("lname2").value;
+            }
+        </script>
+    </body>
+
 </html>
