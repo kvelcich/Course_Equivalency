@@ -82,6 +82,7 @@
 	function addUser() {
 		$conn = connect();
 
+		//check that user does not already exist
 		$query = "INSERT INTO advisor (email, password) VALUES ('{$_POST['email']}', '{$_POST['password']}')";
 		if ($conn->query($query))
 			echo "Success";
@@ -100,6 +101,10 @@
 		//add internal
 		//send success if all conditions met
 		//otherwise send error
-		
+
+	}
+
+	function login() {
+
 	}
 ?>
