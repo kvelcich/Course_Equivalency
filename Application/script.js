@@ -1,5 +1,15 @@
 $(document).ready(function(){
-    $('#name-submit').click(function(){
+	$('#name-submit').click(function(){
+		var function_name = 'get_schools';
+		var department_name = '';
+		$.post('ajax.php', {function: function_name, department: department_name}, function(data) {
+			$('div#schools').append(data);
+			//console.log(JSON.parse(data).length);
+		});
+    });
+
+/* OUTDATED:
+	$('#name-submit').click(function(){
 		var function_name = 'get_schools';
 		var department_name = '';
 		$.post('ajax.php', {function: function_name, department: department_name}, function(data) {
@@ -28,4 +38,5 @@ $(document).ready(function(){
 				}
 		});
 	});
+*/
 });
