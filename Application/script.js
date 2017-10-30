@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	
+	/*
 	$('#login_button').click(function() {
 		var function_name = 'login';
 		var email = $('input#email_input').val();
@@ -13,8 +15,7 @@ $(document).ready(function(){
         alert('Invalid Login Info!');
 			}
 		});
-  });
-
+  });*/
 	$('select[id="school_select"]').change(function() {
 		var function_name = 'get_departments';
 		var school_name = $('select[id="school_select"] option:selected').text();
