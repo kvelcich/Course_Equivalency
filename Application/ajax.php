@@ -6,9 +6,13 @@
 			return getSchools();
 		} else if ($_POST['function'] == 'get_departments') {
 			return getDepartments();
-		} else if ($_POST['function'] == 'get_course_numbers') {
-			return getCourseNumbers();
-		}else {
+		} else if ($_POST['function'] == 'add_user') {
+			return addUser();
+		} else if ($_POST['function'] == 'login') {
+			return login();
+		}
+
+		else {
 			echo "Error: Invalid function name '{$_POST['function']}'";
 		}
 	}
@@ -28,7 +32,7 @@
 		}
 
 		print json_encode($rows);
-		$conn->close()
+		$conn->close();
 	}
 
 	function getDepartments() {
@@ -46,7 +50,7 @@
 		}
 
 		print json_encode($rows);
-		$conn->close()
+		$conn->close();
 	}
 
 	function search() {
@@ -69,35 +73,40 @@
 		}
 
 		print json_encode($rows);
-		$conn->close()
-	}
-
-	function addUser() {
-		$conn = connect();
-
-		//check that user does not already exist
-		$query = "INSERT INTO advisor (email, password) VALUES ('{$_POST['email']}', '{$_POST['password']}')";
-		if ($conn->query($query))
-			echo "Success";
-		else
-			echo "Error";
 		$conn->close();
 	}
 
 	function addCourse() {
 		$conn = connect();
 
-		//check if internal exists
-		//if not add it
-		//check if external exists
-		//if not add it
-		//add internal
-		//send success if all conditions met
-		//otherwise send error
-
 	}
 
 	function login() {
+		$conn = connect();
 
+		$query = "SELECT * FROM advisor WHERE email = '{$_POST['email']}' AND password = '{$_POST['password']}'";
+		$result = $conn->query($query);
+
+		$rows = 0;
+		while($row = mysqli_fetch_assoc($result)) $rows++;
+
+		if ($rows == 1) {
+			echo 1;
+		} else {
+			echo 0;
+		}
+
+		$conn->close();
+	}
+
+	function addUser() {
+		$conn = connect();
+
+		$query = "INSERT INTO advisor (email, password) VALUES ('{$_POST['email']}', '{$_POST['password']}')";
+		if ($conn->query($query))
+			echo 1;
+		else
+			echo 0;
+		$conn->close();
 	}
 ?>

@@ -15,4 +15,17 @@ $(document).ready(function(){
 			$('div#departments').append(data);
 		});
 	});
+
+	$('#advisor').click(function() {
+		var function_name = 'add_user';
+		var email = 'hunter@gmail.com';
+		var pass = 'sample';
+		$.post('ajax.php', {function: function_name, email: email, password: pass}, function(data) {
+				if (data == 1) {
+					$('div#advdiv').append('Success');
+				} else if (data == 0) {
+					$('div#advdiv').append('Error, username already in use');
+				}
+		});
+	});
 });
