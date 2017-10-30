@@ -31,11 +31,12 @@
             <h3>Log in<h3>
 
             <form method = "post">
-                <input type="text" id="fname2" placeholder="email" required>
+                <input type="text" id="fname2" name="email" placeholder="email" required>
                 <br></br>
-                <input type="text" id="pswd2" placeholder="password" required>
+                <input type="password" id="pswd2" name="password" placeholder="password" required>
                 <br></br>
-                <input type="submit" value="Login" href=""></input>
+                <input type="submit" name="submit" value="Login" href=""></input>
+                <div class="error-message"><?php if(isset($message)) { echo $message; } ?></div>
             </form>
         </div>
 
