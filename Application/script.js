@@ -13,6 +13,8 @@ $(document).ready(function(){
 		});
     });
 
+	
+
 /* OUTDATED:
 	$('#name-submit').click(function(){
 		var function_name = 'get_schools';
