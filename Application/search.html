@@ -4,7 +4,7 @@
   <title>SCU Course Equivalency </title>
   <script>
     function listSchools(schools){
-      var select = document.getElementById('schoolSelect');
+      var select = document.getElementById('school_select');
 
       for (var i = 0; i<schools.length; i++){
         var obj = schools[i];
@@ -19,7 +19,7 @@
     }
 
     function listDepartments(departments){
-      var select = document.getElementById('departmentSelect');
+      var select = document.getElementById('department_select');
 
       for (var i = 0; i<departments.length; i++){
         var obj = departments[i];
@@ -41,15 +41,15 @@
   <div class="search">
   <h1>Search for a Course:</h1>
     <div class="form">
-      <select name="School" id="schoolSelect" value="Get Schools">
-        <option value=""></option>=
-      </select>
-      <select name="Department" id="departmentSelect" value="Get Departments">
+      <select id="school_select" value="Get Schools">
         <option value=""></option>
       </select>
-      <input name="CourseNumber" id="numberSelect"></input>
+      <select id="department_select" value="Get Departments">
+        <option value=""></option>
+      </select>
+      <input id="number_select"></input>
       <br></br>
-      <input type="submit"></input>
+      <input type="submit" id="search" value="Search"></input>
     </div>
   </div>
   <div id="advdiv"></div>
