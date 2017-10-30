@@ -16,7 +16,10 @@
 	function getSchools() {
 		$conn = connect();
 
+		$department = $_POST['department'];
 		$query = "SELECT DISTINCT school FROM course WHERE school != 'Santa Clara University'";
+		if ($department != '') $query.append("AND department = '{$department}'");
+
 		$result = $conn->query($query);
 
 		$rows = array();
@@ -30,21 +33,11 @@
 
 	function getDepartments() {
 		$conn = connect();
-		$query = "SELECT DISTINCT department FROM course WHERE school = '{$_POST['school']}'";
-		$result = $conn->query($query);
 
-		$rows = array();
-		while($row = mysqli_fetch_assoc($result)) {
-				$rows[] = $row;
-		}
+		$school = $_POST['school'];
+		$query = "SELECT DISTINCT department FROM course";
+	 	if ($school != '') $query.append(" WHERE school = '{$school}'");
 
-		print json_encode($rows);
-		$conn->close()
-	}
-
-	function getCourseNumbers() {
-		$conn = connect();
-		$query = "SELECT DISTINCT course_number FROM course WHERE school = '{$_POST['school']}' AND department = '{$_POST['department']}'";
 		$result = $conn->query($query);
 
 		$rows = array();
