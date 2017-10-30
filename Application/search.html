@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SCU Course Equivalency </title>
+    </head>
+
+    <script>
+    // $(document).ready(function(){
+    //     $('#name-submit').click(function(){
+    //         var function_name = 'get_schools';
+    //         $.post('ajax.php', {function: function_name}, function(data) {
+    //             $('div#schools').append(data);
+    //             //console.log(JSON.parse(data).length);
+    //         });
+    //     });
+    // });
+
+    var schoolResults = [{"school":"San Jose State Univeristy"},{"school":"Stanford Univeristy"},{"school":"Univeristy of California, Santa Cruz"}];
+    var departmentResults = [{"department":"CSE"}];
+
+    function listSchools(){
+        var select = document.getElementById('schoolSelect');
+
+        for (var i = 0; i<schoolResults.length; i++){
+            var obj = schoolResults[i];
+            console.log(obj.school);
+
+            var option = document.createElement("option");
+            option.text = obj.school;
+            option.value = i;
+
+            select.appendChild(option);
+        }
+    }
+
+    function listDepartments(){
+        var select = document.getElementById('departmentSelect');
+
+        for (var i = 0; i<departmentResults.length; i++){
+            var obj = departmentResults[i];
+            var option = document.createElement("option");
+
+            option.text = obj.department;
+            option.value = i;
+
+            select.appendChild(option);
+        }
+    }
+    </script>
+
+    <!--CHANGE INTO DROPDOWN BOXES LATER ON-->
+    <body onload="listSchools(); listDepartments();">
+
+        <div class = "search">
+            <h1>Search for a Course:</h1>
+
+            <form>
+                <select name="School" id="schoolSelect" value="Get Schools">
+                    <option value=""></option>
+                    <!-- get values from database -->
+                </select>
+                <select name="Department" id="departmentSelect" value="Get Departments">
+                    <option value=""></option>
+                    <!-- get values from database -->
+                </select>
+                <input name="CourseNumber" id="numberSelect" value="Get CourseNumbers" type="number">
+                    <!-- get values from database -->
+                </input>
+
+                <br></br>
+                <input type="submit"></input>
+            </form>
+
+            <!-- <label><b>School</b></label>
+            <input type = "text" placeholder = "School" name="school" required>
+
+            <label><b>Course</b></label>
+            <input type = "text" placeholder = "Course" name="course" required>
+
+            <label><b>Number</b></label>
+            <input type = "number" placeholder = "Number" name="number" required> -->
+
+            <!-- <button type="submit" value="search" onclick="search(school,course,number)">Search</button> -->
+        </div>
+
+        <!-- <script language="javascript">
+            function search(school,course,number){
+                //search through DB for matches
+                if(){
+                    load(edit.html);
+                }
+                else{
+                    load(login.html);
+                }
+            }
+            function load(url){
+                location href=url;
+            }
+        </script> -->
+
+    </body>
+</html>
