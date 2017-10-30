@@ -1,4 +1,4 @@
-use sdb_kvelcich;
+  use sdb_kvelcich;
 
 CREATE TABLE course (
     course_id       INT NOT NULL AUTO_INCREMENT,
@@ -22,8 +22,6 @@ CREATE TABLE equivalent (
 
 CREATE TABLE advisor (
     email           VARCHAR(25) NOT NULL,
-    first		 	VARCHAR(50),
-    last	        VARCHAR(50),
     password        VARCHAR(50),
 
     PRIMARY KEY (email)
