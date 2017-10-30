@@ -25,6 +25,7 @@
 		}
 
 		print json_encode($rows);
+		$conn->close()
 	}
 
 	function getDepartments() {
@@ -38,6 +39,7 @@
 		}
 
 		print json_encode($rows);
+		$conn->close()
 	}
 
 	function getCourseNumbers() {
@@ -51,5 +53,52 @@
 		}
 
 		print json_encode($rows);
+		$conn->close()
+	}
+
+	function search() {
+		$conn = connect();
+
+		$school = $_POST['school'];
+		$department = $_POST['department'];
+		$number = $_POST['number'];
+
+		$query = "SELECT * FROM course C1, course C2, equivalent E WHERE C1.course_id = E.internal_id AND C2.course_id = E.external_id";
+		if ($school != "") $query.append(" AND C2.school = '{$school}'");
+		if ($deparment != "") $query.append(" AND C2.department = '{$department}'");
+		if ($number != "") $query.append(" AND C2.school = '{$number}'");
+
+		$result = $conn->query($query);
+
+		$rows = array();
+		while($row = mysqli_fetch_assoc($result)) {
+				$rows[] = $row;
+		}
+
+		print json_encode($rows);
+		$conn->close()
+	}
+
+	function addUser() {
+		$conn = connect();
+
+		$query = "INSERT INTO advisor (email, password) VALUES ('{$_POST['email']}', '{$_POST['password']}')";
+		if ($conn->query($query))
+			echo "Success";
+		else
+			echo "Error";
+		$conn->close();
+	}
+
+	function addCourse() {
+		$conn = connect();
+
+		//check if internal exists
+		//if not add it
+		//check if external exists
+		//if not add it
+		//add internal
+		//send success if all conditions met
+		//otherwise send error
 	}
 ?>
