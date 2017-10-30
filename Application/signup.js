@@ -9,8 +9,8 @@ $(document).ready(function(){
                console.log('signup successful');
                window.location.href = "login.html";
             } else if (success== 0) {
-               console.log('Invalid login');
-               alert('Invalid login info!');
+               console.log('Invalid signup');
+               alert('Invalid signup!');
            }
         });
     });
