@@ -13,7 +13,14 @@ $(document).ready(function(){
 		});
     });
 
-	
+	$('select[id="schoolSelect"]').change(function() {
+		var function_name = 'get_departments';
+		var school_name = $(this).val();
+
+		$.post('ajax.php', {function: function_name, school: school_name}, function(data) {
+			$('div#advdiv').append(data);
+		});
+	});
 
 /* OUTDATED:
 	$('#name-submit').click(function(){
