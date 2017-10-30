@@ -1,7 +1,8 @@
 $(document).ready(function(){
     $('#name-submit').click(function(){
 		var function_name = 'get_schools';
-		$.post('ajax.php', {function: function_name}, function(data) {
+		var department_name = '';
+		$.post('ajax.php', {function: function_name, department: department_name}, function(data) {
 			$('div#schools').append(data);
 			//console.log(JSON.parse(data).length);
 		});
@@ -15,12 +16,16 @@ $(document).ready(function(){
 		});
 	});
 
-	$('#number').click(function(){
-		var function_name = 'get_course_numbers';
-		var school_name = 'San Jose State Univeristy';
-		var department_name = 'CSE';
-		$.post('ajax.php', {function: function_name, school: school_name, department: department_name}, function(data) {
-			$('div#numbers').append(data);
+	$('#advisor').click(function() {
+		var function_name = 'add_user';
+		var email = 'hunter@gmail.com';
+		var pass = 'sample';
+		$.post('ajax.php', {function: function_name, email: email, password: pass}, function(data) {
+				if (data == 1) {
+					$('div#advdiv').append('Success');
+				} else if (data == 0) {
+					$('div#advdiv').append('Error, username already in use');
+				}
 		});
 	});
 });
