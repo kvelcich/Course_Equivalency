@@ -20,9 +20,11 @@
 
 	function getSchools() {
 		$conn = connect();
+
 		$department = $_POST['department'];
 		$query = "SELECT DISTINCT school FROM course WHERE school != 'Santa Clara University'";
 		if ($department != '') $query .= "AND department = '{$department}'";
+
 		$result = $conn->query($query);
 		$rows = array();
 		while($row = mysqli_fetch_assoc($result)) {
@@ -34,9 +36,11 @@
 
 	function getDepartments() {
 		$conn = connect();
+
 		$school = $_POST['school'];
 		$query = "SELECT DISTINCT department FROM course";
 	 	if ($school != '') $query .= " WHERE school = '{$school}'";
+
 		$result = $conn->query($query);
 		$rows = array();
 		while($row = mysqli_fetch_assoc($result)) {
@@ -48,6 +52,7 @@
 
 	function search() {
 		$conn = connect();
+
 		$school = $_POST['school'];
 		$department = $_POST['department'];
 		$number = $_POST['number'];
@@ -67,23 +72,28 @@
 
 	function addCourse() {
 		$conn = connect();
+    $conn->close();
 	}
 
 	function login() {
 		$conn = connect();
+
 		$query = "SELECT * FROM advisor WHERE email = '{$_POST['email']}' AND password = '{$_POST['password']}'";
 		$result = $conn->query($query);
 		$rows = 0;
 		while($row = mysqli_fetch_assoc($result)) $rows++;
+
 		if ($rows == 1) {
 			echo 1;
 		} else {
 			echo 0;
 		}
+
 		$conn->close();
 	}
 	function addUser() {
 		$conn = connect();
+
 		$query = "INSERT INTO advisor (email, password) VALUES ('{$_POST['email']}', '{$_POST['password']}')";
 		if ($conn->query($query))
 			echo 1;

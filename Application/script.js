@@ -7,8 +7,10 @@ $(document).ready(function(){
 		$.post('ajax.php', {function: function_name, email: email, password: pass}, function(data) {
 			if (data == 1) {
 				console.log('Login successful');
+        window.location.href = 'search.html';
 			} else if (data == 0) {
 				console.log('Invalid login');
+        alert('Invalid Login Info!');
 			}
 		});
   });
