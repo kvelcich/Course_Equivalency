@@ -26,6 +26,69 @@ function listDepartments(departments){
   }
 }
 
+function listEquivalencies(equivalencies){
+  var list = document.getElementById('results');
+
+    // for every object in jsonArray, create list element with details
+  for (var i = 0; i<equivalencies.length; i++){
+    var obj = equivalencies[i];
+
+    // creat list <li> element
+    var listItem = document.createElement('LI');
+    var listSchool = document.createTextNode(obj.school);
+    var listDept = document.createTextNode(obj.department);
+    var listCourseNum = document.createTextNode(obj.course_number);
+
+    // list the course equivalency details including:
+    // school name, department, and course number
+    listItem.appendChild(listSchool);
+    listItem.appendChild(document.createTextNode(' | '));
+    listItem.appendChild(listDept);
+    listItem.appendChild(document.createTextNode(' | '));
+    listItem.appendChild(listCourseNum);
+    listItem.appendChild(document.createTextNode(' | '));
+
+    // print if equivalent
+    if (obj.is_equivalent == 1){
+        console.log('course equivalent');
+        listItem.appendChild(document.createTextNode('Equivalent'));
+    }
+    else{
+        console.log('course not equivalent');
+        listItem.appendChild(document.createTextNode('Not Equivalent'));
+    }
+
+    listItem.appendChild(document.createTextNode(' | '));
+
+    // create edit link with proper attributes
+    var editLink = document.createElement('a');
+    var editLinkText = document.createTextNode('Edit');
+    editLink.setAttribute('href', 'edit.html');
+    editLink.setAttribute('type', 'submit');
+    editLink.setAttribute('id', 'edit_equivalency_btn');
+    editLink.appendChild(editLinkText);
+
+    // append Edit link to list item
+    listItem.appendChild(editLink);
+    // separator betweeen edit and remove options
+    listItem.appendChild(document.createTextNode(' | '));
+
+    // create remove link with proper attributes
+    var removeLink = document.createElement('a');
+    var removeLinkText = document.createTextNode('Remove');
+    removeLink.setAttribute('href', 'remove.html');
+    removeLink.setAttribute('type', 'submit');
+    removeLink.setAttribute('id', 'remove_equivalency_btn');
+    removeLink.appendChild(removeLinkText);
+
+    // append Remove link to list item
+    listItem.appendChild(removeLink);
+
+    // append list item
+    list.appendChild(listItem);
+  }
+}
+
 $(document).ready(function(){
 
 	// Load universities at load
