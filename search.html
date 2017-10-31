@@ -92,6 +92,16 @@
             // this might just be the worst way to do this...
             listItem.appendChild(document.createTextNode(' | '));
             listItem.appendChild(editLink);
+
+
+            var removeLink = document.createElement('a');
+            var removeLinkText = document.createTextNode('Remove');
+            removeLink.setAttribute('href', '/path/to/add.html');
+            removeLink.appendChild(removeLinkText);
+
+            listItem.appendChild(document.createTextNode(' | '));
+            listItem.appendChild(removeLink);
+
             list.appendChild(listItem);
         }
     }
