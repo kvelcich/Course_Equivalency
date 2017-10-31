@@ -127,7 +127,6 @@
 		if ($conn->query($query)) echo 1;
 		else echo 0;
 
-		$internal = add
 		$conn->close();
 	}
 

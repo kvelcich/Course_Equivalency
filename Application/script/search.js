@@ -154,7 +154,7 @@ $(document).ready(function(){
 		var course_number = $('input#number_select').val();
 
 		$.post('ajax.php', {function: function_name, school: school_name, department: department_name, number: course_number}, function(data) {
-			console.log(data);
+			listEquivalencies(JSON.parse(data));
 		});
 	});
 });
