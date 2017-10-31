@@ -11,6 +11,8 @@
 			return login();
 		} else if ($_POST['function'] == 'search') {
 			return search();
+		} else if ($_POST['function'] == 'add_entry') {
+			return addEntry();
 		}
 
 		else {
@@ -70,9 +72,52 @@
 		$conn->close();
 	}
 
-	function addCourse() {
+	function addCourse($conn, $school, $department, $number) {
+		$query = "SELECT * FROM course WHERE school = '{$school}' AND department = '{$department}' AND course_number = '{$number}'";
+		$result = $conn->query($query);
+
+		$rows = mysqli_num_rows($result);
+		if ($rows == 0) {
+			$query = "INSERT INTO course (school, department, course_number) VALUES ('{$school}', '{$department}', '{$number}')";
+			if ($conn->query($query) == FALSE) return -1;
+		}
+
+		$query = "SELECT course_id FROM course WHERE school = '{$school}' AND department = '{$department}' AND course_number = '{$number}'";
+		$result = $conn->query($query);
+		$row = mysqli_fetch_assoc($result);
+		return $row['course_id'];
+	}
+
+	function addEquivalency($conn, $internal, $external, $equivalent) {
+		$query = "INSERT INTO equivalent (internal_id, external_id, is_equivalent) VALUES ($internal, $external, $equivalent)";
+		return ($conn->query($query) == FALSE) ? -1 : 1;
+	}
+
+	function addEntry() {
 		$conn = connect();
-    $conn->close();
+		$internal = addCourse($conn, 'Santa Clara University',  $_POST['department_internal'], $_POST['number_internal']);
+		if ($internal == -1) {
+			echo -1;
+			$conn->close();
+			return;
+		}
+
+		$external = addCourse($conn, $_POST['school_external'], $_POST['department_external'], $_POST['number_external']);
+		if ($external == -1) {
+			echo -2;
+			$conn->close();
+			return;
+		}
+
+		$equiv = $_POST['equivalent'] == 'Yes' ? 1 : 0;
+		if (addEquivalency($conn, $internal, $external, $equiv) == -1) {
+			echo -3;
+			$conn->close();
+			return;
+		}
+
+		echo 1;
+		$conn->close();
 	}
 
 	function login() {
@@ -80,25 +125,20 @@
 
 		$query = "SELECT * FROM advisor WHERE email = '{$_POST['email']}' AND password = '{$_POST['password']}'";
 		$result = $conn->query($query);
-		$rows = 0;
-		while($row = mysqli_fetch_assoc($result)) $rows++;
 
-		if ($rows == 1) {
-			echo 1;
-		} else {
-			echo 0;
-		}
+		$rows = mysqli_num_rows($result);
+		if ($rows == 1) echo 1;
+		else echo 0;
 
 		$conn->close();
 	}
+
 	function addUser() {
 		$conn = connect();
 
 		$query = "INSERT INTO advisor (email, password) VALUES ('{$_POST['email']}', '{$_POST['password']}')";
-		if ($conn->query($query))
-			echo 1;
-		else
-			echo 0;
+		if ($conn->query($query)) echo 1;
+		else echo 0;
 		$conn->close();
 	}
 ?>
