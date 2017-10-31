@@ -126,11 +126,44 @@
 		$query = "DELETE FROM equivalent WHERE internal_id = '{$_POST['internal_id']}' AND external_id = '{$_POST['external_id']}'";
 		if ($conn->query($query)) echo 1;
 		else echo 0;
+
+		$internal = add
 		$conn->close();
 	}
 
 	function editEntry() {
+		$conn = connect();
 
+		$query = "DELETE FROM equivalent WHERE internal_id = '{$_POST['internal_id']}' AND external_id = '{$_POST['external_id']}'";
+		if (!$conn->query($query)) {
+			echo 0;
+			$conn->close();
+			return;
+		}
+
+		$internal = addCourse($conn, 'Santa Clara University',  $_POST['department_internal'], $_POST['number_internal']);
+		if ($internal == -1) {
+			echo -1;
+			$conn->close();
+			return;
+		}
+
+		$external = addCourse($conn, $_POST['school_external'], $_POST['department_external'], $_POST['number_external']);
+		if ($external == -1) {
+			echo -2;
+			$conn->close();
+			return;
+		}
+
+		$equiv = $_POST['equivalent'] == 'Yes' ? 1 : 0;
+		if (addEquivalency($conn, $internal, $external, $equiv) == -1) {
+			echo -3;
+			$conn->close();
+			return;
+		}
+
+		echo 1;
+		$conn->close();
 	}
 
 	function login() {
