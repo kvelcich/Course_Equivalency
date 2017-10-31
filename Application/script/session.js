@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	$.post('session.php', {}, function(data) {
-		console.log(data);
+	var function_name = 'start_session';
+	$.post('session.php', {function: function_name}, function(data) {
+		console.log("Session started");
 	});
 });
