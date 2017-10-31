@@ -20,7 +20,7 @@
 
     // results of search
     var equivalencies = [{"school_external":"San Jose State Univeristy","department_external":"CSE","number_external":"101","is_equivalent":"0",
-                            "school_internal":"Santa Clara University","department_internal":"COEN","number_internal":"204"}]
+                        "school_internal":"Santa Clara University","department_internal":"COEN","number_internal":"204","id_external":"1","id_internal":"16"}];
 
 
     function listSchools(){
@@ -76,6 +76,9 @@
             var internalDept = document.createTextNode(obj.department_internal);
             var internalCourseNum = document.createTextNode(obj.number_internal);
 
+            var externalId = obj.id_external;
+            var internalId = obj.id_internal;
+
             // list the course equivalencies including:
             // school name, department, and course number
             listItem.appendChild(externalSchool);
@@ -111,6 +114,7 @@
             editLink.setAttribute('href', 'edit.html');
             editLink.setAttribute('type', 'submit');
             editLink.setAttribute('id', 'edit_equivalency_btn');
+            editLink.setAttribute('onclick', `setCourseIds(${externalId}, ${internalId})`);
             editLink.appendChild(editLinkText);
 
             // append Edit link to list item
@@ -124,6 +128,7 @@
             removeLink.setAttribute('href', 'remove.html');
             removeLink.setAttribute('type', 'submit');
             removeLink.setAttribute('id', 'remove_equivalency_btn');
+            removeLink.setAttribute('onclick', `setCourseIds(${externalId}, ${internalId})`);
             removeLink.appendChild(removeLinkText);
 
             // append Remove link to list item
@@ -133,6 +138,16 @@
             list.appendChild(listItem);
         }
     }
+
+    // get ids of list item to be edited or removed
+    function setCourseIds(ext_id, int_id){
+
+        console.log(ext_id);
+        console.log(int_id);
+
+        // set to session global vars
+    }
+
     </script>
 
     <!--CHANGE INTO DROPDOWN BOXES LATER ON-->
