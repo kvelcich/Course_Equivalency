@@ -26,7 +26,7 @@ function listDepartments(departments){
   }
 }
 
-function listEquivalencies(equivalencies){
+function listEquivalencies(){
   var list = document.getElementById('results');
 
     // for every object in jsonArray, create list element with details
@@ -44,6 +44,9 @@ function listEquivalencies(equivalencies){
     var internalSchool = document.createTextNode(obj.school_internal);
     var internalDept = document.createTextNode(obj.department_internal);
     var internalCourseNum = document.createTextNode(obj.number_internal);
+
+    var externalId = obj.id_external;
+    var internalId = obj.id_internal;
 
     // list the course equivalencies including:
     // school name, department, and course number
@@ -80,6 +83,7 @@ function listEquivalencies(equivalencies){
     editLink.setAttribute('href', 'edit.html');
     editLink.setAttribute('type', 'submit');
     editLink.setAttribute('id', 'edit_equivalency_btn');
+    editLink.setAttribute('onclick', `setCourseIds(${externalId}, ${internalId})`);
     editLink.appendChild(editLinkText);
 
     // append Edit link to list item
@@ -93,6 +97,7 @@ function listEquivalencies(equivalencies){
     removeLink.setAttribute('href', 'remove.html');
     removeLink.setAttribute('type', 'submit');
     removeLink.setAttribute('id', 'remove_equivalency_btn');
+    removeLink.setAttribute('onclick', `setCourseIds(${externalId}, ${internalId})`);
     removeLink.appendChild(removeLinkText);
 
     // append Remove link to list item
@@ -101,6 +106,15 @@ function listEquivalencies(equivalencies){
     // append list item
     list.appendChild(listItem);
   }
+}
+
+// get ids of list item to be edited or removed
+function setCourseIds(ext_id, int_id){
+
+  console.log(ext_id);
+  console.log(int_id);
+
+    // set to session global vars
 }
 
 $(document).ready(function(){
