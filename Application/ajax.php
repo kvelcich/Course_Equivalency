@@ -13,6 +13,8 @@
 			return search();
 		} else if ($_POST['function'] == 'add_entry') {
 			return addEntry();
+		} else if ($_POST['function'] == 'remove_entry') {
+			return removeEntry();
 		}
 
 		else {

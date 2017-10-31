@@ -57,16 +57,9 @@ function listEquivalencies(equivalencies){
     listItem.appendChild(externalCourseNum);
     listItem.appendChild(document.createTextNode(' | '));
 
-    // if equivalent coourse, print "Equivalent"
-    if (obj.is_equivalent == 1){
-        console.log('course equivalent');
-        listItem.appendChild(document.createTextNode('Equivalent'));
-    }
-    // else print "Not Equivalent"
-    else{
-        console.log('course not equivalent');
-        listItem.appendChild(document.createTextNode('Not Equivalent'));
-    }
+    // if equivalent coourse, print "Equivalent" - else print "Not Equivalent"
+    if (obj.is_equivalent == 1) listItem.appendChild(document.createTextNode('Equivalent'));
+    else listItem.appendChild(document.createTextNode('Not Equivalent'));
 
     listItem.appendChild(document.createTextNode(' | '));
 
@@ -83,7 +76,7 @@ function listEquivalencies(equivalencies){
     editLink.setAttribute('href', 'edit.html');
     editLink.setAttribute('type', 'submit');
     editLink.setAttribute('id', 'edit_equivalency_btn');
-    editLink.setAttribute('onclick', `setCourseIds(${externalId}, ${internalId})`);
+    editLink.setAttribute('onclick', `editEntry(${externalId}, ${internalId})`);
     editLink.appendChild(editLinkText);
 
     // append Edit link to list item
@@ -94,10 +87,10 @@ function listEquivalencies(equivalencies){
     // create remove link with proper attributes
     var removeLink = document.createElement('a');
     var removeLinkText = document.createTextNode('Remove');
-    removeLink.setAttribute('href', 'remove.html');
+    removeLink.setAttribute('href', '#');
     removeLink.setAttribute('type', 'submit');
     removeLink.setAttribute('id', 'remove_equivalency_btn');
-    removeLink.setAttribute('onclick', `setCourseIds(${externalId}, ${internalId})`);
+    removeLink.setAttribute('onclick', `removeEntry(${externalId}, ${internalId})`);
     removeLink.appendChild(removeLinkText);
 
     // append Remove link to list item
@@ -108,13 +101,19 @@ function listEquivalencies(equivalencies){
   }
 }
 
-// get ids of list item to be edited or removed
-function setCourseIds(ext_id, int_id){
+function editEntry(ext_id, int_id) {
+	console.log(ext_id);
+	console.log(int_id);
+}
 
-  console.log(ext_id);
-  console.log(int_id);
-
-    // set to session global vars
+function removeEntry(ext_id, int_id) {
+	console.log("entered");
+	$.post('ajax.php', {function: 'remove_entry', internal_id: int_id, external_id: ext_id}, function(data) {
+		console.log("exit");
+		console.log(data);
+		if (data == 1) window.location.href = 'search.html';
+		else if (data == 0) alert('Error deleting entry');
+	});
 }
 
 $(document).ready(function(){
