@@ -120,6 +120,19 @@
 		$conn->close();
 	}
 
+	function removeEntry() {
+		$conn = connect();
+
+		$query = "DELETE FROM equivalent WHERE internal_id = '{$_POST['internal_id']}' AND external_id = '{$_POST['external_id']}'";
+		if ($conn->query($query)) echo 1;
+		else echo 0;
+		$conn->close();
+	}
+
+	function editEntry() {
+
+	}
+
 	function login() {
 		$conn = connect();
 
