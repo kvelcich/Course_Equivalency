@@ -10,22 +10,22 @@
         <h1>Edit a Course Equivalency:</h1>
         <input type="text" placeholder="School" id="school_external" required>
         <br></br>
-        <input type="text" placeholder="Course" id="course_external" required>
+        <input type="text" placeholder="Course" id="department_external" required>
         <br></br>
         <input type="number" placeholder="Number" id="number_external" required>
         <br></br>
         <p>Is equivalent?</p>
-        <select name="equivalency">
+        <select id="isEquivalentSelect">
             <option value="yes">Yes</option>
             <option value="no">No</option>
         </select>
         <br></br>
         <label>Santa Clara University</label>
         <br></br>
-        <input type="text" placeholder="Course" id="internal_course" required>
+        <input type="text" placeholder="Course" id="department_internal" required>
         <br></br>
-        <input type="number" placeholder="Number" id="internal_number" required>
+        <input type="number" placeholder="Number" id="number_internal" required>
         <br></br>
-        <input type="submit" value="Edit Equivalency"></input>
+        <input id="edit_button" type="submit" value="Edit Equivalency"></input>
     </body>
 </html>

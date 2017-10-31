@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	$('#add_button').click(function() {
 		// Check if all entries filled out
-		console.log("ENTERING ADD");
 		var function_name = 'add_entry';
 		var dep_internal = $('input#dep_internal').val();
 		var num_internal = $('input#num_internal').val();
