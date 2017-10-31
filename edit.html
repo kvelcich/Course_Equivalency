@@ -2,40 +2,56 @@
 <html>
     <head>
         <title>SCU Course Equivalency </title>
-        <link rel="stylesheet" href="style/edit.css">
     </head>
+    <script>
+        var equivalencyData = [{"school_external":"San Jose State Univeristy","department_external":"CSE","number_external":"101","is_equivalent":"0",
+                              "school_internal":"Santa Clara University","department_internal":"COEN","number_internal":"204","id_external":"1","id_internal":"16"}];;
 
-    <body>
+        function populateInputs(){
+            var obj = equivalencyData[0];
 
-        <div class = "search">
-            <h1>Edit a Course Equivalency:</h1>
+            var school_external = obj.school_external;
+            var department_external = obj.department_external;
+            var number_external = obj.number_external;
 
-            <form>
-                <label></label>
-                <input type = "text" placeholder = "School" name="school" required>
-                <br></br>
-                <input type = "text" placeholder = "Course" name="course" required>
-                <br></br>
-                <input type = "number" placeholder = "Number" name="number" required>
-                <br></br>
+            var school_internal = obj.school_internal;
+            var department_internal = obj.department_internal;
+            var number_internal = obj.number_internal;
 
-                <p>Is equivalent?</p>
-                <select name="equivalency">
-                    <!-- if yes... call add function -->
-                    <option value="yes">Yes</option>
-                    <!-- if no... remove function -->
-                    <option value="no">No</option>
-                </select>
-                <br></br>
-                <label>Santa Clara University</label>
-                <br></br>
-                <input type = "text" placeholder="Course" name="scucourse" required>
-                <br></br>
-                <input type = "number" placeholder = "Number" name="scunumber" required>
-                <br></br>
-                <input type="submit" value="Edit Equivalency"></input>
-            </form>
-        </div>
+            const keys = Object.keys(obj);
+            // console.log(keys[0]);
+            // console.log(keys[1]);
 
+            const length = keys.length;
+
+            for (var i = 0; i<length; i++){
+                const key = keys[i];
+                console.log('key: ' + key);
+                document.getElementById(key)[0].value = obj[key]
+            }
+            console.log(school_external);
+        }
+    </script>
+    <body onload="populateInputs();">
+        <h1>Edit a Course Equivalency:</h1>
+        <input type="text" id="school_external" required>
+        <br></br>
+        <input type="text" placeholder="Course" id="course_external" required>
+        <br></br>
+        <input type="number" placeholder="Number" id="number_external" required>
+        <br></br>
+        <p>Is equivalent?</p>
+        <select name="equivalency">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <br></br>
+        <label>Santa Clara University</label>
+        <br></br>
+        <input type="text" placeholder="Course" id="internal_course" required>
+        <br></br>
+        <input type="number" placeholder="Number" id="internal_number" required>
+        <br></br>
+        <input type="submit" value="Edit Equivalency"></input>
     </body>
 </html>
