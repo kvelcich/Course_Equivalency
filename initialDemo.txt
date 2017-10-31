@@ -1,0 +1,23 @@
+COEN Graduate Student Course Equivalency System
+
+Description:
+
+New COEN graduate students from schools other than
+SCU often claim they have taken the equivalent of
+SCU courses, which may or may not be true.
+Individual faculty advisors try to make a
+determination of equivalency. This system
+would identify courses for which equivalency
+had already been determined.
+
+
+Required functions for initial operational system:
+
+1)
+Account creation and login
+2)
+Equivalency insertion
+3)
+Equivalency deletion and editing
+4)
+Show a list of all courses inside the system
