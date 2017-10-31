@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>SCU Course Equivalency </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="script.js"></script>
 </head>
 
 <body>
@@ -16,9 +18,9 @@
       Course Number: <input id="num_external" type="text" placeholder="Number" required>
       <br></br>
       <p>Is equivalent?</p>
-      <select name="equivalency">
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
+      <select id="equivalency">
+        <option>Yes</option>
+        <option>No</option>
       </select>
       <br></br>
       <label>Santa Clara University</label>
@@ -27,8 +29,8 @@
       <br></br>
       <input id="num_internal" type="text" placeholder="Number" required>
       <br></br>
-      <input type="submit" value="Add Equivalency"></input>
-      </form>
+      <input id="add_button" type="submit" value="Add Equivalency"></input>
+      <div id="nice"></div>
     </div>
   </div>
 </body>
