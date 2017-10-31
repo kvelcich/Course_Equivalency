@@ -17,13 +17,23 @@
 
     var schoolResults = [{"school":"San Jose State Univeristy"},{"school":"Stanford Univeristy"},{"school":"Univeristy of California, Santa Cruz"}];
     var departmentResults = [{"department":"CSE"}];
+    var equivalencies = [{"course_id":"2","school":"San Jose State Univeristy","department":"CSE","course_number":"102","internal_id":"13","external_id":"2","is_equivalent":"1"},
+                         {"course_id":"10","school":"Univeristy of California, Santa Cruz","department":"CSE","course_number":"202","internal_id":"14","external_id":"10","is_equivalent":"1"},
+                         {"course_id":"8","school":"Stanford Univeristy","department":"CS","course_number":"104","internal_id":"14","external_id":"8","is_equivalent":"1"},
+                         {"course_id":"1","school":"San Jose State Univeristy","department":"CSE","course_number":"101","internal_id":"16","external_id":"1","is_equivalent":"0"}]
+
 
     function listSchools(){
         var select = document.getElementById('schoolSelect');
 
+        // clear previous options
+        // for(var i = 0; i< select.options.length; i++){
+        //     select.options[i] = null;
+        // }
+
         for (var i = 0; i<schoolResults.length; i++){
             var obj = schoolResults[i];
-            console.log(obj.school);
+            // console.log(obj.school);
 
             var option = document.createElement("option");
             option.text = obj.school;
@@ -46,6 +56,45 @@
             select.appendChild(option);
         }
     }
+
+    function listEquivalencies(){
+        var list = document.getElementById('results');
+
+        for (var i = 0; i<equivalencies.length; i++){
+            var obj = equivalencies[i];
+            var listItem = document.createElement('LI');
+
+            var listSchool = document.createTextNode(obj.school);
+            var listDept = document.createTextNode(obj.department);
+            var listCourseNum = document.createTextNode(obj.course_number);
+
+            listItem.appendChild(listSchool);
+            listItem.appendChild(document.createTextNode(' | '));
+            listItem.appendChild(listDept);
+            listItem.appendChild(document.createTextNode(' | '));
+            listItem.appendChild(listCourseNum);
+            listItem.appendChild(document.createTextNode(' | '));
+
+            if (obj.is_equivalent == 1){
+                console.log('course equivalent');
+                listItem.appendChild(document.createTextNode('Equivalent'));
+            }
+            else{
+                console.log('course not equivalent');
+                listItem.appendChild(document.createTextNode('Not Equivalent'));
+            }
+
+            var editLink = document.createElement('a');
+            var editLinkText = document.createTextNode('Edit');
+            editLink.setAttribute('href', '/path/to/add.html');
+            editLink.appendChild(editLinkText);
+
+            // this might just be the worst way to do this...
+            listItem.appendChild(document.createTextNode(' | '));
+            listItem.appendChild(editLink);
+            list.appendChild(listItem);
+        }
+    }
     </script>
 
     <!--CHANGE INTO DROPDOWN BOXES LATER ON-->
@@ -57,20 +106,20 @@
             <form>
                 <select name="School" id="schoolSelect" value="Get Schools">
                     <option value=""></option>
-                    <!-- get values from database -->
                 </select>
+
                 <select name="Department" id="departmentSelect" value="Get Departments">
                     <option value=""></option>
                     <!-- get values from database -->
                 </select>
+
                 <input name="CourseNumber" id="numberSelect" value="Get CourseNumbers" type="number">
                     <!-- get values from database -->
                 </input>
 
                 <br></br>
-                <input type="submit"></input>
+                <input type="button" value="Submit" onclick="listEquivalencies();"></input>
             </form>
-
             <!-- <label><b>School</b></label>
             <input type = "text" placeholder = "School" name="school" required>
 
@@ -83,6 +132,11 @@
             <!-- <button type="submit" value="search" onclick="search(school,course,number)">Search</button> -->
         </div>
 
+        <div>
+            <h3>Equivalent Courses</h3>
+            <ul id="results">
+            </ul>
+        </div>
         <!-- <script language="javascript">
             function search(school,course,number){
                 //search through DB for matches

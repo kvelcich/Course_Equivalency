@@ -3,8 +3,6 @@ $(document).ready(function(){
         var function_name = 'add_user';
         var email = $('input#email_input').val();
         var pass = $('input#pass_input').val();
-        console.log(email);
-        console.log(pass);
 
         $.post('ajax.php', {function: function_name, email: email, password: pass}, function(success) {
             if (success == 1) {
