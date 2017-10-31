@@ -17,10 +17,10 @@
 
     var schoolResults = [{"school":"San Jose State Univeristy"},{"school":"Stanford Univeristy"},{"school":"Univeristy of California, Santa Cruz"}];
     var departmentResults = [{"department":"CSE"}];
-    var equivalencies = [{"course_id":"2","school":"San Jose State Univeristy","department":"CSE","course_number":"102","internal_id":"13","external_id":"2","is_equivalent":"1"},
-                         {"course_id":"10","school":"Univeristy of California, Santa Cruz","department":"CSE","course_number":"202","internal_id":"14","external_id":"10","is_equivalent":"1"},
-                         {"course_id":"8","school":"Stanford Univeristy","department":"CS","course_number":"104","internal_id":"14","external_id":"8","is_equivalent":"1"},
-                         {"course_id":"1","school":"San Jose State Univeristy","department":"CSE","course_number":"101","internal_id":"16","external_id":"1","is_equivalent":"0"}]
+
+    // results of search
+    var equivalencies = [{"school_external":"San Jose State Univeristy","department_external":"CSE","number_external":"101","is_equivalent":"0",
+                            "school_internal":"Santa Clara University","department_internal":"COEN","number_internal":"204"}]
 
 
     function listSchools(){
@@ -57,7 +57,7 @@
         }
     }
 
-    function listEquivalencies(equivalencies){
+    function listEquivalencies(){
         var list = document.getElementById('results');
 
         // for every object in jsonArray, create list element with details
@@ -66,17 +66,23 @@
 
             // creat list <li> element
             var listItem = document.createElement('LI');
-            var listSchool = document.createTextNode(obj.school);
-            var listDept = document.createTextNode(obj.department);
-            var listCourseNum = document.createTextNode(obj.course_number);
+
+            // set external attributes attributes
+            var externalSchool = document.createTextNode(obj.school_external);
+            var externalDept = document.createTextNode(obj.department_external);
+            var externalCourseNum = document.createTextNode(obj.number_external);
+
+            var internalSchool = document.createTextNode(obj.school_internal);
+            var internalDept = document.createTextNode(obj.department_internal);
+            var internalCourseNum = document.createTextNode(obj.number_internal);
 
             // list the course equivalencies including:
             // school name, department, and course number
-            listItem.appendChild(listSchool);
-            listItem.appendChild(document.createTextNode(' | '));
-            listItem.appendChild(listDept);
-            listItem.appendChild(document.createTextNode(' | '));
-            listItem.appendChild(listCourseNum);
+            listItem.appendChild(externalSchool);
+            listItem.appendChild(document.createTextNode(' '));
+            listItem.appendChild(externalDept);
+            listItem.appendChild(document.createTextNode(' - '));
+            listItem.appendChild(externalCourseNum);
             listItem.appendChild(document.createTextNode(' | '));
 
             // if equivalent coourse, print "Equivalent"
@@ -90,6 +96,13 @@
                 listItem.appendChild(document.createTextNode('Not Equivalent'));
             }
 
+            listItem.appendChild(document.createTextNode(' | '));
+
+            listItem.appendChild(internalSchool);
+            listItem.appendChild(document.createTextNode(' '));
+            listItem.appendChild(internalDept);
+            listItem.appendChild(document.createTextNode(' - '));
+            listItem.appendChild(internalCourseNum);
             listItem.appendChild(document.createTextNode(' | '));
 
             // create edit link with proper attributes
