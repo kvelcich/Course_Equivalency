@@ -9,48 +9,49 @@
 
         function populateInputs(){
             var obj = equivalencyData[0];
-
-            var school_external = obj.school_external;
-            var department_external = obj.department_external;
-            var number_external = obj.number_external;
-
-            var school_internal = obj.school_internal;
-            var department_internal = obj.department_internal;
-            var number_internal = obj.number_internal;
-
-            const keys = Object.keys(obj);
-            // console.log(keys[0]);
-            // console.log(keys[1]);
-
-            const length = keys.length;
-
-            for (var i = 0; i<length; i++){
-                const key = keys[i];
-                console.log('key: ' + key);
-                document.getElementById(key)[0].value = obj[key]
+            var is_equivalent = 'No';
+            var other_option = 'Yes';
+            if (obj.is_equivalent == 1) {
+                is_equivalent = 'Yes';
+                other_option = 'No';
             }
-            console.log(school_external);
+
+            document.getElementById('school_external').value = obj.school_external;
+            document.getElementById('department_external').value = obj.department_external;
+            document.getElementById('number_external').value = obj.number_external;
+            document.getElementById('department_internal').value = obj.department_internal;
+            document.getElementById('number_internal').value = obj.number_internal;
+
+            var select = document.getElementById('isEquivalentSelect');
+            var option = document.createElement("option");
+            option.text = is_equivalent;
+            option.setAttribute('selected', 'selected');
+            select.appendChild(option);
+
+            var option2 = document.createElement('option');
+            option2.text = other_option;
+            select.appendChild(option2);
         }
     </script>
     <body onload="populateInputs();">
         <h1>Edit a Course Equivalency:</h1>
-        <input type="text" id="school_external" required>
+        <input type="text" id="school_external" value="School" required>
         <br></br>
-        <input type="text" placeholder="Course" id="course_external" required>
+        <input type="text" id="department_external" value="Department" required>
         <br></br>
-        <input type="number" placeholder="Number" id="number_external" required>
+        <input type="number" id="number_external" value="0"  required>
         <br></br>
         <p>Is equivalent?</p>
-        <select name="equivalency">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
+        <select id="isEquivalentSelect" name="equivalency">
+            <!-- <option value="yes">Yes</option>
+            <option value="no">No</option> -->
         </select>
         <br></br>
-        <label>Santa Clara University</label>
+        <label id="school_internal" value="School">Santa Clara University</label>
         <br></br>
-        <input type="text" placeholder="Course" id="internal_course" required>
+        <input type="text" id="department_internal" value="Department" required>
         <br></br>
-        <input type="number" placeholder="Number" id="internal_number" required>
+        <input type="number" id="number_internal" value="0" required>
         <br></br>
         <input type="submit" value="Edit Equivalency"></input>
     </body>
