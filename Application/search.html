@@ -2,56 +2,22 @@
 <html>
 <head>
   <title>SCU Course Equivalency </title>
-  <script>
-    function listSchools(schools){
-      var select = document.getElementById('school_select');
-
-      for (var i = 0; i<schools.length; i++){
-        var obj = schools[i];
-        console.log(obj.school);
-
-        var option = document.createElement("option");
-        option.text = obj.school;
-        option.value = i;
-
-        select.appendChild(option);
-      }
-    }
-
-    function listDepartments(departments){
-      var select = document.getElementById('department_select');
-
-      for (var i = 0; i<departments.length; i++){
-        var obj = departments[i];
-        var option = document.createElement("option");
-
-        option.text = obj.department;
-        option.value = i;
-
-        select.appendChild(option);
-      }
-    }
-  </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="loadfromdb.js"></script>
-  <script src="script.js"></script>
+  <script src="script/search.js"></script>
 </head>
-
 <body>
-  <div class="search">
-  <h1>Search for a Course:</h1>
-    <div class="form">
-      <select id="school_select" value="Get Schools">
-        <option value=""></option>
-      </select>
-      <select id="department_select" value="Get Departments">
-        <option value=""></option>
-      </select>
-      <input id="number_select"></input>
-      <br></br>
-      <input type="submit" id="search" value="Search"></input>
-    </div>
-  </div>
-  <div id="advdiv"></div>
+<h1>Search for a Course:</h1>
+  <select id="school_select" value="Get Schools">
+    <option value=""></option>
+  </select>
+
+  <select id="department_select" value="Get Departments">
+    <option value=""></option>
+  </select>
+
+  <input id="number_select"></input>
+
+  <br></br>
+  <input type="submit" id="search" value="Search"></input>
 </body>
 </html>

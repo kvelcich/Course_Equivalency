@@ -3,35 +3,36 @@
 <head>
   <title>SCU Course Equivalency </title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script/add.js"></script>
 </head>
-
 <body>
-  <div class="search">
-    <h1>Add a Course Equivalency:</h1>
+  <h1>Add a Course Equivalency:</h1>
 
-    <div class="form">
-      School: <input id="school_external" type="text" placeholder="School" required>
-      <br></br>
-      Department: <input id="dep_external" type="text" placeholder="Course" required>
-      <br></br>
-      Course Number: <input id="num_external" type="text" placeholder="Number" required>
-      <br></br>
-      <p>Is equivalent?</p>
-      <select id="equivalency">
-        <option>Yes</option>
-        <option>No</option>
-      </select>
-      <br></br>
-      <label>Santa Clara University</label>
-      <br></br>
-      <input id="dep_internal" type="text" placeholder="Course" required>
-      <br></br>
-      <input id="num_internal" type="text" placeholder="Number" required>
-      <br></br>
-      <input id="add_button" type="submit" value="Add Equivalency"></input>
-      <div id="nice"></div>
-    </div>
-  </div>
+  School: <input id="school_external" type="text" placeholder="School" required>
+  <br></br>
+
+  Department: <input id="dep_external" type="text" placeholder="Course" required>
+  <br></br>
+
+  Course Number: <input id="num_external" type="text" placeholder="Number" required>
+  <br></br>
+
+  <p>Is equivalent?</p>
+  <select id="equivalency">
+    <option>Yes</option>
+    <option>No</option>
+  </select>
+  <br></br>
+
+  <label>Santa Clara University</label>
+  <br></br>
+
+  <input id="dep_internal" type="text" placeholder="Course" required>
+  <br></br>
+
+  <input id="num_internal" type="text" placeholder="Number" required>
+  <br></br>
+
+  <input id="add_button" type="submit" value="Add Equivalency"></input>
 </body>
 </html>
