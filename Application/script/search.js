@@ -28,7 +28,7 @@ function listDepartments(departments){
 
 function listEquivalencies(equivalencies){
   var list = document.getElementById('results');
-
+  list.innerHTML = '';
     // for every object in jsonArray, create list element with details
   for (var i = 0; i<equivalencies.length; i++){
     var obj = equivalencies[i];
