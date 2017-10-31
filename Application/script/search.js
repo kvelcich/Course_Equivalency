@@ -35,29 +35,43 @@ function listEquivalencies(equivalencies){
 
     // creat list <li> element
     var listItem = document.createElement('LI');
-    var listSchool = document.createTextNode(obj.school);
-    var listDept = document.createTextNode(obj.department);
-    var listCourseNum = document.createTextNode(obj.course_number);
 
-    // list the course equivalency details including:
+    // set external attributes attributes
+    var externalSchool = document.createTextNode(obj.school_external);
+    var externalDept = document.createTextNode(obj.department_external);
+    var externalCourseNum = document.createTextNode(obj.number_external);
+
+    var internalSchool = document.createTextNode(obj.school_internal);
+    var internalDept = document.createTextNode(obj.department_internal);
+    var internalCourseNum = document.createTextNode(obj.number_internal);
+
+    // list the course equivalencies including:
     // school name, department, and course number
-    listItem.appendChild(listSchool);
-    listItem.appendChild(document.createTextNode(' | '));
-    listItem.appendChild(listDept);
-    listItem.appendChild(document.createTextNode(' | '));
-    listItem.appendChild(listCourseNum);
+    listItem.appendChild(externalSchool);
+    listItem.appendChild(document.createTextNode(' '));
+    listItem.appendChild(externalDept);
+    listItem.appendChild(document.createTextNode(' - '));
+    listItem.appendChild(externalCourseNum);
     listItem.appendChild(document.createTextNode(' | '));
 
-    // print if equivalent
+    // if equivalent coourse, print "Equivalent"
     if (obj.is_equivalent == 1){
         console.log('course equivalent');
         listItem.appendChild(document.createTextNode('Equivalent'));
     }
+    // else print "Not Equivalent"
     else{
         console.log('course not equivalent');
         listItem.appendChild(document.createTextNode('Not Equivalent'));
     }
 
+    listItem.appendChild(document.createTextNode(' | '));
+
+    listItem.appendChild(internalSchool);
+    listItem.appendChild(document.createTextNode(' '));
+    listItem.appendChild(internalDept);
+    listItem.appendChild(document.createTextNode(' - '));
+    listItem.appendChild(internalCourseNum);
     listItem.appendChild(document.createTextNode(' | '));
 
     // create edit link with proper attributes
