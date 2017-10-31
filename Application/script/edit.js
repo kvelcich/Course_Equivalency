@@ -58,7 +58,8 @@ $(document).ready(function(){
 			number_internal: num_internal,
 			equivalent: equiv
 		}, function(data) {
-			console.log(data);
+			if (data < 0) alert('Error adding entry');
+			else if (data == 1) window.location.href = 'search.html';
 		});
 	});
 });

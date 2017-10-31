@@ -18,10 +18,8 @@ $(document).ready(function(){
 			number_internal: num_internal,
 			equivalent: equiv
 		}, function(data) {
-			console.log("ADDED");
-			$('div#nice').append(data);
-			if (data < 0) console.log("Error adding: " + data);
-			else if (data == 1) console.log("Added entry successfully");
+			if (data < 0) alert('Error adding entry');
+			else if (data == 1) window.location.href = 'search.html';
 		});
 	});
 });
