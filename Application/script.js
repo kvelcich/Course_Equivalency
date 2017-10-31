@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	
-	/*
 	$('#login_button').click(function() {
 		var function_name = 'login';
 		var email = $('input#email_input').val();
