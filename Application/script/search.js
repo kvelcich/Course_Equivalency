@@ -73,7 +73,7 @@ function listEquivalencies(equivalencies){
     // create edit link with proper attributes
     var editLink = document.createElement('a');
     var editLinkText = document.createTextNode('Edit');
-    editLink.setAttribute('href', 'edit.html');
+    editLink.setAttribute('href', '#');
     editLink.setAttribute('type', 'submit');
     editLink.setAttribute('id', 'edit_equivalency_btn');
     editLink.setAttribute('onclick', `editEntry(${externalId}, ${internalId})`);
@@ -102,15 +102,13 @@ function listEquivalencies(equivalencies){
 }
 
 function editEntry(ext_id, int_id) {
-	console.log(ext_id);
-	console.log(int_id);
+	$.post('session.php', {function: 'set_equivalent', internal_id: int_id, external_id: ext_id}, function(data) {
+		window.location.href = 'edit.html';
+	});
 }
 
 function removeEntry(ext_id, int_id) {
-	console.log("entered");
 	$.post('ajax.php', {function: 'remove_entry', internal_id: int_id, external_id: ext_id}, function(data) {
-		console.log("exit");
-		console.log(data);
 		if (data == 1) window.location.href = 'search.html';
 		else if (data == 0) alert('Error deleting entry');
 	});
