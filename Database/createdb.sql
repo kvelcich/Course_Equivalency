@@ -13,6 +13,7 @@ CREATE TABLE equivalent (
     external_id      INT NOT NULL,
     is_equivalent    INT(1),
 
+	PRIMARY KEY (internal_id, external_id),
     FOREIGN KEY (internal_id) REFERENCES course(course_id),
     FOREIGN KEY (external_id) REFERENCES course(course_id),
 
