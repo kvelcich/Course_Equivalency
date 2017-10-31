@@ -84,11 +84,13 @@
                 listItem.appendChild(document.createTextNode('Not Equivalent'));
             }
 
-            // var editLink = document.createElement('a');
-            // var editLinkText = document.createTextNode('Edit');
-            // editLink.setAttribute('href', '/path/to/add.html');
-            // editLink.appendChild(editLinkText);
-            //
+            var editLink = document.createElement('a');
+            var editLinkText = document.createTextNode('Edit');
+            editLink.setAttribute('href', '/path/to/add.html');
+            editLink.appendChild(editLinkText);
+
+            // this might just be the worst way to do this...
+            listItem.appendChild(document.createTextNode(' | '));
             listItem.appendChild(editLink);
             list.appendChild(listItem);
         }
