@@ -1,11 +1,11 @@
 $(document).ready(function(){
 	$(function() {
 		//autocomplete filled out textboxes
-		$("input#school_external").autocomplete({
-			source:'searchschool.php'
+		$("#school_external").autocomplete({
+			source:'searchschool.php',
 			minLength:1
 		});
-		$("input#dep_external").autocomplete({
+		$("#dep_external").autocomplete({
 			source:'searchdep.php',
 			minLength:1
 		});
