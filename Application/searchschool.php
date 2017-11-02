@@ -5,13 +5,13 @@ require database.php;
   $searchTerm = $_GET['term'];
 
   //get matched data from schools
-  $query = $db->query("SELECT DISTINCT school FROM course WHERE school LIKE '%".$searchTerm."%' ORDER BY school");
-  $result = $conn->query($query);
-  $rows = array();
+  $query = "SELECT * FROM course WHERE school LIKE '%".$searchTerm."%' ORDER BY school";
+  $result = $connect->query($query);
+
   while($row = mysqli_fetch_assoc($result)) {
-      $rows[] = $row;
+      $rows[] = $row['school'];
   }
   //return json data
-  echo json_encode($row);
+  echo json_encode($rows);
   $connect -> close();
 ?>
