@@ -13,6 +13,6 @@ require database.php;
         $rows[] = $row;
     }
     //return json data
-    echo json_encode($data);
+    echo json_encode($row);
     $connect -> close();
 ?>
