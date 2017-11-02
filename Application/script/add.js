@@ -3,11 +3,11 @@ $(document).ready(function(){
 		//autocomplete filled out textboxes
 		$("#school_external").autocomplete({
 			source:'searchschool.php',
-			minLength:1
+			selectFirst: true
 		});
 		$("#dep_external").autocomplete({
 			source:'searchdep.php',
-			minLength:1
+			selectFirst: true
 		});
 	});
 
