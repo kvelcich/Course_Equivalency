@@ -5,14 +5,14 @@ require database.php;
     $searchTerm = $_GET['term'];
 
     //select data from department
-    $query = "SELECT DISTINCT department FROM course WHERE department LIKE '%".$searchTerm."%' ORDER BY department";
+    $query = "SELECT * FROM course WHERE department LIKE '%".$searchTerm."%' ORDER BY department";
 
-    $result = $conn->query($query);
-    $rows = array();
+    $result = $connect->query($query);
+
     while($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
+        $rows[] = $row['department'];
     }
     //return json data
-    echo json_encode($row);
+    echo json_encode($rows);
     $connect -> close();
 ?>
