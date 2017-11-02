@@ -1,5 +1,5 @@
 <?php
-require database.php;
+require 'database.php';
   $connect = connect();
   //get search term
   $searchTerm = $_GET['term'];
