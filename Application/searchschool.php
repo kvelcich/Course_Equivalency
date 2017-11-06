@@ -12,7 +12,8 @@ require 'database.php';
   while($row = mysqli_fetch_assoc($result)) {
       $rows[] = $row['school'];
   }
-  $connect -> close();
+
   //return json data
   echo json_encode($rows);
+  $connect -> close();
 ?>
