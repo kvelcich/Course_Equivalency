@@ -13,3 +13,5 @@ http://students.engr.scu.edu/~kvelcich/Application
 * Remove only valid school/department options
 * Sessions
 * enforce all user input as CAPS to avoid duplicate info
+* Check if all information is filled out before adding/editing
+* Check for add conflicts
