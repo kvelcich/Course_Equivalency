@@ -1,6 +1,6 @@
 # Course Equivalency
 
-http://students.engr.scu.edu/~kvelcich/equivalency
+http://students.engr.scu.edu/~kvelcich/Application
 
 * Add description for why was deemed equivalent
 * Add author for equivalency, and only let them change it
