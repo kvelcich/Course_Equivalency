@@ -10,7 +10,7 @@ http://students.engr.scu.edu/~kvelcich/Application
 * Add all SCU courses (database)
 * CSS / Stylessearch.html (esai)
 * Secondary password (e-man)
-* Remove only valid school/department options (database, search)
+* ~~Remove only valid school/department options (database, search)~~
 * Sessions - (kevin)
 * ignore case for string comparison
 * Check if all information is filled out before adding/editing c(add, edit)
