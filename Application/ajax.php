@@ -46,8 +46,8 @@
 		$conn = connect();
 
 		$school = $_POST['school'];
-		$query = "SELECT DISTINCT department FROM course";
-	 	if ($school != '') $query .= " WHERE school = '{$school}'";
+		$query = "SELECT DISTINCT C.department FROM course C, equivalent E WHERE C.course_id = E.external_id";
+	 	if ($school != '') $query .= " AND school = '{$school}'";
 
 		$result = $conn->query($query);
 		$rows = array();
