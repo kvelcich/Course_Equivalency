@@ -101,6 +101,72 @@ function listEquivalencies(equivalencies){
   }
 }
 
+function createTable(equivalencies){
+  var table = document.getElementById('tbodyID');
+  // delete all existing rows before adding again
+  while(table.rows.length > 0)
+    table.deleteRow(0);
+
+  // for every object in jsonArray, create row
+  for (var i = 0; i<equivalencies.length; i++){
+    var obj = equivalencies[i];
+
+    var externalId = obj.id_external;
+    var internalId = obj.id_internal;
+
+    var row = table.insertRow(0);
+    var equivalency = row.insertCell(0);
+    var icon_true = document.createElement('span');
+    icon_true.setAttribute('class', 'glyphicon glyphicon-ok');
+    var icon_false = document.createElement('span');
+    icon_false.setAttribute('class', 'glyphicon glyphicon-remove');
+
+    // add check if equivalent else X
+    if (obj.is_equivalent == 1)
+        equivalency.appendChild(icon_true);
+    else
+        equivalency.appendChild(icon_false);
+
+    var externalSchool = row.insertCell(1);
+    externalSchool.innerHTML = obj.school_external;
+
+    var externalDept = row.insertCell(2);
+    externalDept.innerHTML = obj.department_external;
+
+    var externalCourseNum = row.insertCell(3);
+    externalCourseNum.innerHTML = obj.number_external;
+
+    var internalSchool = row.insertCell(4);
+    internalSchool.innerHTML = obj.school_internal;
+
+    var internalDept = row.insertCell(5);
+    internalDept.innerHTML = obj.department_internal;
+
+    var internalCourseNum = row.insertCell(6);
+    internalCourseNum.innerHTML = obj.number_internal;
+
+    var edit_option = row.insertCell(7);
+    var editLink = document.createElement('a');
+    var editLinkText = document.createTextNode('Edit');
+    editLink.setAttribute('href', 'edit.html');
+    editLink.setAttribute('type', 'submit');
+    editLink.setAttribute('id', 'edit_equivalency_btn');
+    editLink.setAttribute('onclick', `setCourseIds(${externalId}, ${internalId})`);
+    editLink.appendChild(editLinkText);
+    edit_option.appendChild(editLink);
+
+    var remove_option = row.insertCell(8);
+    var removeLink = document.createElement('a');
+    var removeLinkText = document.createTextNode('Remove');
+    removeLink.setAttribute('href', 'remove.html');
+    removeLink.setAttribute('type', 'submit');
+    removeLink.setAttribute('id', 'remove_equivalency_btn');
+    removeLink.setAttribute('onclick', `setCourseIds(${externalId}, ${internalId})`);
+    removeLink.appendChild(removeLinkText);
+    remove_option.appendChild(removeLink);
+  }
+}
+
 function editEntry(ext_id, int_id) {
 	$.post('session.php', {function: 'set_equivalent', internal_id: int_id, external_id: ext_id}, function(data) {
 		window.location.href = 'edit.html';

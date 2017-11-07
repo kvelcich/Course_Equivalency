@@ -3,28 +3,49 @@
 <head>
   <title>SCU Course Equivalency</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="script/session.js"></script>
   <script src="script/search.js"></script>
 </head>
 <body>
-  <a href="add.html">Add an equivalency</a>
-  <h1>Search for a Course:</h1>
-  <select id="school_select" value="Get Schools">
-    <option value=""></option>
-  </select>
+  <div class="container">
+    <a href="add.html">Add an equivalency</a>
+    <div class="page-header">
+      <h1>Search for a Course:</h1>
+    </div>
+    <select id="school_select" value="Get Schools">
+      <option value=""></option>
+    </select>
 
-  <select id="department_select" value="Get Departments">
-    <option value=""></option>
-  </select>
+    <select id="department_select" value="Get Departments">
+      <option value=""></option>
+    </select>
 
-  <input id="number_select"></input>
+    <input id="number_select"></input>
 
-  <br></br>
-  <input type="submit" id="search" value="Search"></input>
+    <br></br>
+    <input type="submit" class="btn btn-primary btn-md" id="search" value="Search"></input>
 
-  <div>
-    <h3>Equivalent Courses</h3>
-	<ul id="results"></ul>
+    <div>
+      <br/>
+      <table id="resultsTable" class="table">
+        <thead>
+          <tr>
+            <th>Equivalent?</th>
+            <th>External School</th>
+            <th>Department</th>
+            <th>Number</th>
+            <th>Internal School</th>
+            <th>Department</th>
+            <th>Number</th>
+            <th>Edit</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyID"></tbody>
+      </table>
+    </div>
   </div>
 </body>
 </html>
