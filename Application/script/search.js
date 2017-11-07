@@ -148,20 +148,20 @@ function createTable(equivalencies){
     var edit_option = row.insertCell(7);
     var editLink = document.createElement('a');
     var editLinkText = document.createTextNode('Edit');
-    editLink.setAttribute('href', 'edit.html');
+    editLink.setAttribute('href', '#');
     editLink.setAttribute('type', 'submit');
     editLink.setAttribute('id', 'edit_equivalency_btn');
-    editLink.setAttribute('onclick', `setCourseIds(${externalId}, ${internalId})`);
+    editLink.setAttribute('onclick', `editEntry(${externalId}, ${internalId})`);
     editLink.appendChild(editLinkText);
     edit_option.appendChild(editLink);
 
     var remove_option = row.insertCell(8);
     var removeLink = document.createElement('a');
     var removeLinkText = document.createTextNode('Remove');
-    removeLink.setAttribute('href', 'remove.html');
+    removeLink.setAttribute('href', '#');
     removeLink.setAttribute('type', 'submit');
     removeLink.setAttribute('id', 'remove_equivalency_btn');
-    removeLink.setAttribute('onclick', `setCourseIds(${externalId}, ${internalId})`);
+    removeLink.setAttribute('onclick', `removeEntry(${externalId}, ${internalId})`);
     removeLink.appendChild(removeLinkText);
     remove_option.appendChild(removeLink);
   }
