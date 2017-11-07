@@ -2,7 +2,8 @@
 <html>
     <head>
         <title>SCU Course Equivalency</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
 
     <script>
@@ -83,6 +84,7 @@
 
             // list the course equivalencies including:
             // school name, department, and course number
+            listItem.setAttribute('class', 'list-group-item');
             listItem.appendChild(externalSchool);
             listItem.appendChild(document.createTextNode(' '));
             listItem.appendChild(externalDept);
@@ -141,6 +143,72 @@
         }
     }
 
+    function createTable(){
+        var table = document.getElementById('tbodyID');
+        // delete all existing rows before adding again
+        while(table.rows.length > 0)
+            table.deleteRow(0);
+
+        // for every object in jsonArray, create row
+        for (var i = 0; i<equivalencies.length; i++){
+            var obj = equivalencies[i];
+
+            var externalId = obj.id_external;
+            var internalId = obj.id_internal;
+
+            var row = table.insertRow(0);
+            var equivalency = row.insertCell(0);
+            var icon_true = document.createElement('span');
+            icon_true.setAttribute('class', 'glyphicon glyphicon-ok');
+            var icon_false = document.createElement('span');
+            icon_false.setAttribute('class', 'glyphicon glyphicon-remove');
+
+            // add check if equivalent else X
+            if (obj.is_equivalent == 1)
+                equivalency.appendChild(icon_true);
+            else
+                equivalency.appendChild(icon_false);
+
+            var externalSchool = row.insertCell(1);
+            externalSchool.innerHTML = obj.school_external;
+
+            var externalDept = row.insertCell(2);
+            externalDept.innerHTML = obj.department_external;
+
+            var externalCourseNum = row.insertCell(3);
+            externalCourseNum.innerHTML = obj.number_external;
+
+            var internalSchool = row.insertCell(4);
+            internalSchool.innerHTML = obj.school_internal;
+
+            var internalDept = row.insertCell(5);
+            internalDept.innerHTML = obj.department_internal;
+
+            var internalCourseNum = row.insertCell(6);
+            internalCourseNum.innerHTML = obj.number_internal;
+
+            var edit_option = row.insertCell(7);
+            var editLink = document.createElement('a');
+            var editLinkText = document.createTextNode('Edit');
+            editLink.setAttribute('href', 'edit.html');
+            editLink.setAttribute('type', 'submit');
+            editLink.setAttribute('id', 'edit_equivalency_btn');
+            editLink.setAttribute('onclick', `setCourseIds(${externalId}, ${internalId})`);
+            editLink.appendChild(editLinkText);
+            edit_option.appendChild(editLink);
+
+            var remove_option = row.insertCell(8);
+            var removeLink = document.createElement('a');
+            var removeLinkText = document.createTextNode('Remove');
+            removeLink.setAttribute('href', 'remove.html');
+            removeLink.setAttribute('type', 'submit');
+            removeLink.setAttribute('id', 'remove_equivalency_btn');
+            removeLink.setAttribute('onclick', `setCourseIds(${externalId}, ${internalId})`);
+            removeLink.appendChild(removeLinkText);
+            remove_option.appendChild(removeLink);
+        }
+    }
+
     // get ids of list item to be edited or removed
     function setCourseIds(ext_id, int_id){
 
@@ -155,8 +223,10 @@
     <!--CHANGE INTO DROPDOWN BOXES LATER ON-->
     <body onload="listSchools(); listDepartments();">
 
-        <div class = "search">
-            <h1>Search for a Course:</h1>
+        <div class = "container">
+            <div class="page-header">
+                <h1>Search for a Course:</h1>
+            </div>
 
             <form>
                 <select name="School" id="schoolSelect" value="Get Schools">
@@ -173,7 +243,7 @@
                 </input>
 
                 <br></br>
-                <input type="button" value="Submit" onclick="listEquivalencies();"></input>
+                <input type="button" class="btn btn-primary btn-md" value="Submit" onclick="createTable();"></input>
             </form>
             <!-- <label><b>School</b></label>
             <input type = "text" placeholder = "School" name="school" required>
@@ -185,13 +255,35 @@
             <input type = "number" placeholder = "Number" name="number" required> -->
 
             <!-- <button type="submit" value="search" onclick="search(school,course,number)">Search</button> -->
+            <br/>
+            <table id="resultsTable" class="table">
+                <thead>
+                    <tr>
+                        <th>Equivalent?</th>
+                        <th>External School</th>
+                        <th>Department</th>
+                        <th>Number</th>
+                        <th>Internal School</th>
+                        <th>Department</th>
+                        <th>Number</th>
+                        <th>Edit</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyID">
+
+                </tbody>
+            </table>
+
+
+            <!-- <div>
+                <h3>Equivalent Courses</h3>
+                <ul id="results" class="list-group">
+                </ul>
+            </div> -->
         </div>
 
-        <div>
-            <h3>Equivalent Courses</h3>
-            <ul id="results">
-            </ul>
-        </div>
+
         <!-- <script language="javascript">
             function search(school,course,number){
                 //search through DB for matches
