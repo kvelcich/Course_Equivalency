@@ -1,6 +1,6 @@
 # Course Equivalency
 
-http://students.engr.scu.edu/~kvelcich/equivalency
+http://students.engr.scu.edu/~kvelcich/Application
 
 * Add description for why was deemed equivalent
 * Add author for equivalency, and only let them change it
@@ -13,3 +13,5 @@ http://students.engr.scu.edu/~kvelcich/equivalency
 * Remove only valid school/department options
 * Sessions
 * enforce all user input as CAPS to avoid duplicate info
+* Check if all information is filled out before adding/editing
+* Check for add conflicts
