@@ -30,7 +30,7 @@
 		$conn = connect();
 
 		$department = $_POST['department'];
-		$query = "SELECT DISTINCT school FROM course WHERE school != 'Santa Clara University'";
+		$query = "SELECT DISTINCT C.school FROM course C, equivalent E WHERE C.course_id = E.external_id";
 		if ($department != '') $query .= "AND department = '{$department}'";
 
 		$result = $conn->query($query);
