@@ -28,7 +28,7 @@ function listDepartments(departments){
 
 function listEquivalencies(equivalencies){
   var list = document.getElementById('results');
-  list.innerHTML = '';
+  // list.innerHTML = '';
     // for every object in jsonArray, create list element with details
   for (var i = 0; i<equivalencies.length; i++){
     var obj = equivalencies[i];
@@ -114,7 +114,7 @@ function createTable(equivalencies){
     var externalId = obj.id_external;
     var internalId = obj.id_internal;
 
-    var row = table.insertRow(0);
+    var row = table.insertRow(i);
     var equivalency = row.insertCell(0);
     var icon_true = document.createElement('span');
     icon_true.setAttribute('class', 'glyphicon glyphicon-ok');
