@@ -1,0 +1,87 @@
+body {
+  padding-top: 0px;
+  margin-top: 0px;
+	background: #e2e2e2;
+  text-align: center;
+}
+
+#title {
+  position: absolute;
+  background: #1668d6;
+  width: 100%;
+  box-shadow: 0px 2px 25px grey;
+} #title h2 {
+  color: white;
+  padding-bottom: 10px;
+} #title img {
+  position: absolute;
+  left: 0;
+  height: 50px;
+  width: auto;
+  margin: 10px;
+}
+
+#login {
+  position: relative;
+	display: inline-block;
+	padding-right: 50px;
+	margin-top: 250px;
+	border-radius: 7px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+	background: white;
+  box-shadow: 5px 5px 15px grey;
+} #login .portion {
+  float: left;
+} #login .first {
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  height: 400px;
+  width: 200px;
+  background: #1668d6;
+} #login .second {
+  padding: 50px;
+} #login .first img {
+  height: 150px;
+  width: auto;
+  margin-top: 125px;
+}
+
+.container {
+	text-align: center;
+}
+
+.signin-text {
+	margin: 0px;
+	text-align: center;
+}
+
+.p {
+	padding: 5px;
+	margin-bottom: 15px;
+	color: #8b9195;
+}
+
+.textbox {
+    border: 1px solid #c6cdd2;
+    border-radius: 2px;
+    padding: 8px;
+    line-height: 18px;
+    margin: 2.5% auto 0;
+    min-width: 70%;
+    transition: 0.25s;
+    color: #8e9295;
+
+	width: 250px;
+} .textbox:focus {
+	color: #8aafe9;
+}
+
+.btn {
+	width: 250px;
+}
+
+#noaccount {
+  margin-top: 30px;
+  color: #8b9195;
+}
