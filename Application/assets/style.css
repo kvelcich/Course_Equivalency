@@ -81,7 +81,12 @@ body {
 	width: 250px;
 }
 
+#bottom-text {
+  margin-top: 10px;
+} #bottom-text p {
+  margin:0px;
+  padding: 0px;
+}
 #noaccount {
-  margin-top: 30px;
   color: #8b9195;
 }
