@@ -7,7 +7,7 @@ body {
 
 #title {
   position: absolute;
-  background: #94191b;
+  background: #1668d6;
   width: 100%;
   box-shadow: 0px 2px 25px grey;
 } #title h2 {
@@ -38,7 +38,7 @@ body {
   border-bottom-left-radius: 7px;
   height: 400px;
   width: 200px;
-  background: #94191b;
+  background: #1668d6;
 } #login .second {
   padding: 50px;
 } #login .first img {
