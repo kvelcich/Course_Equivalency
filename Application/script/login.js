@@ -10,8 +10,11 @@ $(document).ready(function(){
 				console.log('Login successful');
         		window.location.href = 'search.html';
 			} else if (data == 0) {
-				console.log('Invalid login');
-        		alert('Invalid Login Info!');
+        var el = $('.invalid-div');
+        var newel = el.clone(true);
+        el.before(newel);
+        $(".invalid-div:last").remove();
+        $('#invalid-credentials').html('<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Invalid Credentials!');
 			}
 		});
 	});
