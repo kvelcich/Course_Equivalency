@@ -16,4 +16,3 @@ http://students.engr.scu.edu/~kvelcich/Application
 * Check if all information is filled out before adding/editing c(add, edit)
 * Check for add conflicts (add, edit) - tracy
 * Sign up page straight to home page rather than login
-* logout
