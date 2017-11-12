@@ -1,3 +1,8 @@
+/*
+#b30838
+#1668d6
+*/
+
 body {
   padding-top: 0px;
   margin-top: 0px;
@@ -7,7 +12,7 @@ body {
 
 #title {
   position: absolute;
-  background: #1668d6;
+  background: #b30838;
   width: 100%;
   box-shadow: 0px 2px 25px grey;
 } #title h2 {
@@ -39,7 +44,7 @@ body {
   border-bottom-left-radius: 7px;
   height: 400px;
   width: 200px;
-  background: #1668d6;
+  background: #b30838;
 } #main-container .second {
   padding: 50px;
 } #main-container .first img {
