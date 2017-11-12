@@ -5,10 +5,42 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="https://use.fontawesome.com/fc1c78b3eb.js"></script>
   <script src="script/session.js"></script>
   <script src="script/signup.js"></script>
 </head>
 <body>
+  <div id="title">
+    <img src="assets/img/library.svg"/>
+    <h2>Santa Clara University Course Equivalency</h2>
+  </div>
+  <div class="container">
+    <div id="main-container">
+      <div class="first portion">
+        <img src="assets/img/library.svg"/>
+      </div>
+      <div class="second portion animated fadeIn">
+        <h3 class="signin-text">Sign Up</h3>
+        <p class="signin-text p">Enter your desired email and password</p>
+        <div class="form-group">
+          <input id="email_input" class="textbox" type="text" placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+          <input id="pass_input" class="textbox" type="password" placeholder="password">
+        </div>
+        <div class="form-group">
+          <input id="pass_input2" class="textbox" type="password" placeholder="confirm password">
+        </div>
+        <input id="signup_button" class="btn btn-success btn-md" type="submit" value="Sign Up"></input>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+<!--
   <div class="container">
     <div class="page-header">
       <h1>SCU Course Equivalency</h1>
@@ -17,19 +49,18 @@
     <div class="form-group">
       <label>Email</label>
       <br/>
-      <input type="text" id="email_input" placeholder="bbronco@scu.edu" required>
+      <input id="email_input" class="textbox" type="text" placeholder="email@example.com">
     </div>
     <div class="form-group">
       <label>Password</label>
       <br/>
-      <input type="password" id="pass_input" placeholder="password" required>
+      <input id="pass_input" class="textbox" type="password" placeholder="password">
     </div>
     <div class="form-group">
       <label>Re-type password</label>
       <br/>
-      <input type="password" id="pass_input2" placeholder="password" required>
+      <input id="pass_input2" class="textbox" type="password" placeholder="password">
     </div>
     <input id="signup_button" class="btn btn-primary btn-md" type="submit" value="Sign Up"></input>
   </div>
-</body>
-</html>
+-->

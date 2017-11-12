@@ -8,7 +8,7 @@ $(document).ready(function(){
 		$.post('ajax.php', {function: function_name, email: email, password: pass}, function(data) {
 			if (data == 1) {
 				console.log('Login successful');
-        		window.location.href = 'search.html';
+      		window.location.href = 'search.html';
 			} else if (data == 0) {
         var el = $('.invalid-div');
         var newel = el.clone(true);
@@ -18,4 +18,11 @@ $(document).ready(function(){
 			}
 		});
 	});
+
+  $('#signup_button').click(function() {
+    $('.second').addClass("animated fadeOut");
+    setTimeout(function(){
+      window.location.href = 'signup.html';
+    }, 200);
+  });
 });

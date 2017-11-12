@@ -21,9 +21,10 @@ body {
   margin: 10px;
 }
 
-#login {
+#main-container {
   position: relative;
 	display: inline-block;
+  width: 605px;
 	padding-right: 50px;
 	margin-top: 20%;
 	border-radius: 7px;
@@ -31,17 +32,17 @@ body {
   border-bottom-left-radius: 20px;
 	background: white;
   box-shadow: 5px 5px 15px grey;
-} #login .portion {
+} #main-container .portion {
   float: left;
-} #login .first {
+} #main-container .first {
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
   height: 400px;
   width: 200px;
   background: #1668d6;
-} #login .second {
+} #main-container .second {
   padding: 50px;
-} #login .first img {
+} #main-container .first img {
   height: 150px;
   width: auto;
   margin-top: 125px;
@@ -68,7 +69,6 @@ body {
     padding: 8px;
     line-height: 18px;
     margin: 2.5% auto 0;
-    min-width: 70%;
     transition: 0.25s;
     color: #8e9295;
 
