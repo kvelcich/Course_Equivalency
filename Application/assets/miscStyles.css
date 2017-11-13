@@ -140,6 +140,7 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
 }
 .selector-container{
     width: 30%;
+    margin-left: 8%;
 }
 .selector{
     width: 42%;
