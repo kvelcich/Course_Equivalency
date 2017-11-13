@@ -7,56 +7,85 @@
   <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <!-- <link rel="stylesheet" href="assets/style.css"> -->
+  <link rel="stylesheet" href="assets/miscStyles.css">
   <script src="script/session.js"></script>
   <script src="script/add.js"></script>
 </head>
 <body>
+  <div id="title">
+    <img src="assets/img/library.svg"/>
+    <h2>Santa Clara University Course Equivalency</h2>
+  </div>
   <div class="container">
-    <div class="page-header">
+
+    <div class="page-header" id="section-header">
       <h1>Add a Course Equivalency:</h1>
     </div>
+
     <div class="form-group">
-      <label>School </label>
-      <br/>
-      <input id="school_external" type="text" placeholder="School" required>
+      <div class="group">
+        <input id="school_external" type="text" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>University</label>
+      </div>
     </div>
 
     <div class="form-group">
-      <label>Department: </label>
-      <br/>
-      <input id="dep_external" type="text" placeholder="Course" required>
+      <div class="group">
+        <input id="dep_external" type="text" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Department</label>
+      </div>
     </div>
 
     <div class="form-group">
-      <label>Course Number: </label>
-      <br/>
-      <input id="num_external" type="number" placeholder="Number" required>
+      <div class="group">
+        <input id="num_external" type="number"  required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Course Number</label>
+      </div>
     </div>
 
-    <label>Is equivalent?</label>
-    <select id="equivalency">
-    <option>Yes</option>
-    <option>No</option>
-    </select>
-    <br/>
-    <p></p>
-    <label>School: </label>
-    <p style="width: 13.4%; border: 1px solid silver; color: gray; padding: 3px; background-color: whitesmoke; ">Santa Clara University</p>
+    <div class="selector-container">
+      <h3>Is equivalent?</h3>
+      <select id="equivalency" class="selector">
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    <div class="form-group" style="padding-top: 24px;">
+      <div class="group">
+        <input placeholder="Santa Clara University"readonly></input>
+      </div>
+    </div>
 
     <div class="form-group">
-      <label>Department: </label>
-      <br/>
-      <input id="dep_internal" type="text" placeholder="Department" required>
+      <div class="group">
+        <input id="dep_internal" type="text" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Department</label>
+      </div>
     </div>
 
     <div class="form-group">
-      <label>Course Number: </label>
-      <br/>
-      <input id="num_internal" type="number" placeholder="Number" required>
+      <div class="group">
+        <input id="num_internal" type="number" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label> Course Number</label>
+      </div>
     </div>
-    <input id="add_button" type="submit" class="btn btn-success btn-md" value="Add Equivalency"></input>
+    <input id="add_button" type="submit" class="btn btn-success btn-md" value="Add Equivalency">
+    </input>
 
-    <input type="button" value="Back" class="btn btn-default btn-md" onclick="window.location.href='search.html'" />
+    <input id="back_button" type="button" value="Cancel" class="btn btn-default btn-md" onclick="window.location.href='search.html'" />
   </div>
 </body>
 </html>

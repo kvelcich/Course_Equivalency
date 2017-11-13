@@ -5,34 +5,61 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="assets/style.css"> -->
+        <link rel="stylesheet" href="assets/miscStyles.css">
         <script src="script/session.js"></script>
         <script src="script/edit.js"></script>
     </head>
     <body>
+        <div id="title">
+          <img src="assets/img/library.svg"/>
+          <h2>Santa Clara University Course Equivalency</h2>
+        </div>
         <div class="container">
         <div class="page-header">
             <h1>Edit a Course Equivalency:</h1>
         </div>
-        <input type="text" placeholder="School" id="school_external" required>
-        <br></br>
-        <input type="text" placeholder="Course" id="department_external" required>
-        <br></br>
-        <input type="number" placeholder="Number" id="number_external" required>
-        <br></br>
-        <label>Is equivalent?</label>
+        <div class="group">
+            <input type="text" id="school_external" required>
+            <span class="bar"></span>
+            <label>University</label>
+        </div>
+        <div class="group">
+            <input type="text" id="department_external" required>
+            <span class="bar"></span>
+            <label>Department</label>
+        </div>
+        <div class="group">
+            <input type="number" id="number_external" required>
+            <span class="bar"></span>
+            <label>Course Number</label>
+        </div>
+        <h3>Is equivalent?</h3>
         <select id="isEquivalentSelect">
             <!-- <option value="yes">Yes</option>
             <option value="no">No</option> -->
         </select>
-        <br></br>
-        <label>Santa Clara University</label>
-        <br></br>
-        <input type="text" placeholder="Course" id="department_internal" required>
-        <br></br>
-        <input type="number" placeholder="Number" id="number_internal" required>
-        <br></br>
+
+        <div class="form-group" style="padding-top: 24px;">
+          <div class="group">
+            <input placeholder="Santa Clara University"readonly></input>
+          </div>
+        </div>
+
+        <div class="group">
+            <input type="text" id="department_internal" required>
+            <span class="bar"></span>
+            <label>Department</label>
+        </div>
+
+        <div class="group">
+            <input type="number" id="number_internal" required>
+            <span class="bar"></span>
+            <label>Course Number</label>
+        </div>
+
         <input id="edit_button" class="btn btn-primary btn-md" type="submit" value="Edit Equivalency"></input>
-        <button class="btn btn-default btn-md" onclick = a href="search.html">Go Back</button>
+        <button class="btn btn-default btn-md" onclick = a href="search.html">Cancel</button>
         </div>
     </body>
 </html>
