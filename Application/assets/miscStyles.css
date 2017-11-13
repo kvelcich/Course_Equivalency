@@ -45,19 +45,19 @@ input:focus {
 
 label 				 {
     color: #999;
-    font-size: 18px;
-    font-weight: normal;
     position: absolute;
     pointer-events: none;
     left: 5px;
     top: 10px;
+    font-size: 18px;
+    font-weight: 200;
     transition: 0.3s ease all;
     -moz-transition: 0.3s ease all;
     -webkit-transition: 0.3s ease all;
 }
 
 input:focus ~ label, input:valid ~ label {
-    top: -20px;
+    top: -16px;
     font-size: 14px;
     color: #b30838;
 }
@@ -70,14 +70,14 @@ input:focus ~ label, input:valid ~ label {
 
 .bar:before, .bar:after 	{
     content:'';
-    height:2px;
-    width:0;
-    bottom:1px;
-    position:absolute;
-    background:#b30838;
-    transition:0.2s ease all;
-    -moz-transition:0.2s ease all;
-    -webkit-transition:0.2s ease all;
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #b30838;
+    transition: 0.3s ease all;
+    -moz-transition: 0.3s ease all;
+    -webkit-transition: 0.3s ease all;
 }
 .bar:before {
     left:50%;
@@ -92,26 +92,26 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
 
 @-webkit-keyframes inputHighlighter {
 	from {
-        background:#b30838;
+        background: #b30838;
     } to {
         width:0;
-        background:transparent;
+        background: transparent;
     }
 }
 @-moz-keyframes inputHighlighter {
 	from {
-        background:#b30838;
+        background: #b30838;
     } to {
         width:0;
-        background:transparent;
+        background: transparent;
     }
 }
 @keyframes inputHighlighter {
 	from {
-        background:#b30838;
+        background: #b30838;
     } to {
         width:0;
-        background:transparent;
+        background: transparent;
     }
 }
 
