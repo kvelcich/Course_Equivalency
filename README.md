@@ -16,3 +16,4 @@ http://students.engr.scu.edu/~kvelcich/Application
 * Character limits
 * Sort search results
 * no refresh when deleting
+* make icon clickable to go to search.html
