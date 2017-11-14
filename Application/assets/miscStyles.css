@@ -46,8 +46,8 @@ body {
 input {
     font-size:18px;
     padding:10px 10px 10px 5px;
-    display:block;
     width:30%;
+    display:block;
     border:none;
     border-bottom:1px solid #757575;
 }
@@ -63,6 +63,7 @@ label 				 {
     top: 10px;
     font-size: 18px;
     font-weight: 200;
+    /* transitions */
     transition: 0.3s ease all;
     -moz-transition: 0.3s ease all;
     -webkit-transition: 0.3s ease all;
@@ -157,4 +158,8 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
 .selector{
     width: 42%;
     padding: 10px;
+}
+
+select {
+    width: 30%;
 }
