@@ -15,3 +15,4 @@ http://students.engr.scu.edu/~kvelcich/Application
 * Sign up page straight to home page rather than login
 * Character limits
 * Sort search results
+* no refresh when deleting
