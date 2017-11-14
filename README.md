@@ -14,3 +14,4 @@ http://students.engr.scu.edu/~kvelcich/Application
 * Check for add conflicts (add, edit) 
 * Sign up page straight to home page rather than login
 * Character limits
+* Sort search results
