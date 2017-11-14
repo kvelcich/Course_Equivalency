@@ -20,6 +20,18 @@ body {
   height: 50px;
   width: auto;
   margin: 10px;
+} #title a {
+    float: right;
+    margin-top: -50px;
+    padding-bottom: 10px;
+    margin-right: 20px;
+    font-size: 22px;
+    color: white;
+}
+
+.logout {
+    background: whitesmoke;
+    width: auto;
 }
 
 .container{
@@ -90,7 +102,7 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
     width:50%;
 }
 
-@-webkit-keyframes inputHighlighter {
+/*@-webkit-keyframes inputHighlighter {
 	from {
         background: #b30838;
     } to {
@@ -113,7 +125,7 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
         width:0;
         background: transparent;
     }
-}
+}*/
 
 #add_button{
     width: auto;

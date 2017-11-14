@@ -16,6 +16,11 @@
   <div id="title">
     <img src="assets/img/library.svg">
     <h2>Santa Clara University Course Equivalency</h2>
+    <div class="logout">
+        <a href="login.html">Logout
+        <i class="fa fa-lock" aria-hidden="true"></i>
+        </a>
+    </div>
   </div>
   <div class="container">
 
@@ -23,8 +28,9 @@
       <h1>
         <span>Search for a Course:</span>
         <div class="btn-toolbar pull-right" style="font-size: 20px;">
-        <span>Add</span>
-        <a href="add.html" class="glyphicon glyphicon-plus btn-lg" title="Add an equivalency"></a>
+        <a href="add.html">Add
+            <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
         </div>
       </h1>
     </div>
@@ -45,7 +51,7 @@
 
     <div class="form-group" style="padding-top: 16px;">
       <div class="group">
-        <input id="number_select" type="number"></input>
+        <input id="number_select" type="number" required></input>
         <span class="bar"></span>
         <label>Course Number</label>
       </div>
@@ -58,13 +64,14 @@
       <table id="resultsTable" class="table">
         <thead>
           <tr>
-            <th>Equivalent?</th>
+            <!-- <th>Equivalent?</th> -->
             <th>External School</th>
             <th>Department</th>
-            <th>Number</th>
-            <th>Internal School</th>
+            <th>Course Number</th>
+            <th>Is Equivalent?</th>
+            <!-- <th>Internal School</th> -->
             <th>Department</th>
-            <th>Number</th>
+            <th>Course Number</th>
             <th>Edit</th>
             <th>Remove</th>
           </tr>

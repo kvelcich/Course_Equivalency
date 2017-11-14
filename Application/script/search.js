@@ -115,7 +115,19 @@ function createTable(equivalencies){
     var internalId = obj.id_internal;
 
     var row = table.insertRow(i);
-    var equivalency = row.insertCell(0);
+
+    var externalSchool = row.insertCell(0);
+    externalSchool.innerHTML = obj.school_external;
+
+    var externalDept = row.insertCell(1);
+    externalDept.innerHTML = obj.department_external;
+
+    var externalCourseNum = row.insertCell(2);
+    externalCourseNum.innerHTML = obj.number_external;
+
+    // var internalSchool = row.insertCell(4);
+    // internalSchool.innerHTML = obj.school_internal;
+    var equivalency = row.insertCell(3);
     var icon_true = document.createElement('span');
     icon_true.setAttribute('class', 'glyphicon glyphicon-ok');
     var icon_false = document.createElement('span');
@@ -127,25 +139,13 @@ function createTable(equivalencies){
     else
         equivalency.appendChild(icon_false);
 
-    var externalSchool = row.insertCell(1);
-    externalSchool.innerHTML = obj.school_external;
-
-    var externalDept = row.insertCell(2);
-    externalDept.innerHTML = obj.department_external;
-
-    var externalCourseNum = row.insertCell(3);
-    externalCourseNum.innerHTML = obj.number_external;
-
-    var internalSchool = row.insertCell(4);
-    internalSchool.innerHTML = obj.school_internal;
-
-    var internalDept = row.insertCell(5);
+    var internalDept = row.insertCell(4);
     internalDept.innerHTML = obj.department_internal;
 
-    var internalCourseNum = row.insertCell(6);
+    var internalCourseNum = row.insertCell(5);
     internalCourseNum.innerHTML = obj.number_internal;
 
-    var edit_option = row.insertCell(7);
+    var edit_option = row.insertCell(6);
     var editLink = document.createElement('a');
     var editLinkText = document.createTextNode('Edit');
     editLink.setAttribute('href', '#');
@@ -155,7 +155,7 @@ function createTable(equivalencies){
     editLink.appendChild(editLinkText);
     edit_option.appendChild(editLink);
 
-    var remove_option = row.insertCell(8);
+    var remove_option = row.insertCell(7);
     var removeLink = document.createElement('a');
     var removeLinkText = document.createTextNode('Remove');
     removeLink.setAttribute('href', '#');
