@@ -19,6 +19,7 @@ $(document).ready(function(){
 		var dep_external = $('input#dep_external').val();
 		var num_external = $('input#num_external').val();
 		var equiv = $('select[id="equivalency"] option:selected').text();
+		var reason = $('input#reason').val();
 
 		$.post('ajax.php', {
 			function: function_name,
@@ -27,7 +28,8 @@ $(document).ready(function(){
 			number_external: num_external,
 			department_internal: dep_internal,
 			number_internal: num_internal,
-			equivalent: equiv
+			equivalent: equiv,
+			reason: reason
 		}, function(data) {
 			if (data < 0) alert('Error adding entry');
 			else if (data == 1) window.location.href = 'search.html';
