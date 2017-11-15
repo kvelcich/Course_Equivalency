@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	/*$(function() {
+	$(function() {
 		//autocomplete filled out textboxes
 		$("#school_external").autocomplete({
 			source:'searchschool.php',
@@ -9,7 +9,7 @@ $(document).ready(function(){
 			source:'searchdep.php',
 			minLength: 1
 		});
-	}); */
+	});
 	$('#add_button').click(function() {
 		// Check if all entries filled out
 		var function_name = 'add_entry';
