@@ -94,8 +94,8 @@
 		return $row['course_id'];
 	}
 
-	function addEquivalency($conn, $internal, $external, $equivalent) {
-		$query = "INSERT INTO equivalent (internal_id, external_id, is_equivalent) VALUES ($internal, $external, $equivalent)";
+	function addEquivalency($conn, $internal, $external, $equivalent, $user, $reason) {
+		$query = "INSERT INTO equivalent (internal_id, external_id, is_equivalent, evaluator, reason) VALUES ($internal, $external, $equivalent, '{$user}', '{$reason}')";
 		return ($conn->query($query) == FALSE) ? -1 : 1;
 	}
 
@@ -116,7 +116,9 @@
 		}
 
 		$equiv = $_POST['equivalent'] == 'Yes' ? 1 : 0;
-		if (addEquivalency($conn, $internal, $external, $equiv) == -1) {
+		$user = $_POST['username'];
+		$reason = $_POST['reason'];
+		if (addEquivalency($conn, $internal, $external, $equiv, $user, $reason) == -1) {
 			echo -3;
 			$conn->close();
 			return;
@@ -161,7 +163,9 @@
 		}
 
 		$equiv = $_POST['equivalent'] == 'Yes' ? 1 : 0;
-		if (addEquivalency($conn, $internal, $external, $equiv) == -1) {
+		$user = $_POST['username'];
+		$reason = $_POST['reason'];
+		if (addEquivalency($conn, $internal, $external, $equiv, $user, $reason) == -1) {
 			echo -3;
 			$conn->close();
 			return;
@@ -187,7 +191,7 @@
 	function login() {
 		$conn = connect();
 
-		$query = "SELECT * FROM advisor WHERE email = '{$_POST['email']}' AND password = '{$_POST['password']}'";
+		$query = "SELECT * FROM adviser WHERE email = '{$_POST['email']}' AND password = '{$_POST['password']}'";
 		$result = $conn->query($query);
 
 		$rows = mysqli_num_rows($result);
@@ -200,7 +204,7 @@
 	function addUser() {
 		$conn = connect();
 
-		$query = "INSERT INTO advisor (email, password) VALUES ('{$_POST['email']}', '{$_POST['password']}')";
+		$query = "INSERT INTO adviser (email, password) VALUES ('{$_POST['email']}', '{$_POST['password']}')";
 		if ($conn->query($query)) echo 1;
 		else echo 0;
 		$conn->close();

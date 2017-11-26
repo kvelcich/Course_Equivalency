@@ -46,20 +46,25 @@ $(document).ready(function(){
 		var dep_internal = $('input#department_internal').val();
 		var num_internal = $('input#number_internal').val();
 		var equiv = $('select[id="isEquivalentSelect"] option:selected').text();
+    var reason = $('input#reason').val();
 
-		$.post('ajax.php', {
-			function: function_name,
-			internal_id: int_id,
-			external_id: ext_id,
-			school_external: school_external,
-			department_external: dep_external,
-			number_external: num_external,
-			department_internal: dep_internal,
-			number_internal: num_internal,
-			equivalent: equiv
-		}, function(data) {
-			if (data < 0) alert('Error adding entry');
-			else if (data == 1) window.location.href = 'search.html';
+    $.post('session.php', {function: 'get_username'}, function(username) {
+				$.post('ajax.php', {
+						function: function_name,
+            internal_id: int_id,
+      			external_id: ext_id,
+						school_external: school_external,
+						department_external: dep_external,
+						number_external: num_external,
+						department_internal: dep_internal,
+						number_internal: num_internal,
+						equivalent: equiv,
+						reason: reason,
+						username: username
+				}, function(data) {
+						if (data < 0) alert('Error adding entry');
+						else if (data == 1) window.location.href = 'search.html';
+				});
 		});
 	});
 });

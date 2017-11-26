@@ -21,18 +21,21 @@ $(document).ready(function(){
 		var equiv = $('select[id="equivalency"] option:selected').text();
 		var reason = $('input#reason').val();
 
-		$.post('ajax.php', {
-			function: function_name,
-			school_external: school_external,
-			department_external: dep_external,
-			number_external: num_external,
-			department_internal: dep_internal,
-			number_internal: num_internal,
-			equivalent: equiv,
-			reason: reason
-		}, function(data) {
-			if (data < 0) alert('Error adding entry');
-			else if (data == 1) window.location.href = 'search.html';
+		$.post('session.php', {function: 'get_username'}, function(username) {
+				$.post('ajax.php', {
+						function: function_name,
+						school_external: school_external,
+						department_external: dep_external,
+						number_external: num_external,
+						department_internal: dep_internal,
+						number_internal: num_internal,
+						equivalent: equiv,
+						reason: reason,
+						username: username
+				}, function(data) {
+						if (data < 0) alert('Error adding entry');
+						else if (data == 1) window.location.href = 'search.html';
+				});
 		});
 	});
 });

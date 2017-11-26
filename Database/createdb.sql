@@ -8,6 +8,13 @@ CREATE TABLE course (
     PRIMARY KEY (course_id)
 );
 
+CREATE TABLE adviser (
+    email           VARCHAR(100) NOT NULL,
+    password        VARCHAR(100),
+
+    PRIMARY KEY (email)
+);
+
 CREATE TABLE equivalent (
     internal_id       INT NOT NULL,
     external_id       INT NOT NULL,
@@ -18,15 +25,8 @@ CREATE TABLE equivalent (
     PRIMARY KEY (internal_id, external_id),
     FOREIGN KEY (internal_id) REFERENCES course (course_id),
     FOREIGN KEY (external_id) REFERENCES course (course_id),
-    FOREIGN KEY (evaluator) REFERENCES advisor (email),
+    FOREIGN KEY (evaluator) REFERENCES adviser (email),
 
     CHECK (internal_id != external_id),
     CHECK (is_equivalent = 1 OR is_equivalent = 0)
-);
-
-CREATE TABLE advisor (
-    email           VARCHAR(100) NOT NULL,
-    password        VARCHAR(100),
-
-    PRIMARY KEY (email)
 );
