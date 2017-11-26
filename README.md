@@ -11,8 +11,8 @@ http://students.engr.scu.edu/~kvelcich/Application
 * Only let admin to set up account
 
 ### Secondary
-* no refresh when deleting
+* No refresh when deleting
 * Add all SCU courses
 * Sort search results
-* make icon clickable
+* Make icon clickable
 * Ignore case for string comparison
