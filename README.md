@@ -2,6 +2,7 @@
 
 http://students.engr.scu.edu/~kvelcich/Application
 
+### Need to implement
 * Display equivalency and author
 * Only let author change equivalency
 * Check if all information is entered before adding/editing
@@ -9,8 +10,7 @@ http://students.engr.scu.edu/~kvelcich/Application
 * Add/check character limits
 * Only let admin to set up account
 
-
-
+### Secondary
 * no refresh when deleting
 * Add all SCU courses
 * Sort search results
