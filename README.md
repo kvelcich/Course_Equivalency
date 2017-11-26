@@ -2,14 +2,15 @@
 
 http://students.engr.scu.edu/~kvelcich/Application
 
-* Add description for why was deemed equivalent (Database, add.html) - Tracy
-* Add author for equivalency, and only let them change it (Database, add/edit/search)
-* Add all SCU courses (database)
-* ignore case for string comparison
-* Check if all information is filled out before adding/editing c(add, edit)
-* Check for add conflicts (add, edit) 
-* Character limits
-* Sort search results
-* no refresh when deleting
-* make icon clickable to go to search.html
+* Display equivalency and author
+* Only let author change equivalency
+* Check if all information is entered before adding/editing
+* Check for add conflicts
+* Add/check character limits
 * Only let admin to set up account
+
+* no refresh when deleting
+* Add all SCU courses
+* Sort search results
+* make icon clickable
+* Ignore case for string comparison
