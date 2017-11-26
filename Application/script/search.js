@@ -220,4 +220,6 @@ $(document).ready(function(){
 			createTable(JSON.parse(data));
 		});
 	});
+
+  
 });
