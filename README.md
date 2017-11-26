@@ -9,6 +9,8 @@ http://students.engr.scu.edu/~kvelcich/Application
 * Add/check character limits
 * Only let admin to set up account
 
+
+
 * no refresh when deleting
 * Add all SCU courses
 * Sort search results
