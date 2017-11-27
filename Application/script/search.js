@@ -100,6 +100,12 @@ function listEquivalencies(equivalencies){
     list.appendChild(listItem);
   }
 }
+function lockAlert(email, reason){
+    var message = "Approved by: " + email;
+    message += "//n"
+    message += "Reason: " + reason;
+    alert(message);
+}
 
 function createTable(equivalencies){
   var currentUser = getUser();
@@ -166,13 +172,15 @@ function createTable(equivalencies){
     removeLink.appendChild(removeLinkText);
     remove_option.appendChild(removeLink);
 
+    var advisorEmail = obj.email;
+    var advisorReason = obj.reason;
 
-    var advisorEmail = row.insertCell(8);
-    advisorEmail.innerHTML = obj.email;
+    var infoOption = row.insertCell(8);
 
-    var reason = row.insertCell(9);
-    reason.innerHTML = obj.reason;
-
+    var infoLink = document.createElement('a');
+    infoLink.innerHTML = 'Info';
+    infoLink.setAttribute('onClick', `lockAlert(${advisorEmail}.${advisorReason})`);
+    infoOption.appendChild(infoLink);
   }
 }
 
