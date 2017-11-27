@@ -7,7 +7,6 @@ http://students.engr.scu.edu/~kvelcich/Application
 * Only let author change equivalency
 * Check if all information is entered before adding/editing
 * Check for add conflicts
-* Add/check character limits
 * Only let admin to set up account
 * Add config file for database information
 
