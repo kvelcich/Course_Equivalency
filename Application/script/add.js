@@ -33,7 +33,7 @@ $(document).ready(function(){
 						reason: reason,
 						username: username
 				}, function(data) {
-						if (data < 0) alert('Error adding entry');
+						if (data < 0) alert('Error Adding Equivalency!\nPlease check equivalency does not already exist');
 						else if (data == 1) window.location.href = 'search.html';
 				});
 		});
