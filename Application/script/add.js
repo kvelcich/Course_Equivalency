@@ -11,6 +11,13 @@ $(document).ready(function(){
 		});
 	});
 	$('#add_button').click(function() {
+		$('input#dep_internal').prop('required',true);
+		$('input#num_internal').prop('required',true);
+		$('input#school_external').prop('required',true);
+		$('input#dep_external').prop('required',true);
+		$('input#num_external').prop('required',true);
+		$('select[id="equivalency"] option:selected').prop('required',true);
+		$('input#reason').prop('required',true);
 		// Check if all entries filled out
 		var function_name = 'add_entry';
 		var dep_internal = $('input#dep_internal').val();
