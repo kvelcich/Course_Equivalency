@@ -28,9 +28,15 @@ $(document).ready(function(){
 
 		$('#signup_button').click(function() {
 				$('.second').addClass("animated fadeOut");
-				setTimeout(function(){
-						window.location.href = 'signup.html';
-				}, 200);
+				var admin = prompt("Admin Pin:","");
+				if (admin == "admin"){
+					setTimeout(function(){
+							window.location.href = 'signup.html';
+					}, 200);
+				}
+				else{
+					alert("Invalid Admin Pin!");
+				}
 		});
 });
 
