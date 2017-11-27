@@ -44,57 +44,78 @@ body {
 }
 
 input {
-    font-size:18px;
-    padding:10px 10px 10px 5px;
-    width:30%;
-    display:block;
-    border:none;
-    border-bottom:1px solid #757575;
+    width: 30%;
+    padding: 10px 10px 10px 0px;
+    display: block;
+
+    border: none;
+    border-bottom: 1px solid #757575;
+
+    font-size: 18px;
 }
 input:focus {
     outline: none;
 }
 
-label 				 {
-    color: #999;
+/* chrome, safari, opera */
+::-webkit-input-placeholder {
+    color: black;
+}
+
+/* firefox */
+::-moz-placeholder {
+    color: black;
+}
+
+label {
     position: absolute;
     pointer-events: none;
-    left: 5px;
+    left: 0px;
     top: 10px;
     font-size: 18px;
     font-weight: 200;
+    color: gray;
     /* transitions */
-    transition: 0.3s ease all;
-    -moz-transition: 0.3s ease all;
-    -webkit-transition: 0.3s ease all;
+    -moz-transition: 0.25s ease all;
+    -webkit-transition: 0.25s ease all;
+    transition: 0.25s ease all;
+
 }
 
-input:focus ~ label, input:valid ~ label {
+input:focus ~ label{
+    top: -16px;
+    font-size: 14px;
+    color: #b30838;
+}
+
+input:valid ~ label{
     top: -16px;
     font-size: 14px;
     color: #b30838;
 }
 
 .bar {
-    position: relative;
     display: block;
     width: 30%;
+    position: relative;
 }
 
-.bar:before, .bar:after 	{
+.bar:before, .bar:after {
     content:'';
     height: 2px;
-    width: 0;
+    width: 0px;
     bottom: 1px;
     position: absolute;
-    background: #b30838;
-    transition: 0.3s ease all;
-    -moz-transition: 0.3s ease all;
-    -webkit-transition: 0.3s ease all;
+    background: #B30838;
+    transition: 0.25s ease all;
+    -moz-transition: 0.25s ease all;
+    -webkit-transition: 0.25s ease all;
 }
+
 .bar:before {
     left:50%;
 }
+
 .bar:after {
     right:50%;
 }
@@ -102,31 +123,6 @@ input:focus ~ label, input:valid ~ label {
 input:focus ~ .bar:before, input:focus ~ .bar:after {
     width:50%;
 }
-
-/*@-webkit-keyframes inputHighlighter {
-	from {
-        background: #b30838;
-    } to {
-        width:0;
-        background: transparent;
-    }
-}
-@-moz-keyframes inputHighlighter {
-	from {
-        background: #b30838;
-    } to {
-        width:0;
-        background: transparent;
-    }
-}
-@keyframes inputHighlighter {
-	from {
-        background: #b30838;
-    } to {
-        width:0;
-        background: transparent;
-    }
-}*/
 
 #add_button{
     width: auto;
