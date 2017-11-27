@@ -17,7 +17,9 @@
 </head>
 <body>
   <div id="title">
+    <a style="padding-top: 50px;" href="search.html">
     <img src="assets/img/library.svg"/>
+    </a>
     <h2>Santa Clara University Course Equivalency</h2>
     <div class="logout">
         <a href="#">Logout
@@ -33,7 +35,7 @@
 
     <div class="form-group">
       <div class="group">
-        <input id="school_external" type="text" required>
+        <input id="school_external" type="text" maxlength="100" required>
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>University</label>
@@ -42,7 +44,7 @@
 
     <div class="form-group">
       <div class="group">
-        <input id="dep_external" type="text" required>
+        <input id="dep_external" type="text" maxlength="50" required>
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>Department</label>
@@ -51,7 +53,7 @@
 
     <div class="form-group">
       <div class="group">
-        <input id="num_external" type="number"  required>
+        <input id="num_external" type="number" maxlength="4" required>
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>Course Number</label>
@@ -68,13 +70,13 @@
 
     <div class="form-group" style="padding-top: 24px;">
       <div class="group">
-        <input placeholder="Santa Clara University"readonly></input>
+        <input placeholder="Santa Clara University" readonly></input>
       </div>
     </div>
 
     <div class="form-group">
       <div class="group">
-        <input id="dep_internal" type="text" required>
+        <input id="dep_internal" type="text" maxlength="50" required>
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>Department</label>
@@ -83,7 +85,7 @@
 
     <div class="form-group">
       <div class="group">
-        <input id="num_internal" type="number" required>
+        <input id="num_internal" type="number" maxlength="4" required>
         <span class="highlight"></span>
         <span class="bar"></span>
         <label> Course Number</label>
@@ -92,7 +94,7 @@
 
     <div class="form-group">
       <div class="group">
-        <input id="reason" type="text" required>
+        <input id="reason" type="text" maxlength="400" required>
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>Description</label>
