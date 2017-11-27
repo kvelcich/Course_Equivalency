@@ -102,6 +102,7 @@ function listEquivalencies(equivalencies){
 }
 
 function createTable(equivalencies){
+  var currentUser = getUser();
   var table = document.getElementById('tbodyID');
   // delete all existing rows before adding again
   while(table.rows.length > 0)
@@ -164,6 +165,14 @@ function createTable(equivalencies){
     removeLink.setAttribute('onclick', `removeEntry(${externalId}, ${internalId})`);
     removeLink.appendChild(removeLinkText);
     remove_option.appendChild(removeLink);
+
+
+    var advisorEmail = row.insertCell(8);
+    advisorEmail.innerHTML = obj.email;
+
+    var reason = row.insertCell(9);
+    reason.innerHTML = obj.reason;
+
   }
 }
 
