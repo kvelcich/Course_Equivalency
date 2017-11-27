@@ -6,7 +6,6 @@ http://students.engr.scu.edu/~kvelcich/Application
 * Display equivalency and author
 * Only let author change equivalency
 * Check if all information is entered before adding/editing
-* Check for add conflicts
 * Only let admin to set up account
 * Add config file for database information
 
