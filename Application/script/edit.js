@@ -14,6 +14,7 @@ function populateInputs(equivalencyData){
     document.getElementById('number_external').value = obj.number_external;
     document.getElementById('department_internal').value = obj.department_internal;
     document.getElementById('number_internal').value = obj.number_internal;
+    document.getElementById('reason').value = obj.reason;
 
     var select = document.getElementById('isEquivalentSelect');
     var option = document.createElement("option");

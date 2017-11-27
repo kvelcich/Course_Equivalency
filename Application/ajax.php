@@ -178,7 +178,7 @@
 	function getEditEntry() {
 		$conn = connect();
 
-		$query = "SELECT C2.school AS school_external, C2.department AS department_external, C2.course_number AS number_external, E.is_equivalent, C1.school AS school_internal, C1.department AS department_internal, C1.course_number AS number_internal FROM course C1, course C2, equivalent E WHERE C1.course_id = E.internal_id AND C2.course_id = E.external_id AND C1.course_id = {$_POST['internal_id']} AND C2.course_id = {$_POST['external_id']}";
+		$query = "SELECT C2.school AS school_external, C2.department AS department_external, C2.course_number AS number_external, E.is_equivalent, C1.school AS school_internal, C1.department AS department_internal, C1.course_number AS number_internal, E.reason AS reason FROM course C1, course C2, equivalent E WHERE C1.course_id = E.internal_id AND C2.course_id = E.external_id AND C1.course_id = {$_POST['internal_id']} AND C2.course_id = {$_POST['external_id']}";
 
 		$result = $conn->query($query);
 		$row = mysqli_fetch_assoc($result);
