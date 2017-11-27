@@ -19,12 +19,16 @@
 			return getEditEntry();
 		} else if ($_POST['function'] == 'edit_entry') {
 			return editEntry();
+		} else if ($_POST['function'] == 'get_user') {
+			return getUser();
 		}
 
 		else {
 			echo "Error: Invalid function name '{$_POST['function']}'";
 		}
 	}
+
+	function getUser() {}
 
 	function getSchools() {
 		$conn = connect();
