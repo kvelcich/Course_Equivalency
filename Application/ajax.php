@@ -193,12 +193,14 @@
 
 		$pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-		$query = "SELECT * FROM adviser WHERE email = '{$_POST['email']}' AND password = '{$pass}'";
+		$query = "SELECT password FROM adviser WHERE email = '{$_POST['email']}';;
 		$result = $conn->query($query);
 
-		$rows = mysqli_num_rows($result);
-		if ($rows == 1) echo 1;
-		else echo 0;
+		if ($result->num_rows > 0) {
+		    $row = $result->fetch_assoc();
+				if (password_verify($_POST['password'], $row["password"]) echo 1;
+				else echo 0;
+		} else echo "-1";
 
 		$conn->close();
 	}
@@ -208,10 +210,7 @@
 
 		$pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-		echo $pass;
-		return;
-
-		$query = "INSERT INTO adviser (email, password) VALUES ('{$_POST['email']}', '{$pass')";
+		$query = "INSERT INTO adviser (email, password) VALUES ('{$_POST['email']}', '{$pass}')";
 		if ($conn->query($query)) echo 1;
 		else echo 0;
 		$conn->close();
