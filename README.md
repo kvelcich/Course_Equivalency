@@ -9,6 +9,7 @@ http://students.engr.scu.edu/~kvelcich/Application
 * Check for add conflicts
 * Add/check character limits
 * Only let admin to set up account
+* Add config file for database information
 
 ### Secondary
 * No refresh when deleting
