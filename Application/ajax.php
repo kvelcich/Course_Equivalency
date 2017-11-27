@@ -208,6 +208,9 @@
 
 		$pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
+		echo $pass;
+		return;
+
 		$query = "INSERT INTO adviser (email, password) VALUES ('{$_POST['email']}', '{$pass')";
 		if ($conn->query($query)) echo 1;
 		else echo 0;

@@ -9,6 +9,7 @@ $(document).ready(function(){
         var pass = $('input#pass_input').val();
 
         $.post('ajax.php', {function: function_name, email: email, password: pass}, function(success) {
+          console.log(success);
             if (success == 1 && email != 'username - invalid') {
                console.log('signup successful');
                window.location.href = "login.html";
