@@ -1,4 +1,6 @@
 {
-	"database": "sdb_kvelcich",
-	"database_password": "00001106223"
+		"database_host": "dbserver.engr.scu.edu",
+		"database_user": "kvelcich",
+		"database_password": "00001106223",
+		"database_name": "sdb_kvelcich"
 }
