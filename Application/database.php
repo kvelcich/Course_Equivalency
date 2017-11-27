@@ -1,5 +1,10 @@
 <?php
-	function connect() {
+		function connect() {
+				$string = file_get_contents("assets/config.json");
+				$config_json = json_decode($string, true);
+
+echo $json_a['John'][status];
+echo $json_a['Jennifer'][status];
 		ini_set('display_errors','On');
 		error_reporting(E_ALL);
 

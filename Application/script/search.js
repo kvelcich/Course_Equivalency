@@ -220,6 +220,11 @@ $(document).ready(function(){
 			createTable(JSON.parse(data));
 		});
 	});
-
-  
 });
+
+function getUser() {
+    var function_name = 'get_user';
+    $.post('ajax.php', {function: function_name}, function(data) {
+        return data;
+    });
+}
