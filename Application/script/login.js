@@ -14,7 +14,6 @@ $(document).ready(function(){
 
 				$.post('ajax.php', {function: function_name, email: email, password: pass}, function(data) {
 						if (data == 1) {
-								console.log('Login successful');
 								signin(data);
 						} else if (data == 0) {
         				var el = $('.invalid-div');
