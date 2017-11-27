@@ -191,7 +191,9 @@
 	function login() {
 		$conn = connect();
 
-		$query = "SELECT * FROM adviser WHERE email = '{$_POST['email']}' AND password = '{$_POST['password']}'";
+		$pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+		$query = "SELECT * FROM adviser WHERE email = '{$_POST['email']}' AND password = '{$pass}'";
 		$result = $conn->query($query);
 
 		$rows = mysqli_num_rows($result);
@@ -204,7 +206,9 @@
 	function addUser() {
 		$conn = connect();
 
-		$query = "INSERT INTO adviser (email, password) VALUES ('{$_POST['email']}', '{$_POST['password']}')";
+		$pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+		$query = "INSERT INTO adviser (email, password) VALUES ('{$_POST['email']}', '{$pass')";
 		if ($conn->query($query)) echo 1;
 		else echo 0;
 		$conn->close();
