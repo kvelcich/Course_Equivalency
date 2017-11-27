@@ -26,9 +26,9 @@ $(document).ready(function(){
 		});
 
 		$('#signup_button').click(function() {
-				$('.second').addClass("animated fadeOut");
 				var admin = prompt("Admin Pin:","");
 				if (admin == "admin"){
+					$('.second').addClass("animated fadeOut");
 					setTimeout(function(){
 							window.location.href = 'signup.html';
 					}, 200);
