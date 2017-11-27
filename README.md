@@ -13,3 +13,4 @@ http://students.engr.scu.edu/~kvelcich/Application
 * Sort search results
 * Make icon clickable
 * Ignore case for string comparison
+* Admin password security
