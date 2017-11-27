@@ -1,6 +1,15 @@
-var function_name = 'start_session';
-$.post('session.php', {function: function_name}, function(data) {
-});
+function admin(){
+  var admin = prompt("Admin Pin:","");
+  if (admin == "admin"){
+    var function_name = 'start_session';
+    $.post('session.php', {function: function_name}, function(data) {
+    });
+  }
+  else{
+    alert("Invalid Admin Pin!");
+    window.location.href = "login.html";
+  }
+}
 
 $(document).ready(function(){
     $('#signup_button').click(function(){
