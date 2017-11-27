@@ -26,16 +26,10 @@ $(document).ready(function(){
 		});
 
 		$('#signup_button').click(function() {
-				var admin = prompt("Admin Pin:","");
-				if (admin == "admin"){
-					$('.second').addClass("animated fadeOut");
-					setTimeout(function(){
-							window.location.href = 'signup.html';
-					}, 200);
-				}
-				else{
-					alert("Invalid Admin Pin!");
-				}
+			$('.second').addClass("animated fadeOut");
+			setTimeout(function(){
+					window.location.href = 'signup.html';
+			}, 200);
 		});
 });
 
