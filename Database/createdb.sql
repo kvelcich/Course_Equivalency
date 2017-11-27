@@ -30,3 +30,9 @@ CREATE TABLE equivalent (
     CHECK (internal_id != external_id),
     CHECK (is_equivalent = 1 OR is_equivalent = 0)
 );
+
+
+
+SELECT X
+FROM TABLE
+WHere conditions;
