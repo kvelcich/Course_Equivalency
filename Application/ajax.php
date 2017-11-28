@@ -79,7 +79,7 @@
 	}
 
 	function addCourse($conn, $school, $department, $number) {
-		$query = "SELECT * FROM course WHERE school = '{$school}' AND department = '{$department}' AND course_number = '{$number}'";
+		$query = "SELECT * FROM course WHERE UPPER(school) = UPPER('{$school}') AND UPPER(department) = UPPER('{$department}') AND UPPER(course_number) = UPPER('{$number}')";
 		$result = $conn->query($query);
 
 		$rows = mysqli_num_rows($result);
@@ -88,7 +88,7 @@
 			if ($conn->query($query) == FALSE) return -1;
 		}
 
-		$query = "SELECT course_id FROM course WHERE school = '{$school}' AND department = '{$department}' AND course_number = '{$number}'";
+		$query = "SELECT course_id FROM course WHERE UPPER(school) = UPPER('{$school}') AND UPPER(department) = UPPER('{$department}') AND UPPER(course_number) = UPPER('{$number}')";
 		$result = $conn->query($query);
 		$row = mysqli_fetch_assoc($result);
 		return $row['course_id'];
@@ -191,7 +191,7 @@
 	function login() {
 		$conn = connect();
 
-		$query = "SELECT password FROM adviser WHERE email = '{$_POST['email']}'";
+		$query = "SELECT password FROM adviser WHERE UPPER(email) = UPPER('{$_POST['email']}')";
 		$result = $conn->query($query);
 
 		if ($result->num_rows > 0) {

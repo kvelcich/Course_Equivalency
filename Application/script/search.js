@@ -268,11 +268,10 @@ $(document).ready(function(){
 	});
 });
 
-/*
 function getUser() {
     var function_name = 'get_username';
     $.post('session.php', {function: function_name}, function(data) {
           return data;
     });
     return "nice";
-}*/
+}
