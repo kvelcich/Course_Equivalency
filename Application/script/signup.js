@@ -15,7 +15,14 @@ $(document).ready(function(){
     $('#signup_button').click(function(){
         var function_name = 'add_user';
         var email = $('input#email_input').val();
+        
         var pass = $('input#pass_input').val();
+        var conf = $('input#pass_input').val();
+
+        if (pass != conf) {
+            alert("Passwords do not match!");
+            return;
+        }
 
         $.post('ajax.php', {function: function_name, email: email, password: pass}, function(success) {
           console.log(success);
