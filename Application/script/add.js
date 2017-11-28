@@ -1,7 +1,7 @@
-function validateTextBox(input) {
+function validateTextBox(input) { /*
     if (document.getElementById("input").value != "") {} else {
         alert("Please enter a value");
-    }
+    } */
 }
 $(document).ready(function(){
 	$(function() {
@@ -25,13 +25,13 @@ $(document).ready(function(){
 		var school_external = $('input#school_external').val();
 		validateTextBox(school_external);
 		var dep_external = $('input#dep_external').val();
-		validateTextBox(department_external);
+		validateTextBox(dep_external);
 		var num_external = $('input#num_external').val();
 		validateTextBox(num_external);
 		var equiv = $('select[id="equivalency"] option:selected').text();
 		var reason = $('input#reason').val();
 		validateTextBox(reason);
-		
+
 		$.post('session.php', {function: 'get_username'}, function(username) {
 				$.post('ajax.php', {
 						function: function_name,
