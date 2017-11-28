@@ -1,3 +1,8 @@
+function validateTextBox(input) {
+    if (document.getElementById("input").value != "") {} else {
+        alert("Please enter a value");
+    }
+}
 $(document).ready(function(){
 	$(function() {
 		//autocomplete filled out textboxes
@@ -14,13 +19,19 @@ $(document).ready(function(){
 		// Check if all entries filled out
 		var function_name = 'add_entry';
 		var dep_internal = $('input#dep_internal').val();
+		validateTextBox(dep_internal);
 		var num_internal = $('input#num_internal').val();
+		validateTextBox(num_internal);
 		var school_external = $('input#school_external').val();
+		validateTextBox(school_external);
 		var dep_external = $('input#dep_external').val();
+		validateTextBox(department_external);
 		var num_external = $('input#num_external').val();
+		validateTextBox(num_external);
 		var equiv = $('select[id="equivalency"] option:selected').text();
 		var reason = $('input#reason').val();
-
+		validateTextBox(reason);
+		
 		$.post('session.php', {function: 'get_username'}, function(username) {
 				$.post('ajax.php', {
 						function: function_name,
