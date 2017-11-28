@@ -1,6 +1,6 @@
 function validateTextBox(input) {
 		var value = document.document.getElementById('input').value;
-		echo value;
+		console.log(value);
     if (value == null){
         alert("Please enter a value");
     }
