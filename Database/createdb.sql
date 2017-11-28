@@ -1,5 +1,3 @@
-use sdb_kvelcich;
-
 CREATE TABLE course (
     course_id       INT NOT NULL AUTO_INCREMENT,
     school    		  VARCHAR(500),
