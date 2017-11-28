@@ -55,10 +55,11 @@
 		$school = $_POST['school'];
 		$department = $_POST['department'];
 		$number = $_POST['number'];
-		$query = "SELECT C2.school AS school_external, C2.department AS department_external, C2.course_number AS number_external, E.is_equivalent, C1.school AS school_internal, C1.department AS department_internal, C1.course_number AS number_internal, C2.course_id AS id_external, C1.course_id AS id_internal, E.reason AS reason, E.evaluator AS email FROM course C1, course C2, equivalent E WHERE C1.course_id = E.internal_id AND C2.course_id = E.external_id ORDER BY school_external, department_external, number_external, department_internal, number_internal";
+		$query = "SELECT C2.school AS school_external, C2.department AS department_external, C2.course_number AS number_external, E.is_equivalent, C1.school AS school_internal, C1.department AS department_internal, C1.course_number AS number_internal, C2.course_id AS id_external, C1.course_id AS id_internal, E.reason AS reason, E.evaluator AS email FROM course C1, course C2, equivalent E WHERE C1.course_id = E.internal_id AND C2.course_id = E.external_id";
 		if ($school != "") $query .= " AND C2.school = '{$school}'";
 		if ($department != "") $query .= " AND C2.department = '{$department}'";
 		if ($number != "") $query .= " AND C2.course_number = '{$number}'";
+    $query .= " ORDER BY school_external, department_external, number_external, department_internal, number_internal";
 		$result = $conn->query($query);
 		$rows = array();
 		while($row = mysqli_fetch_assoc($result)) {
@@ -68,14 +69,14 @@
 		$conn->close();
 	}
 	function addCourse($conn, $school, $department, $number) {
-		$query = "SELECT * FROM course WHERE school = '{$school}' AND department = '{$department}' AND course_number = '{$number}'";
+		$query = "SELECT * FROM course WHERE UPPER(school) = UPPER('{$school}') AND UPPER(department) = UPPER('{$department}') AND UPPER(course_number) = UPPER('{$number}')";
 		$result = $conn->query($query);
 		$rows = mysqli_num_rows($result);
 		if ($rows == 0) {
 			$query = "INSERT INTO course (school, department, course_number) VALUES ('{$school}', '{$department}', '{$number}')";
 			if ($conn->query($query) == FALSE) return -1;
 		}
-		$query = "SELECT course_id FROM course WHERE school = '{$school}' AND department = '{$department}' AND course_number = '{$number}'";
+		$query = "SELECT course_id FROM course WHERE UPPER(school) = UPPER('{$school}') AND UPPER(department) = UPPER('{$department}') AND UPPER(course_number) = UPPER('{$number}')";
 		$result = $conn->query($query);
 		$row = mysqli_fetch_assoc($result);
 		return $row['course_id'];
@@ -157,7 +158,7 @@
 	}
 	function login() {
 		$conn = connect();
-		$query = "SELECT password FROM adviser WHERE email = '{$_POST['email']}'";
+		$query = "SELECT password FROM adviser WHERE UPPER(email) = UPPER('{$_POST['email']}')";
 		$result = $conn->query($query);
 		if ($result->num_rows > 0) {
 				$row = $result->fetch_assoc();
