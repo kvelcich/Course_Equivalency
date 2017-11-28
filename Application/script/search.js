@@ -201,6 +201,7 @@ $(document).ready(function(){
 
 	// Load universities at load
 	$.post('ajax.php', {function: 'get_schools', department: ''}, function(data) {
+        console.log(data);
 		listSchools(JSON.parse(data));
 	});
 
