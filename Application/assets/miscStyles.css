@@ -39,20 +39,20 @@ body {
 }
 
 .group {
-    position: relative;
+    background: white;
     margin-bottom: 3em;
+    position: relative;
 }
 
 input {
     width: 30%;
-    padding: 10px 10px 10px 0px;
+    padding: 8px 10px 8px 0px;
     display: block;
-
     border: none;
-    border-bottom: 1px solid #757575;
-
+    border-bottom: 1px solid #B2B8BD;
     font-size: 18px;
 }
+
 input:focus {
     outline: none;
 }
@@ -69,59 +69,80 @@ input:focus {
 
 label {
     position: absolute;
-    pointer-events: none;
     left: 0px;
     top: 10px;
+    /* font */
     font-size: 18px;
     font-weight: 200;
     color: gray;
     /* transitions */
-    -moz-transition: 0.25s ease all;
-    -webkit-transition: 0.25s ease all;
-    transition: 0.25s ease all;
-
+    -webkit-transition: 0.3s ease all;
+    -moz-transition: 0.3s ease all;
+    transition: 0.3s ease all;
+    /* allows greater click area */
+    pointer-events: none;
 }
 
-input:focus ~ label{
-    top: -16px;
-    font-size: 14px;
-    color: #b30838;
-}
-
-input:valid ~ label{
-    top: -16px;
-    font-size: 14px;
-    color: #b30838;
-}
-
+/* underline segment below input */
 .bar {
     display: block;
     width: 30%;
+    height: 3px;
     position: relative;
 }
 
-.bar:before, .bar:after {
-    content:'';
-    height: 2px;
-    width: 0px;
-    bottom: 1px;
+input:valid ~ label{
+    font-size: 14px;
+    font-weight: 200;
+    color: #b30838;
+    top: -16px;
+}
+
+input:focus ~ label{
+    font-size: 14px;
+    font-weight: 200;
+    color: gray;
+    top: -16px;
+}
+
+.bar:before{
     position: absolute;
-    background: #B30838;
-    transition: 0.25s ease all;
-    -moz-transition: 0.25s ease all;
-    -webkit-transition: 0.25s ease all;
+    background-color: #B30838;
+    /* dimensions */
+    width: 0px;
+    height: 3px;
+    content:' ';
+    /* transition */
+    -moz-transition: 0.3s ease all;
+    transition: 0.3s ease all;
+    -webkit-transition: 0.3s ease all;
+    left: 50%;
 }
 
-.bar:before {
-    left:50%;
+.bar:after{
+    position: absolute;
+    background-color: #B30838;
+    /* dimensions */
+    width: 0px;
+    height: 3px;
+    content:' ';
+    /* transition */
+    -moz-transition: 0.3s ease all;
+    transition: 0.3s ease all;
+    -webkit-transition: 0.3s ease all;
+    right: 50%;
 }
 
-.bar:after {
-    right:50%;
+select {
+    width: 30%;
 }
 
-input:focus ~ .bar:before, input:focus ~ .bar:after {
-    width:50%;
+input:focus ~ .bar:before{
+    width: 50%;
+}
+
+input:focus ~ .bar:after{
+    width: 50%;
 }
 
 #add_button{
@@ -154,8 +175,4 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
 .selector{
     width: 42%;
     padding: 10px;
-}
-
-select {
-    width: 30%;
 }
