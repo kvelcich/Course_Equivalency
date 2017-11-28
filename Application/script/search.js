@@ -111,7 +111,7 @@ function infoAlert(email, reason){
 
 function lockedAlert(email){
     var message = "";
-    message += "This Equivalency was established by another adviser!";
+    message += "This equivalency was established by another adviser!";
     message += "\n";
     message += "Please contact " + email + " to make changes";
     alert(message);
