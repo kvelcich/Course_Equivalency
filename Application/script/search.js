@@ -110,7 +110,7 @@ function lockAlert(email, reason){
 }
 
 function createTable(equivalencies){
-  var currentUser = getUser();
+  // var currentUser = getUser();
   var table = document.getElementById('tbodyID');
   // delete all existing rows before adding again
   while(table.rows.length > 0)
