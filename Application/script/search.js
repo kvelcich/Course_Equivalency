@@ -132,8 +132,6 @@ function createTable(equivalencies){
         }
 
         var advisorReason = obj.reason;
-        // console.log(obj.email);
-        // console.log(obj.reason);
 
         var info_option = row.insertCell(8);
         var infoLink = document.createElement('a');
@@ -175,10 +173,6 @@ $(document).ready(function(){
 		var school_name = $('select[id="school_select"] option:selected').text();
 		var department_name = $('select[id="department_select"] option:selected').text();
 		var course_number = $('input#number_select').val();
-
-    console.log(school_name);
-    console.log(department_name);
-    console.log(course_number);
 
 		$.post('ajax.php', {function: function_name, school: school_name, department: department_name, number: course_number}, function(data) {
 			createTable(JSON.parse(data));
