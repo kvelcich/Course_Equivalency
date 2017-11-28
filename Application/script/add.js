@@ -1,7 +1,5 @@
 function validateTextBox(input) {
-		var value = document.document.getElementById('input').value;
-		console.log(value);
-    if (value == null){
+    if (input == ""){
         alert("Please enter a value");
     }
 }
