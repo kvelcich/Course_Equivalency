@@ -9,7 +9,7 @@ function validateTextBox(val1,val2,val3,val4,val5,val6) {
 
 $(document).ready(function(){
 	$(function() {
-    //autocomplete textboxes
+    	//autocomplete textboxes
 		$("#school_external").autocomplete({
 			source:'searchschool.php',
 			minLength: 1
@@ -18,13 +18,13 @@ $(document).ready(function(){
 			source:'searchdep.php',
 			minLength: 1
 		});
-    $("#dep_internal").autocomplete({
-      source:'searchdep.php',
-      minLength: 1
-    });
+		$("#dep_internal").autocomplete({
+		  source:'searchdep.php',
+		  minLength: 1
+		});
 	});
 
-  //onclick button function
+  	//onclick button function
 	$('#add_button').click(function() {
 		var function_name = 'add_entry';
 		var dep_internal = $('input#dep_internal').val();
@@ -37,9 +37,9 @@ $(document).ready(function(){
 
     //validate empty textboxes
 		var valid = validateTextBox(dep_internal,num_internal,school_external,dep_external,num_external,reason);
-    if (valid == true){
-      $.post('session.php', {function: 'get_username'}, function(username) {
-        $.post('ajax.php', {
+    	if (valid == true){
+      		$.post('session.php', {function: 'get_username'}, function(username) {
+        		$.post('ajax.php', {
 						function: function_name,
 						school_external: school_external,
 						department_external: dep_external,
@@ -53,7 +53,7 @@ $(document).ready(function(){
 						if (data < 0) alert('Error Adding Equivalency!\nPlease check equivalency does not already exist');
 						else if (data == 1) window.location.href = 'search.html';
 				});
-      });
-  }
-});
+      		});
+  		}
+	});
 });
