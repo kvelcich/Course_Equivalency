@@ -183,7 +183,7 @@ function createTable(equivalencies){
 
     var infoLink = document.createElement('a');
     infoLink.innerHTML = 'Info';
-    infoLink.setAttribute('onClick', `lockAlert(${advisorEmail},${advisorReason})`);
+    infoLink.setAttribute('onclick', `lockAlert(${advisorEmail},${advisorReason})`);
     infoOption.appendChild(infoLink);
   }
 }
