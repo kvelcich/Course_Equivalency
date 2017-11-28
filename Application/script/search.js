@@ -80,10 +80,8 @@ function createTable(equivalencies){
         // add check if equivalent else X
         if (obj.is_equivalent == 1)
             equivalency.appendChild(icon_true);
-            equivalency.setAttribute('style', 'color:green');
         else
             equivalency.appendChild(icon_false);
-            equivalency.setAttribute('style', 'color:red');
 
         var internalDept = row.insertCell(4);
         internalDept.innerHTML = obj.department_internal;
@@ -92,60 +90,54 @@ function createTable(equivalencies){
         internalCourseNum.innerHTML = obj.number_internal;
 
         var advisorEmail = obj.email;
-        var advisorReason = obj.reason;
-
-        var icon_info = document.createElement('span');
-        icon_info.setAttribute('class', 'glyphicon glyphicon-info-sign');
-
-        var info_option = row.insertCell(6);
-        // var infoLink = document.createElement('a');
-        // var infoLinkText = document.createTextNode('Info');
-        info_option.appendChild(icon_info);
-        info_icon.setAttribute('onclick', `infoAlert('${advisorEmail}', '${advisorReason}')`);
-        // info_icon.setAttribute('style', 'cursor:pointer');
-        // info_icon.appendChild(infoLinkText);
-        // info_option.appendChild(infoLink);
 
         if(advisorEmail.toUpperCase() == currentUser.toUpperCase()){
-            var edit_option = row.insertCell(7);
+            var edit_option = row.insertCell(6);
             var editLink = document.createElement('a');
             var editLinkText = document.createTextNode('Edit');
             editLink.setAttribute('href', '#');
             editLink.setAttribute('type', 'submit');
             editLink.setAttribute('id', 'edit_equivalency_btn');
             editLink.setAttribute('onclick', `editEntry(${externalId}, ${internalId})`);
-            editLink.setAttribute('style', 'cursor:pointer');
             editLink.appendChild(editLinkText);
             edit_option.appendChild(editLink);
 
-            var remove_option = row.insertCell(8);
+            var remove_option = row.insertCell(7);
             var removeLink = document.createElement('a');
             var removeLinkText = document.createTextNode('Remove');
             removeLink.setAttribute('href', '#');
             removeLink.setAttribute('type', 'submit');
             removeLink.setAttribute('id', 'remove_equivalency_btn');
             removeLink.setAttribute('onclick', `removeEntry(${externalId}, ${internalId})`);
-            removeLink.setAttribute('style','cursor:pointer');
             removeLink.appendChild(removeLinkText);
             remove_option.appendChild(removeLink);
         }
         else{
-            var edit_option = row.insertCell(7);
+            var edit_option = row.insertCell(6);
             var editLink = document.createElement('a');
             var editLinkText = document.createTextNode('Edit');
             editLink.setAttribute('onclick', `lockedAlert('${advisorEmail}')`);
-            editLink.setAttribute('style', 'cursor:pointer');
             editLink.appendChild(editLinkText);
             edit_option.appendChild(editLink);
 
-            var remove_option = row.insertCell(8);
+            var remove_option = row.insertCell(7);
             var removeLink = document.createElement('a');
             var removeLinkText = document.createTextNode('Remove');
             removeLink.setAttribute('onclick', `lockedAlert('${advisorEmail}')`);
-            removeLink.setAttribute('style','cursor:pointer');
             removeLink.appendChild(removeLinkText);
             remove_option.appendChild(removeLink);
         }
+
+        var advisorReason = obj.reason;
+        // console.log(obj.email);
+        // console.log(obj.reason);
+
+        var info_option = row.insertCell(8);
+        var infoLink = document.createElement('a');
+        var infoLinkText = document.createTextNode('Info');
+        infoLink.setAttribute('onclick', `infoAlert('${advisorEmail}', '${advisorReason}')`);
+        infoLink.appendChild(infoLinkText);
+        info_option.appendChild(infoLink);
       }
     });
 }
@@ -175,29 +167,15 @@ $(document).ready(function(){
 		listDepartments(JSON.parse(data));
 	});
 
-/*	$('select[id="school_select"]').change(function() {
-		var function_name = 'get_departments';
-		var school_name = $('select[id="school_select"] option:selected').text();
-
-		$.post('ajax.php', {function: function_name, school: school_name}, function(data) {
-			listDepartments(JSON.parse(data));
-		});
-	}); */
-
-/*	$('select[id="department_select"]').change(function() {
-		var function_name = 'get_schools';
-		var department_name = $('select[id="department_select"] option:selected').text();
-
-		$.post('ajax.php', {function: function_name, department: department_name}, function(data) {
-			listSchools(JSON.parse(data));
-		});
-	}); */
-
 	$('#search').click(function() {
 		var function_name = 'search';
 		var school_name = $('select[id="school_select"] option:selected').text();
 		var department_name = $('select[id="department_select"] option:selected').text();
 		var course_number = $('input#number_select').val();
+
+    console.log(school_name);
+    console.log(department_name);
+    console.log(course_number);
 
 		$.post('ajax.php', {function: function_name, school: school_name, department: department_name, number: course_number}, function(data) {
 			createTable(JSON.parse(data));
