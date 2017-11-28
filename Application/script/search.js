@@ -166,7 +166,7 @@ function createTable(equivalencies){
     console.log(advisorEmail);
     console.log(currentUser);
 
-    if(advisorEmail == currentUser){
+    if(advisorEmail.toUpperCase() == currentUser.toUpperCase()){
         var edit_option = row.insertCell(6);
         var editLink = document.createElement('a');
         var editLinkText = document.createTextNode('Edit');
