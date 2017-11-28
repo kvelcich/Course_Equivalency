@@ -179,12 +179,12 @@ function createTable(equivalencies){
     console.log(obj.email);
     console.log(obj.reason);
 
-    var infoOption = row.insertCell(8);
-
+    var info_option = row.insertCell(8);
     var infoLink = document.createElement('a');
-    infoLink.innerHTML = 'Info';
+    var infoLinkText = document.createTextNode('Info');
     infoLink.setAttribute('onclick', `lockAlert(${advisorEmail},${advisorReason})`);
-    infoOption.appendChild(infoLink);
+    infoLink.appendChild(infoLinkText);
+    info_option.appendChild(infoLink);
   }
 }
 
