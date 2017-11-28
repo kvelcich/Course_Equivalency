@@ -99,6 +99,7 @@ function createTable(equivalencies){
             editLink.setAttribute('type', 'submit');
             editLink.setAttribute('id', 'edit_equivalency_btn');
             editLink.setAttribute('onclick', `editEntry(${externalId}, ${internalId})`);
+            editLink.setAttribute('style', 'cursor:pointer');
             editLink.appendChild(editLinkText);
             edit_option.appendChild(editLink);
 
@@ -109,6 +110,7 @@ function createTable(equivalencies){
             removeLink.setAttribute('type', 'submit');
             removeLink.setAttribute('id', 'remove_equivalency_btn');
             removeLink.setAttribute('onclick', `removeEntry(${externalId}, ${internalId})`);
+            removeLink.setAttribute('style','cursor:pointer');
             removeLink.appendChild(removeLinkText);
             remove_option.appendChild(removeLink);
         }
@@ -117,6 +119,7 @@ function createTable(equivalencies){
             var editLink = document.createElement('a');
             var editLinkText = document.createTextNode('Edit');
             editLink.setAttribute('onclick', `lockedAlert('${advisorEmail}')`);
+            editLink.setAttribute('style', 'cursor:pointer');
             editLink.appendChild(editLinkText);
             edit_option.appendChild(editLink);
 
@@ -124,6 +127,7 @@ function createTable(equivalencies){
             var removeLink = document.createElement('a');
             var removeLinkText = document.createTextNode('Remove');
             removeLink.setAttribute('onclick', `lockedAlert('${advisorEmail}')`);
+            removeLink.setAttribute('style','cursor:pointer');
             removeLink.appendChild(removeLinkText);
             remove_option.appendChild(removeLink);
         }
@@ -136,6 +140,7 @@ function createTable(equivalencies){
         var infoLink = document.createElement('a');
         var infoLinkText = document.createTextNode('Info');
         infoLink.setAttribute('onclick', `infoAlert('${advisorEmail}', '${advisorReason}')`);
+        infoLink.setAttribute('style', 'cursor:pointer')
         infoLink.appendChild(infoLinkText);
         info_option.appendChild(infoLink);
       }
