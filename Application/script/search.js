@@ -80,8 +80,10 @@ function createTable(equivalencies){
         // add check if equivalent else X
         if (obj.is_equivalent == 1)
             equivalency.appendChild(icon_true);
+            equivalency.setAttribute('style', 'color:green');
         else
             equivalency.appendChild(icon_false);
+            equivalency.setAttribute('style', 'color:red');
 
         var internalDept = row.insertCell(4);
         internalDept.innerHTML = obj.department_internal;
@@ -90,9 +92,22 @@ function createTable(equivalencies){
         internalCourseNum.innerHTML = obj.number_internal;
 
         var advisorEmail = obj.email;
+        var advisorReason = obj.reason;
+
+        var icon_info = document.createElement('span');
+        icon_info.setAttribute('class', 'glyphicon glyphicon-info-sign');
+
+        var info_option = row.insertCell(6);
+        // var infoLink = document.createElement('a');
+        // var infoLinkText = document.createTextNode('Info');
+        info_option.appendChild(icon_info);
+        info_icon.setAttribute('onclick', `infoAlert('${advisorEmail}', '${advisorReason}')`);
+        // info_icon.setAttribute('style', 'cursor:pointer');
+        // info_icon.appendChild(infoLinkText);
+        // info_option.appendChild(infoLink);
 
         if(advisorEmail.toUpperCase() == currentUser.toUpperCase()){
-            var edit_option = row.insertCell(6);
+            var edit_option = row.insertCell(7);
             var editLink = document.createElement('a');
             var editLinkText = document.createTextNode('Edit');
             editLink.setAttribute('href', '#');
@@ -103,7 +118,7 @@ function createTable(equivalencies){
             editLink.appendChild(editLinkText);
             edit_option.appendChild(editLink);
 
-            var remove_option = row.insertCell(7);
+            var remove_option = row.insertCell(8);
             var removeLink = document.createElement('a');
             var removeLinkText = document.createTextNode('Remove');
             removeLink.setAttribute('href', '#');
@@ -115,7 +130,7 @@ function createTable(equivalencies){
             remove_option.appendChild(removeLink);
         }
         else{
-            var edit_option = row.insertCell(6);
+            var edit_option = row.insertCell(7);
             var editLink = document.createElement('a');
             var editLinkText = document.createTextNode('Edit');
             editLink.setAttribute('onclick', `lockedAlert('${advisorEmail}')`);
@@ -123,7 +138,7 @@ function createTable(equivalencies){
             editLink.appendChild(editLinkText);
             edit_option.appendChild(editLink);
 
-            var remove_option = row.insertCell(7);
+            var remove_option = row.insertCell(8);
             var removeLink = document.createElement('a');
             var removeLinkText = document.createTextNode('Remove');
             removeLink.setAttribute('onclick', `lockedAlert('${advisorEmail}')`);
@@ -131,18 +146,6 @@ function createTable(equivalencies){
             removeLink.appendChild(removeLinkText);
             remove_option.appendChild(removeLink);
         }
-
-        var advisorReason = obj.reason;
-        // console.log(obj.email);
-        // console.log(obj.reason);
-
-        var info_option = row.insertCell(8);
-        var infoLink = document.createElement('a');
-        var infoLinkText = document.createTextNode('Info');
-        infoLink.setAttribute('onclick', `infoAlert('${advisorEmail}', '${advisorReason}')`);
-        infoLink.setAttribute('style', 'cursor:pointer')
-        infoLink.appendChild(infoLinkText);
-        info_option.appendChild(infoLink);
       }
     });
 }
