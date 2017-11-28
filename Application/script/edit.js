@@ -44,11 +44,11 @@ $(document).ready(function(){
 			source:'searchschool.php',
 			minLength: 1
 		});
-		$("#dep_external").autocomplete({
+		$("#department_external").autocomplete({
 			source:'searchdep.php',
 			minLength: 1
 		});
-		$("#dep_internal").autocomplete({
+		$("#department_internal").autocomplete({
 			source:'searchdep.php',
 			minLength: 1
 		});
