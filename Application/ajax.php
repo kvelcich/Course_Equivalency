@@ -191,16 +191,16 @@
 	function login() {
 		$conn = connect();
 
-		$pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-		$query = "SELECT password FROM adviser WHERE email = '{$_POST['email']}';;
+		$query = "SELECT password FROM adviser WHERE email = '{$_POST['email']}'";
 		$result = $conn->query($query);
 
 		if ($result->num_rows > 0) {
-		    $row = $result->fetch_assoc();
-				if (password_verify($_POST['password'], $row["password"]) echo 1;
+				$row = $result->fetch_assoc();
+				$password = $_POST['password'];
+				$hash = $row['password'];
+				if (password_verify($pass , $hash)) echo 1;
 				else echo 0;
-		} else echo "-1";
+		} else echo -1;
 
 		$conn->close();
 	}
