@@ -100,10 +100,11 @@ function listEquivalencies(equivalencies){
     list.appendChild(listItem);
   }
 }
+
 function lockAlert(email, reason){
     var message;
     message += "Approved by: " + email;
-    message += "//n"
+    message += "//n";
     message += "Reason: " + reason;
     alert(message);
 }
