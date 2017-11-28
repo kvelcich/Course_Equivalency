@@ -11,4 +11,4 @@ http://students.engr.scu.edu/~kvelcich/Application
 * No refresh when deleting
 * Add all SCU courses
 * Sort search results
-* Ignore case for string comparison
+* Ignore case for string comparison - kinda
