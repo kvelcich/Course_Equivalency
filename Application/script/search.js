@@ -118,102 +118,103 @@ function lockedAlert(email){
 }
 
 function createTable(equivalencies){
-  var currentUser = getUser();
-  var table = document.getElementById('tbodyID');
-  // delete all existing rows before adding again
-  while(table.rows.length > 0)
-    table.deleteRow(0);
+  var function_name = 'get_username';
+  $.post('session.php', {function: function_name}, function(username) {
+      var currentUser = username;
+      var table = document.getElementById('tbodyID');
+      // delete all existing rows before adding again
+      while(table.rows.length > 0)
+        table.deleteRow(0);
 
-  // for every object in jsonArray, create row
-  for (var i = 0; i<equivalencies.length; i++){
-    var obj = equivalencies[i];
+      // for every object in jsonArray, create row
+      for (var i = 0; i<equivalencies.length; i++){
+        var obj = equivalencies[i];
 
-    var externalId = obj.id_external;
-    var internalId = obj.id_internal;
+        var externalId = obj.id_external;
+        var internalId = obj.id_internal;
 
-    var row = table.insertRow(i);
+        var row = table.insertRow(i);
 
-    var externalSchool = row.insertCell(0);
-    externalSchool.innerHTML = obj.school_external;
+        var externalSchool = row.insertCell(0);
+        externalSchool.innerHTML = obj.school_external;
 
-    var externalDept = row.insertCell(1);
-    externalDept.innerHTML = obj.department_external;
+        var externalDept = row.insertCell(1);
+        externalDept.innerHTML = obj.department_external;
 
-    var externalCourseNum = row.insertCell(2);
-    externalCourseNum.innerHTML = obj.number_external;
+        var externalCourseNum = row.insertCell(2);
+        externalCourseNum.innerHTML = obj.number_external;
 
-    // var internalSchool = row.insertCell(4);
-    // internalSchool.innerHTML = obj.school_internal;
-    var equivalency = row.insertCell(3);
-    var icon_true = document.createElement('span');
-    icon_true.setAttribute('class', 'glyphicon glyphicon-ok');
-    var icon_false = document.createElement('span');
-    icon_false.setAttribute('class', 'glyphicon glyphicon-remove');
+        // var internalSchool = row.insertCell(4);
+        // internalSchool.innerHTML = obj.school_internal;
+        var equivalency = row.insertCell(3);
+        var icon_true = document.createElement('span');
+        icon_true.setAttribute('class', 'glyphicon glyphicon-ok');
+        var icon_false = document.createElement('span');
+        icon_false.setAttribute('class', 'glyphicon glyphicon-remove');
 
-    // add check if equivalent else X
-    if (obj.is_equivalent == 1)
-        equivalency.appendChild(icon_true);
-    else
-        equivalency.appendChild(icon_false);
+        // add check if equivalent else X
+        if (obj.is_equivalent == 1)
+            equivalency.appendChild(icon_true);
+        else
+            equivalency.appendChild(icon_false);
 
-    var internalDept = row.insertCell(4);
-    internalDept.innerHTML = obj.department_internal;
+        var internalDept = row.insertCell(4);
+        internalDept.innerHTML = obj.department_internal;
 
-    var internalCourseNum = row.insertCell(5);
-    internalCourseNum.innerHTML = obj.number_internal;
+        var internalCourseNum = row.insertCell(5);
+        internalCourseNum.innerHTML = obj.number_internal;
 
-    var advisorEmail = obj.email;
-    console.log(advisorEmail);
-    console.log(currentUser);
+        var advisorEmail = obj.email;
 
-    if(advisorEmail.toUpperCase() == currentUser.toUpperCase()){
-        var edit_option = row.insertCell(6);
-        var editLink = document.createElement('a');
-        var editLinkText = document.createTextNode('Edit');
-        editLink.setAttribute('href', '#');
-        editLink.setAttribute('type', 'submit');
-        editLink.setAttribute('id', 'edit_equivalency_btn');
-        editLink.setAttribute('onclick', `editEntry(${externalId}, ${internalId})`);
-        editLink.appendChild(editLinkText);
-        edit_option.appendChild(editLink);
+        if(advisorEmail.toUpperCase() == currentUser.toUpperCase()){
+            var edit_option = row.insertCell(6);
+            var editLink = document.createElement('a');
+            var editLinkText = document.createTextNode('Edit');
+            editLink.setAttribute('href', '#');
+            editLink.setAttribute('type', 'submit');
+            editLink.setAttribute('id', 'edit_equivalency_btn');
+            editLink.setAttribute('onclick', `editEntry(${externalId}, ${internalId})`);
+            editLink.appendChild(editLinkText);
+            edit_option.appendChild(editLink);
 
-        var remove_option = row.insertCell(7);
-        var removeLink = document.createElement('a');
-        var removeLinkText = document.createTextNode('Remove');
-        removeLink.setAttribute('href', '#');
-        removeLink.setAttribute('type', 'submit');
-        removeLink.setAttribute('id', 'remove_equivalency_btn');
-        removeLink.setAttribute('onclick', `removeEntry(${externalId}, ${internalId})`);
-        removeLink.appendChild(removeLinkText);
-        remove_option.appendChild(removeLink);
-    }
-    else{
-        var edit_option = row.insertCell(6);
-        var editLink = document.createElement('a');
-        var editLinkText = document.createTextNode('Edit');
-        editLink.setAttribute('onclick', `lockedAlert('${advisorEmail}')`);
-        editLink.appendChild(editLinkText);
-        edit_option.appendChild(editLink);
+            var remove_option = row.insertCell(7);
+            var removeLink = document.createElement('a');
+            var removeLinkText = document.createTextNode('Remove');
+            removeLink.setAttribute('href', '#');
+            removeLink.setAttribute('type', 'submit');
+            removeLink.setAttribute('id', 'remove_equivalency_btn');
+            removeLink.setAttribute('onclick', `removeEntry(${externalId}, ${internalId})`);
+            removeLink.appendChild(removeLinkText);
+            remove_option.appendChild(removeLink);
+        }
+        else{
+            var edit_option = row.insertCell(6);
+            var editLink = document.createElement('a');
+            var editLinkText = document.createTextNode('Edit');
+            editLink.setAttribute('onclick', `lockedAlert('${advisorEmail}')`);
+            editLink.appendChild(editLinkText);
+            edit_option.appendChild(editLink);
 
-        var remove_option = row.insertCell(7);
-        var removeLink = document.createElement('a');
-        var removeLinkText = document.createTextNode('Remove');
-        removeLink.setAttribute('onclick', `lockedAlert('${advisorEmail}')`);
-        removeLink.appendChild(removeLinkText);
-        remove_option.appendChild(removeLink);
-    }
+            var remove_option = row.insertCell(7);
+            var removeLink = document.createElement('a');
+            var removeLinkText = document.createTextNode('Remove');
+            removeLink.setAttribute('onclick', `lockedAlert('${advisorEmail}')`);
+            removeLink.appendChild(removeLinkText);
+            remove_option.appendChild(removeLink);
+        }
 
-    var advisorReason = obj.reason;
-    // console.log(obj.email);
-    // console.log(obj.reason);
+        var advisorReason = obj.reason;
+        // console.log(obj.email);
+        // console.log(obj.reason);
 
-    var info_option = row.insertCell(8);
-    var infoLink = document.createElement('a');
-    var infoLinkText = document.createTextNode('Info');
-    infoLink.setAttribute('onclick', `infoAlert('${advisorEmail}', '${advisorReason}')`);
-    infoLink.appendChild(infoLinkText);
-    info_option.appendChild(infoLink);
-  }
+        var info_option = row.insertCell(8);
+        var infoLink = document.createElement('a');
+        var infoLinkText = document.createTextNode('Info');
+        infoLink.setAttribute('onclick', `infoAlert('${advisorEmail}', '${advisorReason}')`);
+        infoLink.appendChild(infoLinkText);
+        info_option.appendChild(infoLink);
+      }
+    });
 }
 
 function editEntry(ext_id, int_id) {
@@ -270,11 +271,3 @@ $(document).ready(function(){
 		});
 	});
 });
-
-function getUser() {
-    var function_name = 'get_username';
-    $.post('session.php', {function: function_name}, function(data) {
-          return data;
-    });
-    return "nice";
-}
