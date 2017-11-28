@@ -98,7 +98,7 @@ function createTable(equivalencies){
         var info_option = row.insertCell(6);
         var icon_info = document.createElement('span');
         icon_info.setAttribute('class', 'glyphicon glyphicon-info-sign');
-        icon_info.setAttribute('style', 'font-size:24px;')
+        icon_info.setAttribute('style', 'font-size:24px; cursor:pointer');
 
         // var infoLink = document.createElement('a');
         // var infoLinkText = document.createTextNode('Info');
