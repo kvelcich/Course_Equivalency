@@ -1,3 +1,3 @@
+DROP TABLE equivalent;
 DROP TABLE adviser;
 DROP TABLE course;
-DROP TABLE equivalent;
