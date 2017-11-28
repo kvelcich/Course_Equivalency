@@ -10,7 +10,7 @@ function admin(){
     window.location.href = "login.html";
   }
 }
-
+admin();
 $(document).ready(function(){
     $('#signup_button').click(function(){
         var function_name = 'add_user';
