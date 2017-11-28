@@ -101,7 +101,8 @@ function listEquivalencies(equivalencies){
   }
 }
 function lockAlert(email, reason){
-    var message = "Approved by: " + email;
+    var message;
+    message += "Approved by: " + email;
     message += "//n"
     message += "Reason: " + reason;
     alert(message);
@@ -174,6 +175,8 @@ function createTable(equivalencies){
 
     var advisorEmail = obj.email;
     var advisorReason = obj.reason;
+    console.log(obj.email);
+    console.log(obj.reason);
 
     var infoOption = row.insertCell(8);
 
