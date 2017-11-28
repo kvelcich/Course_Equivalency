@@ -17,7 +17,7 @@ $(document).ready(function(){
         var email = $('input#email_input').val();
         
         var pass = $('input#pass_input').val();
-        var conf = $('input#pass_input').val();
+        var conf = $('input#pass_input2').val();
 
         if (pass != conf) {
             alert("Passwords do not match!");
