@@ -143,15 +143,6 @@ function createTable(equivalencies){
             removeLink.appendChild(removeLinkText);
             remove_option.appendChild(removeLink);
         }
-
-        var advisorReason = obj.reason;
-
-        var info_option = row.insertCell(8);
-        var infoLink = document.createElement('a');
-        var infoLinkText = document.createTextNode('Info');
-        infoLink.setAttribute('onclick', `infoAlert('${advisorEmail}', '${advisorReason}')`);
-        infoLink.appendChild(infoLinkText);
-        info_option.appendChild(infoLink);
       }
     });
 }
