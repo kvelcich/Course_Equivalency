@@ -102,9 +102,9 @@ function listEquivalencies(equivalencies){
 }
 
 function lockAlert(email, reason){
-    var message;
+    var message = "";
     message += "Approved by: " + email;
-    message += "//n";
+    message += "\n";
     message += "Reason: " + reason;
     alert(message);
 }
@@ -182,7 +182,7 @@ function createTable(equivalencies){
     var info_option = row.insertCell(8);
     var infoLink = document.createElement('a');
     var infoLinkText = document.createTextNode('Info');
-    infoLink.setAttribute('onclick', `lockAlert(${advisorEmail},${advisorReason})`);
+    infoLink.setAttribute('onclick', `lockAlert('${advisorEmail}', '${advisorReason}')`);
     infoLink.appendChild(infoLinkText);
     info_option.appendChild(infoLink);
   }
@@ -243,10 +243,11 @@ $(document).ready(function(){
 	});
 });
 
+/*
 function getUser() {
     var function_name = 'get_username';
-    //$.post('session.php', {function: function_name}, function(data) {
-    //      return data;
-    //});
+    $.post('session.php', {function: function_name}, function(data) {
+          return data;
+    });
     return "nice";
-}
+}*/
