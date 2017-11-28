@@ -95,7 +95,7 @@ function createTable(equivalencies){
         var advisorEmail = obj.email;
         var advisorReason = obj.reason;
 
-        var info_option = row.insertCell(8);
+        var info_option = row.insertCell(6);
         var icon_info = document.createElement('span');
         icon_info.setAttribute('class', 'glyphicon glyphicon-info-sign');
         icon_info.setAttribute('style', 'color:blue');
@@ -108,7 +108,7 @@ function createTable(equivalencies){
         info_option.appendChild(icon_info);
 
         if(advisorEmail.toUpperCase() == currentUser.toUpperCase()){
-            var edit_option = row.insertCell(6);
+            var edit_option = row.insertCell(7);
             var editLink = document.createElement('a');
             var editLinkText = document.createTextNode('Edit');
             editLink.setAttribute('href', '#');
@@ -118,7 +118,7 @@ function createTable(equivalencies){
             editLink.appendChild(editLinkText);
             edit_option.appendChild(editLink);
 
-            var remove_option = row.insertCell(7);
+            var remove_option = row.insertCell(8);
             var removeLink = document.createElement('a');
             var removeLinkText = document.createTextNode('Remove');
             removeLink.setAttribute('href', '#');
@@ -129,14 +129,14 @@ function createTable(equivalencies){
             remove_option.appendChild(removeLink);
         }
         else{
-            var edit_option = row.insertCell(6);
+            var edit_option = row.insertCell(7);
             var editLink = document.createElement('a');
             var editLinkText = document.createTextNode('Edit');
             editLink.setAttribute('onclick', `lockedAlert('${advisorEmail}')`);
             editLink.appendChild(editLinkText);
             edit_option.appendChild(editLink);
 
-            var remove_option = row.insertCell(7);
+            var remove_option = row.insertCell(8);
             var removeLink = document.createElement('a');
             var removeLinkText = document.createTextNode('Remove');
             removeLink.setAttribute('onclick', `lockedAlert('${advisorEmail}')`);
