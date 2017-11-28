@@ -1,11 +1,14 @@
-function validateTextBox(input) {
-    if (input == ""){
-        alert("Please enter a value");
+function validateTextBox(val1,val2,val3,val4,val5,val6) {
+    if (val1== "" || val2=="" || val3=="" || val4=="" || val5=="" || val6==""){
+        alert("Incomplete Information!");
+        return false;
     }
+    return true;
 }
+
 $(document).ready(function(){
 	$(function() {
-		//autocomplete filled out textboxes
+
 		$("#school_external").autocomplete({
 			source:'searchschool.php',
 			minLength: 1
@@ -16,22 +19,18 @@ $(document).ready(function(){
 		});
 	});
 	$('#add_button').click(function() {
-		// Check if all entries filled out
+
 		var function_name = 'add_entry';
 		var dep_internal = $('input#dep_internal').val();
-		validateTextBox(dep_internal);
 		var num_internal = $('input#num_internal').val();
-		validateTextBox(num_internal);
 		var school_external = $('input#school_external').val();
-		validateTextBox(school_external);
 		var dep_external = $('input#dep_external').val();
-		validateTextBox(dep_external);
 		var num_external = $('input#num_external').val();
-		validateTextBox(num_external);
 		var equiv = $('select[id="equivalency"] option:selected').text();
 		var reason = $('input#reason').val();
-		validateTextBox(reason);
 
+		var valid = validateTextBox(dep_internal,num_internal,school_external,dep_external,num_external,reason);
+    if (valid == true){
 		$.post('session.php', {function: 'get_username'}, function(username) {
 				$.post('ajax.php', {
 						function: function_name,
@@ -48,5 +47,6 @@ $(document).ready(function(){
 						else if (data == 1) window.location.href = 'search.html';
 				});
 		});
+  }
 	});
 });
