@@ -1,15 +1,16 @@
 //validate empty textbox
 function validateTextBox(val1,val2,val3,val4,val5,val6) {
-    if (val1== "" || val2=="" || val3=="" || val4=="" || val5=="" || val6==""){
-        alert("Incomplete Information!");
-        return false;
-    }
-    return true;
+  if (val1== "" || val2=="" || val3=="" || val4=="" || val5=="" || val6==""){
+    alert("Incomplete Information!");
+    return false;
+  }
+  return true;
 }
 
 $(document).ready(function(){
 	$(function() {
-    	//autocomplete textboxes
+
+    //autocomplete textboxes
 		$("#school_external").autocomplete({
 			source:'searchschool.php',
 			minLength: 1
@@ -37,7 +38,7 @@ $(document).ready(function(){
 
     //validate empty textboxes
 		var valid = validateTextBox(dep_internal,num_internal,school_external,dep_external,num_external,reason);
-    	if (valid == true){
+    if (valid == true){
       		$.post('session.php', {function: 'get_username'}, function(username) {
         		$.post('ajax.php', {
 						function: function_name,
