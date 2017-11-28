@@ -1,9 +1,4 @@
 # Course Equivalency
+#### Created by: Esai Morales, Tracy Sun and Kevin Velcich
 
-http://students.engr.scu.edu/~kvelcich/Application
-
-### Secondary
-* No refresh when deleting
-* Add all SCU courses
-
-* Ignore case for string comparison - kinda done
+http://students.engr.scu.edu/~kvelcich/equivalency/
