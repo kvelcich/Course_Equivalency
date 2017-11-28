@@ -28,13 +28,13 @@ $(document).ready(function(){
 		var reason = $('input#reason').val();
 */
 		var function_name = 'add_entry';
-		var dep_internal = document.getElementById("dep_internal").required;
-		var num_internal = document.getElementById("num_internal").required;
-		var school_external = document.getElementById("school_external").required;
-		var dep_external = document.getElementById("dep_external").required;
-		var num_external = document.getElementById("num_external").required;
+		var dep_internal = document.getElementById("dep_internal");
+		var num_internal = document.getElementById("num_internal");
+		var school_external = document.getElementById("school_external");
+		var dep_external = document.getElementById("dep_external");
+		var num_external = document.getElementById("num_external");
 		var equiv = $('select[id="equivalency"] option:selected').text();
-		var reason = document.getElementById("reason").required;
+		var reason = document.getElementById("reason");
 		$.post('session.php', {function: 'get_username'}, function(username) {
 				$.post('ajax.php', {
 						function: function_name,
