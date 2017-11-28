@@ -78,12 +78,13 @@ function createTable(equivalencies){
         icon_false.setAttribute('class', 'glyphicon glyphicon-remove');
 
         // add check if equivalent else X
-        if (obj.is_equivalent == 1)
+        if (obj.is_equivalent == 1){
             equivalency.appendChild(icon_true);
             equivalency.setAttribute('style', 'color:green');
-        else
+        } else{
             equivalency.appendChild(icon_false);
             equivalency.setAttribute('style', 'color:red');
+        }
 
         var internalDept = row.insertCell(4);
         internalDept.innerHTML = obj.department_internal;
