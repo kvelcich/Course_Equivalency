@@ -27,7 +27,7 @@
 	function getSchools() {
 		$conn = connect();
 		$department = $_POST['department'];
-		$query = "SELECT DISTINCT C.school FROM course C, equivalent E WHERE C.course_id = E.external_id";
+		$query = "SELECT DISTINCT C.school FROM course C, equivalent E WHERE C.course_id = E.external_id ORDER BY C.school";
 		if ($department != '') $query .= "AND department = '{$department}'";
 		$result = $conn->query($query);
 		$rows = array();
@@ -40,7 +40,7 @@
 	function getDepartments() {
 		$conn = connect();
 		$school = $_POST['school'];
-		$query = "SELECT DISTINCT C.department FROM course C, equivalent E WHERE C.course_id = E.external_id";
+		$query = "SELECT DISTINCT C.department FROM course C, equivalent E WHERE C.course_id = E.external_id ORDER BY C.department";
 	 	if ($school != '') $query .= " AND school = '{$school}'";
 		$result = $conn->query($query);
 		$rows = array();
@@ -55,7 +55,7 @@
 		$school = $_POST['school'];
 		$department = $_POST['department'];
 		$number = $_POST['number'];
-		$query = "SELECT C2.school AS school_external, C2.department AS department_external, C2.course_number AS number_external, E.is_equivalent, C1.school AS school_internal, C1.department AS department_internal, C1.course_number AS number_internal, C2.course_id AS id_external, C1.course_id AS id_internal, E.reason AS reason, E.evaluator AS email FROM course C1, course C2, equivalent E WHERE C1.course_id = E.internal_id AND C2.course_id = E.external_id";
+		$query = "SELECT C2.school AS school_external, C2.department AS department_external, C2.course_number AS number_external, E.is_equivalent, C1.school AS school_internal, C1.department AS department_internal, C1.course_number AS number_internal, C2.course_id AS id_external, C1.course_id AS id_internal, E.reason AS reason, E.evaluator AS email FROM course C1, course C2, equivalent E WHERE C1.course_id = E.internal_id AND C2.course_id = E.external_id ORDER BY school_external, department_external, number_external, department_internal, number_internal";
 		if ($school != "") $query .= " AND C2.school = '{$school}'";
 		if ($department != "") $query .= " AND C2.department = '{$department}'";
 		if ($number != "") $query .= " AND C2.course_number = '{$number}'";
