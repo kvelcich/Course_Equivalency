@@ -93,6 +93,19 @@ function createTable(equivalencies){
         internalCourseNum.innerHTML = obj.number_internal;
 
         var advisorEmail = obj.email;
+        var advisorReason = obj.reason;
+
+        var info_option = row.insertCell(8);
+        var icon_info = document.createElement('span');
+        icon_info.setAttribute('class', 'glyphicon glyphicon-info-sign');
+        icon_info.setAttribute('style', 'color:blue');
+
+        // var infoLink = document.createElement('a');
+        // var infoLinkText = document.createTextNode('Info');
+        icon_info.setAttribute('onclick', `infoAlert('${advisorEmail}', '${advisorReason}')`);
+        // infoLink.appendChild(infoLinkText);
+        // info_option.appendChild(infoLink);
+        info_option.appendChild(icon_info);
 
         if(advisorEmail.toUpperCase() == currentUser.toUpperCase()){
             var edit_option = row.insertCell(6);
@@ -130,17 +143,6 @@ function createTable(equivalencies){
             removeLink.appendChild(removeLinkText);
             remove_option.appendChild(removeLink);
         }
-
-        var advisorReason = obj.reason;
-        // console.log(obj.email);
-        // console.log(obj.reason);
-
-        var info_option = row.insertCell(8);
-        var infoLink = document.createElement('a');
-        var infoLinkText = document.createTextNode('Info');
-        infoLink.setAttribute('onclick', `infoAlert('${advisorEmail}', '${advisorReason}')`);
-        infoLink.appendChild(infoLinkText);
-        info_option.appendChild(infoLink);
       }
     });
 }
