@@ -163,6 +163,9 @@ function createTable(equivalencies){
     internalCourseNum.innerHTML = obj.number_internal;
 
     var advisorEmail = obj.email;
+    console.log(advisorEmail);
+    console.log(currentUser);
+
     if(advisorEmail == currentUser){
         var edit_option = row.insertCell(6);
         var editLink = document.createElement('a');
