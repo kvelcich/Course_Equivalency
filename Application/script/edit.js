@@ -37,7 +37,23 @@ function populateInputs(equivalencyData){
     select.appendChild(option2);
 }
 
-$(document).ready(function(){
+$(document).ready(function(){		
+	$(function() {
+		//autocomplete textboxes
+		$("#school_external").autocomplete({
+			source:'searchschool.php',
+			minLength: 1
+		});
+		$("#dep_external").autocomplete({
+			source:'searchdep.php',
+			minLength: 1
+		});
+		$("#dep_internal").autocomplete({
+			source:'searchdep.php',
+			minLength: 1
+		});
+	});
+	
 	$.post('session.php', {function: 'get_equivalent_internal'}, function(data1) {
 		int_id = data1;
 		$.post('session.php', {function: 'get_equivalent_external'}, function(data2) {
@@ -47,7 +63,7 @@ $(document).ready(function(){
 			});
 		});
 	});
-
+	
 	$('#edit_button').click(function() {
 		//Check all entries entered
 		var function_name = 'edit_entry';
