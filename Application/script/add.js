@@ -1,7 +1,7 @@
-function validateTextBox(input) { /*
+function validateTextBox(input) {
     if (document.getElementById("input").value != "") {} else {
         alert("Please enter a value");
-    } */
+    }
 }
 $(document).ready(function(){
 	$(function() {
