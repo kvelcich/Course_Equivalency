@@ -101,7 +101,7 @@ function listEquivalencies(equivalencies){
   }
 }
 
-function lockAlert(email, reason){
+function infoAlert(email, reason){
     var message = "";
     message += "Approved by: " + email;
     message += "\n";
@@ -109,8 +109,16 @@ function lockAlert(email, reason){
     alert(message);
 }
 
+function lockedAlert(email){
+    var message = "";
+    message += "This Equivalency has been locked!";
+    message += "\n";
+    message += "Please contact " + email + " to make changes";
+    alert(message);
+}
+
 function createTable(equivalencies){
-  // var currentUser = getUser();
+  var currentUser = getUser();
   var table = document.getElementById('tbodyID');
   // delete all existing rows before adding again
   while(table.rows.length > 0)
@@ -154,27 +162,44 @@ function createTable(equivalencies){
     var internalCourseNum = row.insertCell(5);
     internalCourseNum.innerHTML = obj.number_internal;
 
-    var edit_option = row.insertCell(6);
-    var editLink = document.createElement('a');
-    var editLinkText = document.createTextNode('Edit');
-    editLink.setAttribute('href', '#');
-    editLink.setAttribute('type', 'submit');
-    editLink.setAttribute('id', 'edit_equivalency_btn');
-    editLink.setAttribute('onclick', `editEntry(${externalId}, ${internalId})`);
-    editLink.appendChild(editLinkText);
-    edit_option.appendChild(editLink);
-
-    var remove_option = row.insertCell(7);
-    var removeLink = document.createElement('a');
-    var removeLinkText = document.createTextNode('Remove');
-    removeLink.setAttribute('href', '#');
-    removeLink.setAttribute('type', 'submit');
-    removeLink.setAttribute('id', 'remove_equivalency_btn');
-    removeLink.setAttribute('onclick', `removeEntry(${externalId}, ${internalId})`);
-    removeLink.appendChild(removeLinkText);
-    remove_option.appendChild(removeLink);
-
     var advisorEmail = obj.email;
+    if(advisorEmail == currentUser){
+        var edit_option = row.insertCell(6);
+        var editLink = document.createElement('a');
+        var editLinkText = document.createTextNode('Edit');
+        editLink.setAttribute('href', '#');
+        editLink.setAttribute('type', 'submit');
+        editLink.setAttribute('id', 'edit_equivalency_btn');
+        editLink.setAttribute('onclick', `editEntry(${externalId}, ${internalId})`);
+        editLink.appendChild(editLinkText);
+        edit_option.appendChild(editLink);
+
+        var remove_option = row.insertCell(7);
+        var removeLink = document.createElement('a');
+        var removeLinkText = document.createTextNode('Remove');
+        removeLink.setAttribute('href', '#');
+        removeLink.setAttribute('type', 'submit');
+        removeLink.setAttribute('id', 'remove_equivalency_btn');
+        removeLink.setAttribute('onclick', `removeEntry(${externalId}, ${internalId})`);
+        removeLink.appendChild(removeLinkText);
+        remove_option.appendChild(removeLink);
+    }
+    else{
+        var edit_option = row.insertCell(6);
+        var editLink = document.createElement('a');
+        var editLinkText = document.createTextNode('Edit');
+        editLink.setAttribute('onclick', `lockedAlert('${advisorEmail}')`);
+        editLink.appendChild(editLinkText);
+        edit_option.appendChild(editLink);
+
+        var remove_option = row.insertCell(7);
+        var removeLink = document.createElement('a');
+        var removeLinkText = document.createTextNode('Remove');
+        removeLink.setAttribute('onclick', `lockedAlert('${advisorEmail}')`);
+        removeLink.appendChild(removeLinkText);
+        remove_option.appendChild(removeLink);
+    }
+
     var advisorReason = obj.reason;
     console.log(obj.email);
     console.log(obj.reason);
@@ -182,7 +207,7 @@ function createTable(equivalencies){
     var info_option = row.insertCell(8);
     var infoLink = document.createElement('a');
     var infoLinkText = document.createTextNode('Info');
-    infoLink.setAttribute('onclick', `lockAlert('${advisorEmail}', '${advisorReason}')`);
+    infoLink.setAttribute('onclick', `infoAlert('${advisorEmail}', '${advisorReason}')`);
     infoLink.appendChild(infoLinkText);
     info_option.appendChild(infoLink);
   }
