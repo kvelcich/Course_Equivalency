@@ -1,5 +1,15 @@
 var int_id;
 var ext_id;
+
+//validate empty textbox
+function validateTextBox(val1,val2,val3,val4,val5,val6) {
+  if (val1== "" || val2=="" || val3=="" || val4=="" || val5=="" || val6==""){
+    alert("Incomplete Information!");
+    return false;
+  }
+  return true;
+}
+
 function populateInputs(equivalencyData){
     var obj = equivalencyData;
     var is_equivalent = 'No';
@@ -47,13 +57,16 @@ $(document).ready(function(){
 		var dep_internal = $('input#department_internal').val();
 		var num_internal = $('input#number_internal').val();
 		var equiv = $('select[id="isEquivalentSelect"] option:selected').text();
-    var reason = $('input#reason').val();
-
-    $.post('session.php', {function: 'get_username'}, function(username) {
+    		var reason = $('input#reason').val();
+		
+		//validate empty textboxes
+   		var valid = validateTextBox(dep_internal,num_internal,school_external,dep_external,num_external,reason);
+    		if (valid == true){
+			$.post('session.php', {function: 'get_username'}, function(username) {
 				$.post('ajax.php', {
 						function: function_name,
-            internal_id: int_id,
-      			external_id: ext_id,
+            					internal_id: int_id,
+      						external_id: ext_id,
 						school_external: school_external,
 						department_external: dep_external,
 						number_external: num_external,
@@ -66,6 +79,7 @@ $(document).ready(function(){
 						if (data < 0) alert('Error Adding Equivalency!\nPlease check equivalency does not already exist');
 						else if (data == 1) window.location.href = 'search.html';
 				});
-		});
+			});
+		}
 	});
 });
