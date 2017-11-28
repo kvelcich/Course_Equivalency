@@ -143,6 +143,18 @@ function createTable(equivalencies){
             removeLink.appendChild(removeLinkText);
             remove_option.appendChild(removeLink);
         }
+<<<<<<< HEAD
+=======
+
+        var advisorReason = obj.reason;
+
+        var info_option = row.insertCell(8);
+        var infoLink = document.createElement('a');
+        var infoLinkText = document.createTextNode('Info');
+        infoLink.setAttribute('onclick', `infoAlert('${advisorEmail}', '${advisorReason}')`);
+        infoLink.appendChild(infoLinkText);
+        info_option.appendChild(infoLink);
+>>>>>>> 82fb791b7768894ac49080ab60d290daef2d35cc
       }
     });
 }
@@ -177,10 +189,6 @@ $(document).ready(function(){
 		var school_name = $('select[id="school_select"] option:selected').text();
 		var department_name = $('select[id="department_select"] option:selected').text();
 		var course_number = $('input#number_select').val();
-
-    console.log(school_name);
-    console.log(department_name);
-    console.log(course_number);
 
 		$.post('ajax.php', {function: function_name, school: school_name, department: department_name, number: course_number}, function(data) {
 			createTable(JSON.parse(data));
