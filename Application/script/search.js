@@ -136,6 +136,7 @@ function createTable(equivalencies){
         var infoLink = document.createElement('a');
         var infoLinkText = document.createTextNode('Info');
         infoLink.setAttribute('onclick', `infoAlert('${advisorEmail}', '${advisorReason}')`);
+        infoLink.setAttribute('style', 'cursor:pointer')
         infoLink.appendChild(infoLinkText);
         info_option.appendChild(infoLink);
       }
