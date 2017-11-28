@@ -204,8 +204,8 @@ function createTable(equivalencies){
     }
 
     var advisorReason = obj.reason;
-    console.log(obj.email);
-    console.log(obj.reason);
+    // console.log(obj.email);
+    // console.log(obj.reason);
 
     var info_option = row.insertCell(8);
     var infoLink = document.createElement('a');
