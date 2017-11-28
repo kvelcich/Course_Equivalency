@@ -198,7 +198,7 @@
 				$row = $result->fetch_assoc();
 				$password = $_POST['password'];
 				$hash = $row['password'];
-				if (password_verify($pass , $hash)) echo 1;
+				if (password_verify($password , $hash)) echo 1;
 				else echo 0;
 		} else echo -1;
 

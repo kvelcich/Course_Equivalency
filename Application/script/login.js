@@ -13,9 +13,10 @@ $(document).ready(function(){
 				var pass = $('input#pass_input').val();
 
 				$.post('ajax.php', {function: function_name, email: email, password: pass}, function(data) {
+					console.log(data);
 						if (data == 1) {
 								signin(data);
-						} else if (data == 0) {
+						} else {
         				var el = $('.invalid-div');
         				var newel = el.clone(true);
         				el.before(newel);
