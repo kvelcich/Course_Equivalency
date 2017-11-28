@@ -143,8 +143,6 @@ function createTable(equivalencies){
             removeLink.appendChild(removeLinkText);
             remove_option.appendChild(removeLink);
         }
-<<<<<<< HEAD
-=======
 
         var advisorReason = obj.reason;
 
@@ -154,7 +152,6 @@ function createTable(equivalencies){
         infoLink.setAttribute('onclick', `infoAlert('${advisorEmail}', '${advisorReason}')`);
         infoLink.appendChild(infoLinkText);
         info_option.appendChild(infoLink);
->>>>>>> 82fb791b7768894ac49080ab60d290daef2d35cc
       }
     });
 }
