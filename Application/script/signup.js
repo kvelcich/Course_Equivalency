@@ -1,6 +1,5 @@
 function admin(){
-    $.post('ajax.php', {}, function(value) {
-      var value = JSON.parse(value);
+    $.post('admin.php', {}, function(value) {
       var admin = prompt("Admin Pin:","");
       if (admin == value["admin"]){
         var function_name = 'start_session';
