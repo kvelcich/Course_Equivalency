@@ -1,16 +1,16 @@
 function admin(){
-  $.getJSON("assets/admin.json", function(json){
-  var admin = prompt("Admin Pin:","");
-  if (admin == json["admin"]){
-    var function_name = 'start_session';
-    $.post('session.php', {function: function_name}, function(data) {
+    $.post('ajax.php', {function: function_name, email: email, password: pass}, function(value) {
+      var admin = prompt("Admin Pin:","");
+      if (admin == json["admin"]){
+        var function_name = 'start_session';
+        $.post('session.php', {function: function_name}, function(data) {
+        });
+      }
+      else{
+        alert("Invalid Admin Pin!");
+        window.location.href = "login.html";
+      }
     });
-  }
-  else{
-    alert("Invalid Admin Pin!");
-    window.location.href = "login.html";
-  }
-});
 }
 admin();
 $(document).ready(function(){
