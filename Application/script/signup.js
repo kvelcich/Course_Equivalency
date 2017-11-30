@@ -1,7 +1,7 @@
 function admin(){
     $.post('admin.php', {}, function(value) {
       var admin = prompt("Admin Pin:","");
-      if (admin == value["admin"]){
+      if (admin == value){
         var function_name = 'start_session';
         $.post('session.php', {function: function_name}, function(data) {
         });
